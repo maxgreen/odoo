@@ -1,0 +1,180 @@
+"C:\Program Files (x86)\Python36-32\python.exe" "C:\Program Files\JetBrains\PyCharm 2018.3.3\helpers\pydev\pydevd.py" --multiproc --qt-support=auto --client 127.0.0.1 --port 49782 --file odoo-bin
+pydev debugger: process 19104 is connecting
+
+Connected to pydev debugger (build 183.5153.39)
+2019-04-29 08:50:14,616 19104 INFO ? odoo: Odoo version 12.0
+2019-04-29 08:50:14,617 19104 INFO ? odoo: Using configuration file at D:\_dev\odoo\odoo\odoo.conf
+2019-04-29 08:50:14,617 19104 INFO ? odoo: addons paths: ['c:\\users\\hongjiang\\appdata\\local\\openerp s.a\\odoo\\addons\\12.0', 'd:\\_dev\\odoo\\odoo\\addons', 'd:\\_dev\\odoo\\odoo\\odoo\\addons', 'D:\\_dev\\odoo\\odoo\\odoo\\addons']
+2019-04-29 08:50:14,618 19104 INFO ? odoo: database: root@localhost:5432
+2019-04-29 08:50:15,077 19104 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at C:\Program Files (x86)\Odoo 12.0\thirdparty\wkhtmltopdf.exe
+2019-04-29 08:50:15,656 19104 INFO ? odoo.service.server: HTTP service (werkzeug) running on test_ghj:8069
+2019-04-29 08:50:30,112 19104 INFO ? odoo.http: HTTP Configuring static files
+2019-04-29 08:50:30,673 19104 INFO odoo_ok odoo.sql_db: Connection to the database failed
+2019-04-29 08:50:30,674 19104 INFO odoo_ok odoo.http: Generating nondb routing
+2019-04-29 08:50:30,838 19104 INFO odoo_ok werkzeug: 127.0.0.1 - - [29/Apr/2019 08:50:30] "GET / HTTP/1.1" 303 - 0 0.000 0.724
+2019-04-29 08:50:32,186 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:50:32] "GET /web HTTP/1.1" 303 - 2 0.006 1.335
+2019-04-29 08:50:34,358 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:50:34] "GET /web/database/selector HTTP/1.1" 200 - 2 0.005 2.158
+2019-04-29 08:50:34,404 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:50:34] "GET /web/static/lib/fontawesome/css/font-awesome.css HTTP/1.1" 200 - - - -
+2019-04-29 08:50:34,405 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:50:34] "GET /web/static/lib/bootstrap/css/bootstrap.css HTTP/1.1" 200 - - - -
+2019-04-29 08:50:34,472 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:50:34] "GET /web/static/src/img/favicon.ico HTTP/1.1" 200 - - - -
+2019-04-29 08:50:59,587 19104 INFO None odoo.service.db: Create database `odoo_test`.
+2019-04-29 08:51:05,339 19104 INFO odoo_test odoo.modules.loading: loading 1 modules...
+2019-04-29 08:51:05,765 19104 INFO odoo_test odoo.modules.registry: module base: creating or updating database tables
+2019-04-29 08:51:12,780 19104 INFO odoo_test odoo.models: Storing computed values of ir.model.fields.relation_field_id
+2019-04-29 08:51:12,788 19104 INFO odoo_test odoo.models: Storing computed values of ir.model.fields.related_field_id
+2019-04-29 08:51:13,136 19104 INFO odoo_test odoo.models: Storing computed values of ir.actions.server.model_name
+2019-04-29 08:51:13,273 19104 INFO odoo_test odoo.models: Storing computed values of ir.attachment.res_name
+2019-04-29 08:51:13,276 19104 INFO odoo_test odoo.models: Storing computed values of ir.attachment.res_model_name
+2019-04-29 08:51:13,314 19104 INFO odoo_test odoo.models: Storing computed values of ir.cron.cron_name
+2019-04-29 08:51:13,431 19104 INFO odoo_test odoo.models: Storing computed values of ir.rule.global
+2019-04-29 08:51:13,667 19104 INFO odoo_test odoo.models: Storing computed values of ir.module.module.menus_by_module
+2019-04-29 08:51:13,670 19104 INFO odoo_test odoo.models: Storing computed values of ir.module.module.reports_by_module
+2019-04-29 08:51:13,671 19104 INFO odoo_test odoo.models: Storing computed values of ir.module.module.views_by_module
+2019-04-29 08:51:13,922 19104 INFO odoo_test odoo.models: Storing computed values of res.partner.display_name
+2019-04-29 08:51:13,940 19104 INFO odoo_test odoo.models: Storing computed values of res.partner.partner_share
+2019-04-29 08:51:13,944 19104 INFO odoo_test odoo.models: Storing computed values of res.partner.commercial_partner_id
+2019-04-29 08:51:13,945 19104 INFO odoo_test odoo.models: Storing computed values of res.partner.commercial_company_name
+2019-04-29 08:51:13,995 19104 INFO odoo_test odoo.models: Storing computed values of res.partner.bank.sanitized_acc_number
+2019-04-29 08:51:14,051 19104 INFO odoo_test odoo.models: Storing computed values of res.currency.decimal_places
+2019-04-29 08:51:14,104 19104 INFO odoo_test odoo.models: Storing computed values of res.company.logo_web
+2019-04-29 08:51:14,117 19104 INFO odoo_test odoo.models: Storing computed values of res.company.email
+2019-04-29 08:51:14,118 19104 INFO odoo_test odoo.models: Storing computed values of res.company.phone
+2019-04-29 08:51:14,215 19104 INFO odoo_test odoo.models: Storing computed values of res.users.share
+2019-04-29 08:51:15,914 19104 INFO odoo_test odoo.modules.loading: loading base/data/res.lang.csv
+2019-04-29 08:51:16,409 19104 INFO odoo_test odoo.modules.loading: loading base/data/res_lang_data.xml
+2019-04-29 08:51:16,446 19104 INFO odoo_test odoo.modules.loading: loading base/data/res_partner_data.xml
+2019-04-29 08:51:17,086 19104 INFO odoo_test odoo.modules.loading: loading base/data/res_company_data.xml
+2019-04-29 08:51:17,148 19104 INFO odoo_test odoo.modules.loading: loading base/data/res_users_data.xml
+2019-04-29 08:51:18,063 19104 INFO odoo_test odoo.modules.loading: loading base/data/report_paperformat_data.xml
+2019-04-29 08:51:18,097 19104 INFO odoo_test odoo.modules.loading: loading base/data/res_currency_data.xml
+2019-04-29 08:51:19,391 19104 INFO odoo_test odoo.modules.loading: loading base/data/res_country_data.xml
+2019-04-29 08:51:27,431 19104 INFO odoo_test odoo.modules.loading: loading base/data/ir_demo_data.xml
+2019-04-29 08:51:27,493 19104 INFO odoo_test odoo.modules.loading: loading base/security/base_groups.xml
+2019-04-29 08:51:27,959 19104 INFO odoo_test odoo.modules.loading: loading base/security/base_security.xml
+2019-04-29 08:51:28,318 19104 INFO odoo_test odoo.modules.loading: loading base/views/base_menus.xml
+2019-04-29 08:51:28,694 19104 WARNING odoo_test odoo.modules.module: module test_exceptions: module not found
+2019-04-29 08:51:28,728 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_config_views.xml
+2019-04-29 08:51:28,814 19104 INFO odoo_test odoo.modules.loading: loading base/data/res.country.state.csv
+2019-04-29 08:51:30,204 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_actions_views.xml
+2019-04-29 08:51:31,095 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_config_parameter_views.xml
+2019-04-29 08:51:31,233 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_cron_views.xml
+2019-04-29 08:51:31,532 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_filters_views.xml
+2019-04-29 08:51:31,687 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_mail_server_views.xml
+2019-04-29 08:51:31,861 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_model_views.xml
+2019-04-29 08:51:32,954 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_attachment_views.xml
+2019-04-29 08:51:33,156 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_rule_views.xml
+2019-04-29 08:51:33,336 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_sequence_views.xml
+2019-04-29 08:51:33,520 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_translation_views.xml
+2019-04-29 08:51:33,735 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_ui_menu_views.xml
+2019-04-29 08:51:33,952 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_ui_view_views.xml
+2019-04-29 08:51:34,295 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_default_views.xml
+2019-04-29 08:51:34,459 19104 INFO odoo_test odoo.modules.loading: loading base/data/ir_cron_data.xml
+2019-04-29 08:51:34,491 19104 INFO odoo_test odoo.modules.loading: loading base/report/ir_model_report.xml
+2019-04-29 08:51:34,509 19104 INFO odoo_test odoo.modules.loading: loading base/report/ir_model_templates.xml
+2019-04-29 08:51:34,566 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_logging_views.xml
+2019-04-29 08:51:34,741 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml
+2019-04-29 08:51:34,829 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_module_views.xml
+2019-04-29 08:51:35,214 19104 INFO odoo_test odoo.modules.loading: loading base/data/ir_module_category_data.xml
+2019-04-29 08:51:35,448 19104 INFO odoo_test odoo.modules.loading: loading base/data/ir_module_module.xml
+2019-04-29 08:51:35,719 19104 INFO odoo_test odoo.modules.loading: loading base/report/ir_module_reports.xml
+2019-04-29 08:51:35,732 19104 INFO odoo_test odoo.modules.loading: loading base/report/ir_module_report_templates.xml
+2019-04-29 08:51:35,779 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_module_update_views.xml
+2019-04-29 08:51:35,847 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_language_install_views.xml
+2019-04-29 08:51:35,980 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_import_language_views.xml
+2019-04-29 08:51:36,058 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml
+2019-04-29 08:51:36,179 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml
+2019-04-29 08:51:36,243 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_export_language_views.xml
+2019-04-29 08:51:36,325 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_update_translations_views.xml
+2019-04-29 08:51:36,406 19104 INFO odoo_test odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml
+2019-04-29 08:51:36,511 19104 INFO odoo_test odoo.modules.loading: loading base/data/ir_actions_data.xml
+2019-04-29 08:51:36,533 19104 INFO odoo_test odoo.modules.loading: loading base/data/ir_demo_failure_data.xml
+2019-04-29 08:51:36,611 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_company_views.xml
+2019-04-29 08:51:36,986 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_lang_views.xml
+2019-04-29 08:51:37,154 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_partner_views.xml
+2019-04-29 08:51:38,065 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_bank_views.xml
+2019-04-29 08:51:38,326 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_country_views.xml
+2019-04-29 08:51:38,624 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_currency_views.xml
+2019-04-29 08:51:38,984 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_users_views.xml
+2019-04-29 08:51:39,975 19104 INFO odoo_test odoo.modules.loading: loading base/views/ir_property_views.xml
+2019-04-29 08:51:40,161 19104 INFO odoo_test odoo.modules.loading: loading base/views/res_config_settings_views.xml
+2019-04-29 08:51:40,219 19104 INFO odoo_test odoo.modules.loading: loading base/views/report_paperformat_views.xml
+2019-04-29 08:51:40,373 19104 INFO odoo_test odoo.modules.loading: loading base/views/onboarding_views.xml
+2019-04-29 08:51:40,634 19104 INFO odoo_test odoo.modules.loading: loading base/security/ir.model.access.csv
+2019-04-29 08:51:41,865 19104 INFO odoo_test odoo.addons.base.models.ir_translation: module base: loading translation file (zh_CN) for language zh_CN
+2019-04-29 08:51:41,866 19104 INFO odoo_test odoo.tools.translate: loading d:\_dev\odoo\odoo\odoo\addons\base\i18n\zh_CN.po
+2019-04-29 08:51:43,479 19104 INFO odoo_test odoo.modules.loading: 1 modules loaded in 38.14s, 0 queries
+2019-04-29 08:51:43,762 19104 INFO odoo_test odoo.addons.base.models.ir_translation: module base: loading translation file (zh_CN) for language zh_CN
+2019-04-29 08:51:43,763 19104 INFO odoo_test odoo.tools.translate: loading d:\_dev\odoo\odoo\odoo\addons\base\i18n\zh_CN.po
+2019-04-29 08:51:44,757 19104 INFO odoo_test odoo.modules.loading: updating modules list
+2019-04-29 08:51:44,761 19104 INFO odoo_test odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via 127.0.0.1
+2019-04-29 08:51:44,837 19104 INFO odoo_test odoo.modules.loading: loading 2 modules...
+2019-04-29 08:51:45,425 19104 INFO odoo_test odoo.modules.registry: module web: creating or updating database tables
+2019-04-29 08:51:47,399 19104 INFO odoo_test odoo.modules.loading: loading web/security/ir.model.access.csv
+2019-04-29 08:51:47,425 19104 INFO odoo_test odoo.modules.loading: loading web/views/webclient_templates.xml
+2019-04-29 08:51:48,194 19104 INFO odoo_test odoo.modules.loading: loading web/views/report_templates.xml
+2019-04-29 08:51:48,882 19104 INFO odoo_test odoo.modules.loading: loading web/data/res_company.xml
+2019-04-29 08:51:48,898 19104 INFO odoo_test odoo.modules.loading: loading web/data/report_layout.xml
+2019-04-29 08:51:48,974 19104 INFO odoo_test odoo.addons.base.models.ir_translation: module web: loading translation file (zh_CN) for language zh_CN
+2019-04-29 08:51:48,974 19104 INFO odoo_test odoo.tools.translate: loading d:\_dev\odoo\odoo\addons\web\i18n\zh_CN.po
+2019-04-29 08:51:49,184 19104 INFO odoo_test odoo.modules.loading: 2 modules loaded in 4.35s, 0 queries
+2019-04-29 08:51:49,532 19104 INFO odoo_test odoo.modules.loading: Modules loaded.
+2019-04-29 08:51:49,640 19104 INFO odoo_test odoo.addons.base.models.ir_translation: module base: loading translation file (zh_CN) for language zh_CN
+2019-04-29 08:51:49,641 19104 INFO odoo_test odoo.tools.translate: loading d:\_dev\odoo\odoo\odoo\addons\base\i18n\zh_CN.po
+2019-04-29 08:51:50,561 19104 INFO odoo_test odoo.addons.base.models.ir_translation: module web: loading translation file (zh_CN) for language zh_CN
+2019-04-29 08:51:50,561 19104 INFO odoo_test odoo.tools.translate: loading d:\_dev\odoo\odoo\addons\web\i18n\zh_CN.po
+2019-04-29 08:51:51,391 19104 INFO odoo_test odoo.addons.base.models.res_users: Login successful for db:odoo_test login:945022147@qq.com from 127.0.0.1
+2019-04-29 08:51:51,576 19104 INFO odoo_test odoo.modules.registry: Registry changed, signaling through the database
+2019-04-29 08:51:52,190 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:51:52] "POST /web/database/create HTTP/1.1" 303 - 18715 20.657 32.809
+2019-04-29 08:51:52,301 19104 INFO odoo_test odoo.addons.base.models.ir_http: Generating routing map
+2019-04-29 08:52:00,750 19104 INFO odoo_test odoo.modules.registry: At least one model cache has been invalidated, signaling through the database.
+2019-04-29 08:52:00,752 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:00] "GET /web/ HTTP/1.1" 200 - 376 0.248 8.207
+2019-04-29 08:52:02,551 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:02] "GET /web/content/246-8e1092d/web.assets_backend.0.css HTTP/1.1" 200 - 8 0.018 1.754
+2019-04-29 08:52:02,553 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:02] "GET /web/content/245-076d44d/web.assets_common.0.css HTTP/1.1" 200 - 7 0.026 1.754
+2019-04-29 08:52:02,596 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:02] "GET /web/content/247-8e1092d/web.assets_backend.1.css HTTP/1.1" 200 - 4 0.009 1.802
+2019-04-29 08:52:02,617 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:02] "GET /web/content/248-076d44d/web.assets_common.js HTTP/1.1" 200 - 4 0.009 1.817
+2019-04-29 08:52:02,632 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:02] "GET /web/content/249-8e1092d/web.assets_backend.js HTTP/1.1" 200 - 4 0.014 1.817
+2019-04-29 08:52:02,970 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:02] "GET /web/webclient/qweb?mods=base,web HTTP/1.1" 200 - 1 0.000 0.175
+2019-04-29 08:52:03,117 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "POST /web/webclient/translations HTTP/1.1" 200 - 7 0.008 0.117
+2019-04-29 08:52:03,156 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "GET /web/webclient/locale/zh_CN HTTP/1.1" 200 - 1 0.000 0.030
+2019-04-29 08:52:03,555 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "POST /web/dataset/call_kw/ir.ui.menu/load_menus HTTP/1.1" 200 - 85 0.055 0.320
+2019-04-29 08:52:03,620 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "GET /web/static/src/img/user_menu_avatar.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:03,640 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 - 2 0.006 0.022
+2019-04-29 08:52:03,692 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "GET /web/image?model=res.users&field=image_small&id=2 HTTP/1.1" 200 - 27 0.044 0.060
+2019-04-29 08:52:03,840 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:03] "POST /web/action/load HTTP/1.1" 200 - 49 0.044 0.146
+2019-04-29 08:52:04,168 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "POST /web/dataset/call_kw/ir.module.module/load_views HTTP/1.1" 200 - 95 0.072 0.242
+2019-04-29 08:52:04,263 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "POST /web/dataset/search_read HTTP/1.1" 200 - 5 0.005 0.019
+2019-04-29 08:52:04,464 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/sale_ebay.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,465 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/account_accountant.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,478 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/stock_barcode.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,479 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/mrp_workorder.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,480 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/web_studio.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,482 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/voip.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,483 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/project_forecast.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,484 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/marketing_automation.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,486 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/website_calendar.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,487 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/quality_control.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,487 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/mrp_plm.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,488 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/sale_subscription.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,488 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/web_mobile.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,489 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/timesheet_grid.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,490 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/sign.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,491 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/hr_appraisal.png HTTP/1.1" 200 - - - -
+2019-04-29 08:52:04,492 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:52:04] "GET /base/static/img/icons/helpdesk.png HTTP/1.1" 200 - - - -
+2019-04-29 08:53:41,176 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:41] "GET / HTTP/1.1" 303 - 1 0.001 0.011
+2019-04-29 08:53:43,151 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web HTTP/1.1" 200 - 167 0.110 1.856
+2019-04-29 08:53:43,200 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web/content/245-076d44d/web.assets_common.0.css HTTP/1.1" 200 - 4 0.003 0.025
+2019-04-29 08:53:43,433 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web/webclient/qweb?mods=base,web HTTP/1.1" 200 - 1 0.000 0.135
+2019-04-29 08:53:43,441 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web/static/src/img/favicon.ico HTTP/1.1" 200 - - - -
+2019-04-29 08:53:43,574 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "POST /web/webclient/translations HTTP/1.1" 200 - 5 0.010 0.108
+2019-04-29 08:53:43,595 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web/webclient/locale/zh_CN HTTP/1.1" 200 - 1 0.001 0.010
+2019-04-29 08:53:43,628 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "POST /web/dataset/call_kw/ir.ui.menu/load_menus HTTP/1.1" 200 - 1 0.001 0.010
+2019-04-29 08:53:43,673 19104 INFO ? werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web/static/src/img/user_menu_avatar.png HTTP/1.1" 200 - - - -
+2019-04-29 08:53:43,699 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "POST /web/dataset/call_kw/res.users/read HTTP/1.1" 200 - 2 0.006 0.022
+2019-04-29 08:53:43,729 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "GET /web/image?model=res.users&field=image_small&id=2 HTTP/1.1" 200 - 13 0.021 0.045
+2019-04-29 08:53:43,799 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "POST /web/action/load HTTP/1.1" 200 - 20 0.019 0.064
+2019-04-29 08:53:43,978 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:43] "POST /web/dataset/call_kw/ir.module.module/load_views HTTP/1.1" 200 - 34 0.023 0.140
+2019-04-29 08:53:44,065 19104 INFO odoo_test werkzeug: 127.0.0.1 - - [29/Apr/2019 08:53:44] "POST /web/dataset/search_read HTTP/1.1" 200 - 3 0.003 0.019
+2019-04-29 16:52:16,811 19104 INFO odoo_test odoo.addons.base.models.ir_cron: Starting job `Base: Auto-vacuum internal data`.
+2019-04-29 16:52:17,221 19104 INFO odoo_test odoo.addons.base.models.ir_attachment: filestore gc 8 checked, 0 removed
+2019-04-29 16:52:17,298 19104 INFO odoo_test odoo.models.unlink: User #1 deleted base.language.install records with IDs: [1]
+2019-04-29 16:52:17,313 19104 INFO odoo_test odoo.addons.base.models.ir_autovacuum: GC'd 0 user log entries
