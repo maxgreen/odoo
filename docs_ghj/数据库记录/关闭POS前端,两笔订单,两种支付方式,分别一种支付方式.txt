@@ -1,0 +1,394 @@
+397 14460,"语句: UPDATE ""account_bank_statement"" SET ""balance_end_real""='18.00',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+407 14477,"语句: UPDATE ""account_bank_statement"" SET ""total_entry_encoding""='18.00',""balance_end""='18.00',""difference""='0.00',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+419 14486,"语句: UPDATE ""account_bank_statement"" SET ""balance_end_real""='108.00',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+428 14503,"语句: UPDATE ""account_bank_statement"" SET ""total_entry_encoding""='108.00',""balance_end""='108.00',""difference""='0.00',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+430 14507,"语句: UPDATE ""pos_session"" SET ""state""='closing_control',""stop_at""='2019-05-07 15:01:32',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+454 14533,"语句: UPDATE ""account_bank_statement_line"" SET ""sequence""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+456 14536,"语句: INSERT INTO ""account_move"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""auto_reverse"", ""date"", ""journal_id"", ""name"", ""ref"", ""state"") 
+											VALUES (nextval('account_move_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), false, '2019-05-07', 18, '/', 'POS/2019/05/07/03 - POS/2019/05/07/03', 'draft') RETURNING id",,,,,,,,,""
+459 14542,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+461 14546,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+462 14549,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+463 14552,"语句: UPDATE ""account_move"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+465 14555,"语句: UPDATE ""account_move"" SET ""currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+471 14563,"语句: INSERT INTO ""account_payment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""communication"", ""currency_id"", ""journal_id"", ""move_name"", ""multi"", ""name"", ""partner_id"", ""partner_type"", ""payment_date"", ""payment_difference_handling"", ""payment_method_id"", ""payment_type"", ""state"", ""writeoff_label"") VALUES (nextval('account_payment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), '18.00', '门店1POS/0003: ', 7, 18, NULL, false, 'POS/2019/05/07/03', NULL, NULL, '2019-05-07', 'open', 1, 'inbound', 'reconciled', 'Write-Off') RETURNING id",,,,,,,,,""
+473 14565,"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 1, 'account.payment') RETURNING id",,,,,,,,,""
+474 14567,"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (14, 1)
+            ",,,,,,,,,""
+482 14574,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") 
+						VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>付款 创建</p>', '2019-05-07 15:01:32', 'OdooBot <odoobot@example.com>', '<101691969462190.1557241292.480592489242554-openerp-message-notify@test_ghj>', 'notification', 'account.payment', false, NULL, 'OdooBot <odoobot@example.com>', 1, NULL, 2) RETURNING id",,,,,,,,,""
+
+489 14585,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 5, 0.0, false, 18.0, NULL, '2019-05-07', 0.0, 3, '门店1POS/0003: ', NULL, 1, false, 4, true) RETURNING id",,,,,,,,,""
+501 14599,"语句: UPDATE ""account_move_line"" SET ""balance""='-18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+503 14603,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+505 14606,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+505 14608,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+510 14617,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-18.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+512 14622,"语句: UPDATE ""account_move_line"" SET ""journal_id""=18,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+514 14626,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+516 14630,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+517 14632,"语句: UPDATE ""account_move_line"" SET ""statement_id""=4,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+518 14635,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+519 14638,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+522 14642,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+525 14646,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='18.00',""balance_cash_basis""='-18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+526 14648,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+
+530 14654,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 83, 0.0, false, 0.0, NULL, '2019-05-07', 18.0, 3, '门店1POS/0003: ', NULL, 1, false, 4, true) RETURNING id",,,,,,,,,""
+537 14667,"语句: UPDATE ""account_move_line"" SET ""balance""='18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+539 14671,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+539 14673,"语句: UPDATE ""account_move"" SET ""amount""='18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+540 14675,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1, 2)",,,,,,,,,""
+545 14684,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='18.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+547 14689,"语句: UPDATE ""account_move_line"" SET ""journal_id""=18,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+549 14693,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+551 14697,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+552 14699,"语句: UPDATE ""account_move_line"" SET ""statement_id""=4,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+553 14702,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+554 14705,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+556 14709,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+559 14713,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='18.00',""credit_cash_basis""='0.00',""balance_cash_basis""='18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+560 14715,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='18.00',""balance_cash_basis""='-18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+561 14717,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+
+569 14729,"语句: UPDATE ir_sequence_date_range SET number_next=number_next+1 WHERE id=18 ",,,,,,,,,""
+570 14732,"语句: UPDATE ""account_move"" SET ""name""='MD1WX/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+571 14736,"语句: UPDATE ""account_move"" SET ""state""='posted',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+577 14747,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='18.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+580 14755,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-18.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+583 14760,"语句: UPDATE ""account_bank_statement_line"" SET ""move_name""='MD1WX/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+
+584 14762,"语句: UPDATE ""account_payment"" SET ""payment_reference""='MD1WX/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+
+589 14770,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""parent_id"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>对账单 POS/2019/05/07/03 确认，日记账项目被创建.</p>', '2019-05-07 15:01:32', 'OdooBot <odoobot@example.com>', '<114827039905671.1557241292.587557792663574-openerp-4-account.bank.statement@test_ghj>', 'notification', 'account.bank.statement', false, 12, 'POS/2019/05/07/03', 'OdooBot <odoobot@example.com>', 4, NULL, 2) RETURNING id",,,,,,,,,""
+592 14774,"语句: UPDATE ""account_bank_statement"" SET ""state""='confirm',""date_done""='2019-05-07 15:01:32',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+
+597 14784,"语句: UPDATE ""account_bank_statement_line"" SET ""sequence""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+598 14786,"语句: INSERT INTO ""account_move"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""auto_reverse"", ""date"", ""journal_id"", ""name"", ""ref"", ""state"") 
+											VALUES (nextval('account_move_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), false, '2019-05-07', 8, '/', 'POS/2019/05/07/03 - POS/2019/05/07/03', 'draft') RETURNING id",,,,,,,,,""
+
+600 14792,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+602 14795,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+603 14798,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+603 14801,"语句: UPDATE ""account_move"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+604 14804,"语句: UPDATE ""account_move"" SET ""currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+
+607 14809,"语句: INSERT INTO ""account_payment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""communication"", ""currency_id"", ""journal_id"", ""move_name"", ""multi"", ""name"", ""partner_id"", ""partner_type"", ""payment_date"", ""payment_difference_handling"", ""payment_method_id"", ""payment_type"", ""state"", ""writeoff_label"") 
+					VALUES (nextval('account_payment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), '3.00', '门店1POS/0002: 退货', 7, 8, NULL, false, 'POS/2019/05/07/03', NULL, NULL, '2019-05-07', 'open', 2, 'outbound', 'reconciled', 'Write-Off') RETURNING id",,,,,,,,,""
+608 14811,"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 2, 'account.payment') RETURNING id",,,,,,,,,""
+608 14813,"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (15, 1)
+            ",,,,,,,,,""
+611 14817,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>付款 创建</p>', '2019-05-07 15:01:32', 'OdooBot <odoobot@example.com>', '<646876718452325.1557241292.610550642013550-openerp-message-notify@test_ghj>', 'notification', 'account.payment', false, NULL, 'OdooBot <odoobot@example.com>', 2, NULL, 2) RETURNING id",,,,,,,,,""
+616 14825,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 5, 0.0, false, 0.0, NULL, '2019-05-07', 3.0, 4, '门店1POS/0002: 退货', NULL, 2, false, 3, true) RETURNING id",,,,,,,,,""
+622 14838,"语句: UPDATE ""account_move_line"" SET ""balance""='3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+624 14842,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+625 14845,"语句: UPDATE ""account_move"" SET ""amount""='3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+625 14847,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+629 14856,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='3.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+631 14861,"语句: UPDATE ""account_move_line"" SET ""journal_id""=8,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+632 14865,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+634 14869,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+634 14871,"语句: UPDATE ""account_move_line"" SET ""statement_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+635 14874,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+637 14877,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+638 14880,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+640 14884,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='3.00',""credit_cash_basis""='0.00',""balance_cash_basis""='3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+641 14886,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+645 14892,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 77, 0.0, false, 3.0, NULL, '2019-05-07', 0.0, 4, '门店1POS/0002: 退货', NULL, 2, false, 3, true) RETURNING id",,,,,,,,,""
+651 14905,"语句: UPDATE ""account_move_line"" SET ""balance""='-3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+653 14909,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+654 14911,"语句: UPDATE ""account_move"" SET ""amount""='3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+654 14913,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3, 4)",,,,,,,,,""
+658 14922,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-3.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+660 14927,"语句: UPDATE ""account_move_line"" SET ""journal_id""=8,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+662 14931,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+663 14935,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+664 14937,"语句: UPDATE ""account_move_line"" SET ""statement_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+665 14940,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+666 14943,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+667 14946,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+670 14950,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='3.00',""balance_cash_basis""='-3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+670 14952,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='3.00',""credit_cash_basis""='0.00',""balance_cash_basis""='3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+671 14954,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+675 14965,"语句: UPDATE ir_sequence_date_range SET number_next=number_next+1 WHERE id=8 ",,,,,,,,,""
+676 14968,"语句: UPDATE ""account_move"" SET ""name""='CSH1/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+677 14972,"语句: UPDATE ""account_move"" SET ""state""='posted',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+683 14983,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='3.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+686 14991,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-3.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+688 14996,"语句: UPDATE ""account_bank_statement_line"" SET ""move_name""='CSH1/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+689 14998,"语句: UPDATE ""account_payment"" SET ""payment_reference""='CSH1/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+692 15005,"语句: UPDATE ""account_bank_statement_line"" SET ""sequence""=2,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+
+693 15007,"语句: INSERT INTO ""account_move"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""auto_reverse"", ""date"", ""journal_id"", ""name"", ""ref"", ""state"") 
+											VALUES (nextval('account_move_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), false, '2019-05-07', 8, '/', 'POS/2019/05/07/03 - POS/2019/05/07/03', 'draft') RETURNING id",,,,,,,,,""
+695 15013,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+697 15016,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+698 15019,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+699 15022,"语句: UPDATE ""account_move"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+700 15025,"语句: UPDATE ""account_move"" SET ""currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+703 15030,"语句: INSERT INTO ""account_payment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""communication"", ""currency_id"", ""journal_id"", ""move_name"", ""multi"", ""name"", ""partner_id"", ""partner_type"", ""payment_date"", ""payment_difference_handling"", ""payment_method_id"", ""payment_type"", ""state"", ""writeoff_label"") VALUES (nextval('account_payment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), '40.00', '门店1POS/0002: ', 7, 8, NULL, false, 'POS/2019/05/07/03', NULL, NULL, '2019-05-07', 'open', 1, 'inbound', 'reconciled', 'Write-Off') RETURNING id",,,,,,,,,""
+703 15032,"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 3, 'account.payment') RETURNING id",,,,,,,,,""
+704 15034,"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (16, 1)
+            ",,,,,,,,,""
+706 15038,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>付款 创建</p>', '2019-05-07 15:01:32', 'OdooBot <odoobot@example.com>', '<547282508130297.1557241292.705533266067505-openerp-message-notify@test_ghj>', 'notification', 'account.payment', false, NULL, 'OdooBot <odoobot@example.com>', 3, NULL, 2) RETURNING id",,,,,,,,,""
+709 15041,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 5, 0.0, false, 40.0, NULL, '2019-05-07', 0.0, 5, '门店1POS/0002: ', NULL, 3, false, 2, true) RETURNING id",,,,,,,,,""
+716 15054,"语句: UPDATE ""account_move_line"" SET ""balance""='-40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+717 15058,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+718 15061,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+719 15063,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+723 15072,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-40.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+725 15077,"语句: UPDATE ""account_move_line"" SET ""journal_id""=8,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+726 15081,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+727 15085,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+728 15087,"语句: UPDATE ""account_move_line"" SET ""statement_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+729 15090,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+730 15093,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+732 15096,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+734 15100,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='40.00',""balance_cash_basis""='-40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+735 15102,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+738 15107,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 77, 0.0, false, 0.0, NULL, '2019-05-07', 40.0, 5, '门店1POS/0002: ', NULL, 3, false, 2, true) RETURNING id",,,,,,,,,""
+744 15120,"语句: UPDATE ""account_move_line"" SET ""balance""='40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+745 15124,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+746 15126,"语句: UPDATE ""account_move"" SET ""amount""='40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+747 15128,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5, 6)",,,,,,,,,""
+751 15137,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='40.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+753 15142,"语句: UPDATE ""account_move_line"" SET ""journal_id""=8,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+754 15146,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+756 15150,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+756 15152,"语句: UPDATE ""account_move_line"" SET ""statement_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+757 15155,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+758 15158,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+759 15161,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+762 15165,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='40.00',""credit_cash_basis""='0.00',""balance_cash_basis""='40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+762 15167,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='40.00',""balance_cash_basis""='-40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+763 15169,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+767 15179,"语句: UPDATE ir_sequence_date_range SET number_next=number_next+1 WHERE id=8 ",,,,,,,,,""
+769 15182,"语句: UPDATE ""account_move"" SET ""name""='CSH1/2019/0002',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+770 15186,"语句: UPDATE ""account_move"" SET ""state""='posted',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+775 15197,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='40.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+778 15205,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-40.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+780 15210,"语句: UPDATE ""account_bank_statement_line"" SET ""move_name""='CSH1/2019/0002',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+781 15212,"语句: UPDATE ""account_payment"" SET ""payment_reference""='CSH1/2019/0002',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+784 15219,"语句: UPDATE ""account_bank_statement_line"" SET ""sequence""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+
+785 15221,"语句: INSERT INTO ""account_move"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""auto_reverse"", ""date"", ""journal_id"", ""name"", ""ref"", ""state"") 
+											VALUES (nextval('account_move_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), false, '2019-05-07', 8, '/', 'POS/2019/05/07/03 - POS/2019/05/07/03', 'draft') RETURNING id",,,,,,,,,""
+787 15227,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+789 15230,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+789 15233,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+790 15236,"语句: UPDATE ""account_move"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+791 15239,"语句: UPDATE ""account_move"" SET ""currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+
+793 15242,"语句: INSERT INTO ""account_payment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""communication"", ""currency_id"", ""journal_id"", ""move_name"", ""multi"", ""name"", ""partner_id"", ""partner_type"", ""payment_date"", ""payment_difference_handling"", ""payment_method_id"", ""payment_type"", ""state"", ""writeoff_label"") VALUES (nextval('account_payment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), '71.00', '门店1POS/0001: ', 7, 8, NULL, false, 'POS/2019/05/07/03', NULL, NULL, '2019-05-07', 'open', 1, 'inbound', 'reconciled', 'Write-Off') RETURNING id",,,,,,,,,""
+793 15244,"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 4, 'account.payment') RETURNING id",,,,,,,,,""
+794 15246,"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (17, 1)
+            ",,,,,,,,,""
+796 15250,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>付款 创建</p>', '2019-05-07 15:01:32', 'OdooBot <odoobot@example.com>', '<231859954473708.1557241292.795491218566895-openerp-message-notify@test_ghj>', 'notification', 'account.payment', false, NULL, 'OdooBot <odoobot@example.com>', 4, NULL, 2) RETURNING id",,,,,,,,,""
+799 15253,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 5, 0.0, false, 71.0, NULL, '2019-05-07', 0.0, 6, '门店1POS/0001: ', NULL, 4, false, 1, true) RETURNING id",,,,,,,,,""
+805 15266,"语句: UPDATE ""account_move_line"" SET ""balance""='-71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+807 15270,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+809 15273,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+809 15275,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+813 15284,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-71.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+815 15289,"语句: UPDATE ""account_move_line"" SET ""journal_id""=8,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+817 15293,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+818 15297,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+819 15299,"语句: UPDATE ""account_move_line"" SET ""statement_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+820 15302,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+821 15305,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+822 15308,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+824 15312,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='71.00',""balance_cash_basis""='-71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+825 15314,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+828 15319,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""payment_id"", ""reconciled"", ""statement_line_id"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 77, 0.0, false, 0.0, NULL, '2019-05-07', 71.0, 6, '门店1POS/0001: ', NULL, 4, false, 1, true) RETURNING id",,,,,,,,,""
+834 15332,"语句: UPDATE ""account_move_line"" SET ""balance""='71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+836 15336,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+836 15338,"语句: UPDATE ""account_move"" SET ""amount""='71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+837 15340,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8, 7)",,,,,,,,,""
+842 15349,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='71.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+844 15354,"语句: UPDATE ""account_move_line"" SET ""journal_id""=8,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+845 15358,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+846 15362,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03 - POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+847 15364,"语句: UPDATE ""account_move_line"" SET ""statement_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+848 15367,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+849 15370,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+851 15373,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+853 15377,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='71.00',""credit_cash_basis""='0.00',""balance_cash_basis""='71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+854 15379,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='71.00',""balance_cash_basis""='-71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+855 15381,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+859 15391,"语句: UPDATE ir_sequence_date_range SET number_next=number_next+1 WHERE id=8 ",,,,,,,,,""
+860 15394,"语句: UPDATE ""account_move"" SET ""name""='CSH1/2019/0003',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+861 15398,"语句: UPDATE ""account_move"" SET ""state""='posted',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+867 15409,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='71.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+870 15417,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-71.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+872 15422,"语句: UPDATE ""account_bank_statement_line"" SET ""move_name""='CSH1/2019/0003',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+873 15424,"语句: UPDATE ""account_payment"" SET ""payment_reference""='CSH1/2019/0003',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+878 15431,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""parent_id"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") 
+						VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>对账单 POS/2019/05/07/03 确认，日记账项目被创建.</p>', '2019-05-07 15:01:32', 'OdooBot <odoobot@example.com>', '<377580363239545.1557241292.876478910446167-openerp-3-account.bank.statement@test_ghj>', 'notification', 'account.bank.statement', false, 11, 'POS/2019/05/07/03', 'OdooBot <odoobot@example.com>', 3, NULL, 2) RETURNING id",,,,,,,,,""
+881 15435,"语句: UPDATE ""account_bank_statement"" SET ""state""='confirm',""date_done""='2019-05-07 15:01:32',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+894 15447,"语句: INSERT INTO ""account_move"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""auto_reverse"", ""date"", ""journal_id"", ""name"", ""ref"", ""state"") 
+											VALUES (nextval('account_move_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), false, '2019-05-07', 12, '/', 'POS/2019/05/07/03', 'draft') RETURNING id",,,,,,,,,""
+898 15453,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+900 15456,"语句: UPDATE ""account_move"" SET ""amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+901 15459,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+902 15462,"语句: UPDATE ""account_move"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+903 15465,"语句: UPDATE ""account_move"" SET ""currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+
+
+
+
+
+
+
+
+
+
+917 15484,"语句: UPDATE ""pos_order"" SET ""state""='done',""account_move""=7,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+926 15494,"语句: UPDATE ""pos_order"" SET ""state""='done',""account_move""=7,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+929 15501,"语句: UPDATE ""pos_order"" SET ""state""='done',""account_move""=7,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+
+931 15505,"语句: UPDATE ""account_move"" SET ""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+935 15512,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""analytic_account_id"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""product_id"", ""quantity"", ""reconciled"", ""tax_exigible"") 
+											VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 62, 0.0, NULL, false, 90.0, NULL, '2019-05-07', 0.0, 7, '杂项', NULL, 2, '5.000', false, true) RETURNING id",,,,,,,,,""
+936 15514,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""quantity"", ""reconciled"", ""tax_exigible"") 
+											VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 5, 0.0, false, 0.0, NULL, '2019-05-07', 126.0, 7, '贸易应收', NULL, '0.000', false, true) RETURNING id",,,,,,,,,""
+936 15516,"语句: INSERT INTO ""account_move_line"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""account_id"", ""amount_currency"", ""analytic_account_id"", ""blocked"", ""credit"", ""currency_id"", ""date_maturity"", ""debit"", ""move_id"", ""name"", ""partner_id"", ""product_id"", ""quantity"", ""reconciled"", ""tax_exigible"") VALUES (nextval('account_move_line_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 62, 0.0, NULL, false, 36.0, NULL, '2019-05-07', 0.0, 7, '提示', NULL, 1, '2.000', false, true) RETURNING id",,,,,,,,,""
+
+945 15534,"语句: UPDATE ""account_move_line"" SET ""balance""='-90.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9)",,,,,,,,,""
+946 15536,"语句: UPDATE ""account_move_line"" SET ""balance""='126.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+946 15538,"语句: UPDATE ""account_move_line"" SET ""balance""='-36.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (11)",,,,,,,,,""
+947 15540,"语句: UPDATE ""account_move"" SET ""partner_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+948 15543,"语句: UPDATE ""account_move"" SET ""amount""='126.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+949 15545,"语句: UPDATE ""account_move_line"" SET ""tax_base_amount""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+954 15554,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='0.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 11)",,,,,,,,,""
+957 15562,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='126.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+959 15567,"语句: UPDATE ""account_move_line"" SET ""journal_id""=12,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+960 15571,"语句: UPDATE ""account_move_line"" SET ""date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+962 15575,"语句: UPDATE ""account_move_line"" SET ""ref""='POS/2019/05/07/03',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+963 15577,"语句: UPDATE ""account_move_line"" SET ""statement_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+964 15580,"语句: UPDATE ""account_move_line"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+965 15583,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=14,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 11)",,,,,,,,,""
+966 15585,"语句: UPDATE ""account_move_line"" SET ""user_type_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+968 15589,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+972 15594,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='0.00',""balance_cash_basis""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+973 15596,"语句: UPDATE ""account_move_line"" SET ""company_currency_id""=7,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 10, 11)",,,,,,,,,""
+977 15606,"语句: UPDATE ir_sequence_date_range SET number_next=number_next+1 WHERE id=12 ",,,,,,,,,""
+978 15609,"语句: UPDATE ""account_move"" SET ""name""='M1POS/2019/0001',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+979 15613,"语句: UPDATE ""account_move"" SET ""state""='posted',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+984 15620,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='126.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+988 15628,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='0.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9, 11)",,,,,,,,,""
+002 15651,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='108.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+003 15656,"语句: UPDATE ""account_move_line"" SET ""amount_residual_currency""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+
+007 15662,"语句: INSERT INTO ""account_partial_reconcile"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""amount_currency"", ""credit_move_id"", ""currency_id"", ""debit_move_id"") 
+						VALUES (nextval('account_partial_reconcile_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 18.0, 0.0, 1, NULL, 10) RETURNING id",,,,,,,,,""
+020 15688,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='108.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+023 15696,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='0.00',""amount_residual_currency""=0.0,""reconciled""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+
+025 15701,"语句: UPDATE ""account_partial_reconcile"" SET ""max_date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+026 15703,"语句: UPDATE ""account_partial_reconcile"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+028 15706,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.14285714285714285,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+029 15710,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+031 15714,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='18.00',""credit_cash_basis""='0.00',""balance_cash_basis""='18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10, 2)",,,,,,,,,""
+032 15716,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='5.14',""balance_cash_basis""='-5.14',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (11)",,,,,,,,,""
+033 15718,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='12.86',""balance_cash_basis""='-12.86',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9)",,,,,,,,,""
+033 15720,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='18.00',""balance_cash_basis""='-18.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+042 15735,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-37.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+044 15740,"语句: UPDATE ""account_move_line"" SET ""amount_residual_currency""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+048 15749,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+050 15754,"语句: UPDATE ""account_move_line"" SET ""amount_residual_currency""=0.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+
+051 15756,"语句: INSERT INTO ""account_partial_reconcile"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""amount_currency"", ""credit_move_id"", ""currency_id"", ""debit_move_id"") 
+							VALUES (nextval('account_partial_reconcile_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 3.0, 0.0, 5, NULL, 3) RETURNING id",,,,,,,,,""
+063 15782,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='0.00',""amount_residual_currency""=0.0,""reconciled""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+067 15790,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='-37.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+069 15795,"语句: UPDATE ""account_partial_reconcile"" SET ""max_date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+069 15797,"语句: UPDATE ""account_partial_reconcile"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2)",,,,,,,,,""
+071 15800,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+072 15804,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.075,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+074 15807,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='3.00',""credit_cash_basis""='0.00',""balance_cash_basis""='3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+074 15809,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='3.00',""balance_cash_basis""='-3.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+075 15811,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='40.00',""balance_cash_basis""='-40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+076 15813,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='40.00',""credit_cash_basis""='0.00',""balance_cash_basis""='40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+
+077 15815,"语句: INSERT INTO ""account_partial_reconcile"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""amount_currency"", ""credit_move_id"", ""currency_id"", ""debit_move_id"") VALUES (nextval('account_partial_reconcile_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 37.0, 0.0, 5, NULL, 10) RETURNING id",,,,,,,,,""
+089 15841,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='71.00',""amount_residual_currency""=0.0,""reconciled""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+092 15849,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='0.00',""amount_residual_currency""=0.0,""reconciled""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+094 15854,"语句: UPDATE ""account_partial_reconcile"" SET ""max_date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+094 15856,"语句: UPDATE ""account_partial_reconcile"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+095 15859,"语句: UPDATE ""account_move"" SET ""matched_percentage""=0.4365079365079365,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+096 15863,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+,15867,   "语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='55.00',""credit_cash_basis""='0.00',""balance_cash_basis""='55.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+100 15869,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='15.71',""balance_cash_basis""='-15.71',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (11)",,,,,,,,,""
+101 15871,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='39.29',""balance_cash_basis""='-39.29',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9)",,,,,,,,,""
+101 15873,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='40.00',""credit_cash_basis""='0.00',""balance_cash_basis""='40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+102 15875,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='40.00',""balance_cash_basis""='-40.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+
+114 15893,"语句: INSERT INTO ""account_partial_reconcile"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""amount"", ""amount_currency"", ""credit_move_id"", ""currency_id"", ""debit_move_id"") VALUES (nextval('account_partial_reconcile_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 71.0, 0.0, 7, NULL, 10) RETURNING id",,,,,,,,,""
+126 15919,"语句: UPDATE ""account_move_line"" SET ""amount_residual""='0.00',""amount_residual_currency""=0.0,""reconciled""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10, 7)",,,,,,,,,""
+128 15924,"语句: UPDATE ""account_partial_reconcile"" SET ""max_date""='2019-05-07',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+129 15926,"语句: UPDATE ""account_partial_reconcile"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+130 15929,"语句: UPDATE ""account_move"" SET ""matched_percentage""=1.0,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6, 7)",,,,,,,,,""
+132 15933,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='71.00',""credit_cash_basis""='0.00',""balance_cash_basis""='71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+133 15935,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='36.00',""balance_cash_basis""='-36.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (11)",,,,,,,,,""
+134 15937,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='90.00',""balance_cash_basis""='-90.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (9)",,,,,,,,,""
+135 15939,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='0.00',""credit_cash_basis""='71.00',""balance_cash_basis""='-71.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (7)",,,,,,,,,""
+136 15941,"语句: UPDATE ""account_move_line"" SET ""debit_cash_basis""='126.00',""credit_cash_basis""='0.00',""balance_cash_basis""='126.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (10)",,,,,,,,,""
+
+147 15961,"语句: INSERT INTO ""account_full_reconcile"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""exchange_move_id"", ""name"") VALUES (nextval('account_full_reconcile_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), NULL, 'A1') RETURNING id",,,,,,,,,""
+149 15963,"语句: UPDATE ""account_partial_reconcile"" SET ""full_reconcile_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1, 2, 3, 4)",,,,,,,,,""
+150 15966,"语句: UPDATE ""account_move_line"" SET ""full_reconcile_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (1, 3, 5, 7, 10)",,,,,,,,,""
+154 15971,"语句: UPDATE ""pos_session"" SET ""state""='closed',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

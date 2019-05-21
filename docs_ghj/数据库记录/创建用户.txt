@@ -1,0 +1,278 @@
+"语句: INSERT INTO ""res_partner"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""active"", ""barcode"", ""color"", ""company_id"", ""customer"", ""email"", ""employee"", ""invoice_warn"", ""is_company"", ""lang"", ""message_bounce"", ""name"", ""partner_share"", ""picking_warn"", ""supplier"", ""type"", ""tz"") VALUES (nextval('res_partner_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), true, NULL, 0, 1, false, 'gan.hongjiang@gmail.com', false, 'no-message', false, 'zh_CN', 0, 'GHJ', false, 'no-message', false, 'contact', NULL) RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""ir_attachment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""active"", ""company_id"", ""mimetype"", ""name"", ""public"", ""res_field"", ""res_id"", ""res_model"", ""type"") VALUES (nextval('ir_attachment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 1, 'image/png', 'image', false, 'image', 16, 'res.partner', 'binary') RETURNING id",,,,,,,,,""
+"语句: UPDATE ""ir_attachment"" SET ""file_size""=16316,""checksum""='545d1fefcdd2785a7cd09e7dab556463a9d77b2f',""index_content""='image',""store_fname""='54/545d1fefcdd2785a7cd09e7dab556463a9d77b2f',""db_datas""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (371)",,,,,,,,,""
+"语句: INSERT INTO ""ir_attachment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""active"", ""company_id"", ""mimetype"", ""name"", ""public"", ""res_field"", ""res_id"", ""res_model"", ""type"") VALUES (nextval('ir_attachment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 1, 'image/png', 'image_medium', false, 'image_medium', 16, 'res.partner', 'binary') RETURNING id",,,,,,,,,""
+"语句: UPDATE ""ir_attachment"" SET ""file_size""=11770,""checksum""='9ccad1f4731fce2b99cf8f8926d3b86cc43d2744',""index_content""='image',""store_fname""='9c/9ccad1f4731fce2b99cf8f8926d3b86cc43d2744',""db_datas""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (372)",,,,,,,,,""
+"语句: INSERT INTO ""ir_attachment"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""active"", ""company_id"", ""mimetype"", ""name"", ""public"", ""res_field"", ""res_id"", ""res_model"", ""type"") VALUES (nextval('ir_attachment_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 1, 'image/png', 'image_small', false, 'image_small', 16, 'res.partner', 'binary') RETURNING id",,,,,,,,,""
+"语句: UPDATE ""ir_attachment"" SET ""file_size""=3870,""checksum""='c66694b79c2145b6a2477cd43a700dd7257ff62e',""index_content""='image',""store_fname""='c6/c66694b79c2145b6a2477cd43a700dd7257ff62e',""db_datas""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (373)",,,,,,,,,""
+"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 3, 16, 'res.partner') RETURNING id",,,,,,,,,""
+"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (44, 1)
+            ",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=true,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""commercial_partner_id""=16,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""display_name""='GHJ',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""commercial_company_name""=NULL,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""ir_attachment"" SET ""res_model_name""='联系人',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (371, 372, 373)",,,,,,,,,""
+"语句: UPDATE ""ir_attachment"" SET ""res_name""='GHJ',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (371, 372, 373)",,,,,,,,,""
+"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 3, '<p>联系人 创建</p>', '2019-05-12 18:37:47', 'Administrator <945022147@qq.com>', '<880033569826150.1557657467.442504644393921-openerp-message-notify@test_ghj>', 'notification', 'res.partner', false, NULL, 'Administrator <945022147@qq.com>', 16, NULL, 2) RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""res_users"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""action_id"", ""active"", ""alias_id"", ""company_id"", ""login"", ""notification_type"", ""odoobot_state"", ""partner_id"", ""pos_security_pin"", ""share"", ""signature"") VALUES (nextval('res_users_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), NULL, true, NULL, 1, 'gan.hongjiang@gmail.com', 'email', 'not_initialized', 16, NULL, false, '<p><br></p>') RETURNING id",,,,,,,,,""
+"语句: 
+                INSERT INTO res_groups_users_rel (uid, gid) VALUES (6, 1), (6, 33), (6, 3), (6, 2), (6, 6), (6, 39), (6, 7), (6, 38), (6, 21), (6, 22), (6, 29), (6, 30)
+            ",,,,,,,,,""
+"语句: 
+                INSERT INTO res_company_users_rel (user_id, cid) VALUES (6, 1), (6, 2)
+            ",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (6)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=false,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""active""=true,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""company_id""=1,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""res_groups"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+"语句: 
+                INSERT INTO res_groups_users_rel (gid, uid)
+                VALUES (4, 6)
+                ON CONFLICT DO NOTHING
+            ",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (2, 6)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (16, 3)",,,,,,,,,""
+"语句: 
+                    WITH RECURSIVE group_imply(gid, hid) AS (
+                        SELECT gid, hid
+                          FROM res_groups_implied_rel
+                         UNION
+                        SELECT i.gid, r.hid
+                          FROM res_groups_implied_rel r
+                          JOIN group_imply i ON (i.hid = r.gid)
+                    )
+                    INSERT INTO res_groups_users_rel (gid, uid)
+                         SELECT i.hid, r.uid
+                           FROM group_imply i, res_groups_users_rel r
+                          WHERE r.gid = i.gid
+                            AND i.gid = 4
+                         EXCEPT
+                         SELECT r.gid, r.uid
+                           FROM res_groups_users_rel r
+                           JOIN group_imply i ON (r.gid = i.hid)
+                          WHERE i.gid = 4
+                ",,,,,,,,,""
+"语句: UPDATE ""ir_ui_view"" SET ""arch_fs""=NULL,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (148)",,,,,,,,,""
+"语句: UPDATE ""ir_ui_view"" SET ""arch_db""='<field name=""groups_id"" position=""replace"">
+  <group col=""2"">
+    <separator string=""用户类型"" colspan=""2"" groups=""base.group_no_one""/>
+    <field name=""sel_groups_1_9_10"" widget=""radio"" groups=""base.group_no_one""/>
+    <newline/>
+  </group>
+  <group col=""2"" attrs=""{''invisible'': [(''sel_groups_1_9_10'', ''!='', 1)]}"">
+    <separator string=""应用程序访问"" colspan=""2""/>
+    <field name=""sel_groups_21_22""/>
+    <newline/>
+    <field name=""sel_groups_29_33""/>
+    <newline/>
+    <field name=""sel_groups_38_39""/>
+    <newline/>
+    <field name=""sel_groups_2_3""/>
+    <newline/>
+  </group>
+  <group col=""4"" attrs=""{''invisible'': [(''sel_groups_1_9_10'', ''!='', 1)]}"" class=""o_label_nowrap"">
+    <separator string=""技术设置"" colspan=""4"" groups=""base.group_no_one""/>
+    <field name=""in_group_30"" groups=""base.group_no_one""/>
+    <field name=""in_group_31"" groups=""base.group_no_one""/>
+    <field name=""in_group_16"" groups=""base.group_no_one""/>
+    <field name=""in_group_36"" groups=""base.group_no_one""/>
+    <field name=""in_group_35"" groups=""base.group_no_one""/>
+    <field name=""in_group_12"" groups=""base.group_no_one""/>
+    <field name=""in_group_13"" groups=""base.group_no_one""/>
+    <field name=""in_group_34"" groups=""base.group_no_one""/>
+    <field name=""in_group_32"" groups=""base.group_no_one""/>
+    <field name=""in_group_24"" groups=""base.group_no_one""/>
+    <field name=""in_group_37"" groups=""base.group_no_one""/>
+    <field name=""in_group_27"" groups=""base.group_no_one""/>
+    <field name=""in_group_17"" groups=""base.group_no_one""/>
+    <field name=""in_group_18"" groups=""base.group_no_one""/>
+    <field name=""in_group_15"" groups=""base.group_no_one""/>
+    <field name=""in_group_25"" groups=""base.group_no_one""/>
+    <field name=""in_group_20"" groups=""base.group_no_one""/>
+    <field name=""in_group_19"" groups=""base.group_no_one""/>
+    <field name=""in_group_11"" groups=""base.group_no_one""/>
+    <field name=""in_group_23"" groups=""base.group_no_one""/>
+    <field name=""in_group_26"" groups=""base.group_no_one""/>
+    <field name=""in_group_28"" groups=""base.group_no_one""/>
+    <field name=""in_group_14"" groups=""base.group_no_one""/>
+    <separator string=""额外的权利"" colspan=""4"" groups=""base.group_no_one""/>
+    <field name=""in_group_4"" groups=""base.group_no_one""/>
+    <field name=""in_group_5"" groups=""base.group_no_one""/>
+    <field name=""in_group_6"" invisible=""1"" groups=""base.group_no_one""/>
+    <field name=""in_group_7"" groups=""base.group_no_one""/>
+    <separator string=""其他"" colspan=""4""/>
+    <field name=""in_group_8""/>
+  </group>
+</field>
+',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (148)",,,,,,,,,""
+"语句: UPDATE ""ir_translation"" SET ""state""='to_translate' WHERE id IN (8602, 7732, 6605, 5663)",,,,,,,,,""
+"语句: UPDATE ""mail_channel"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (1)",,,,,,,,,""
+"语句: 
+                INSERT INTO mail_channel_partner (channel_id, partner_id)
+                VALUES (1, 16)
+                ON CONFLICT DO NOTHING
+            ",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""signup_token""='NgW6tTo2e8v8lOXIJ3N5',""signup_type""='reset',""signup_expiration""=NULL,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""
+"语句: UPDATE ""mail_template"" SET ""email_to""='${object.email|safe}',""email_cc""=NULL,""auto_delete""=true,""partner_to""=NULL,""scheduled_date""=NULL,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""mail_server_id"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"") VALUES (nextval('mail_message_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), true, 3, '<table border=""0"" cellpadding=""0"" cellspacing=""0"" style=""padding-top:16px; background-color:#F1F1F1; font-family:Verdana, Arial,sans-serif; color:#454748; width:100%; border-collapse:separate""><tr><td align=""center"">
+<table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""padding:16px; background-color:white; color:#454748; border-collapse:separate"">
+<tbody>
+    <!-- HEADER -->
+    <tr>
+        <td align=""center"" style=""min-width:590px"">
+            <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width:590px; background-color:white; padding:0px 8px 0px 8px; border-collapse:separate"">
+                <tr><td valign=""middle"">
+                    <span style=""font-size:10px"">Odoo欢迎您</span><br>
+                    <span style=""font-size:20px; font-weight:bold"">
+                        GHJ
+                    </span>
+                </td><td valign=""middle"" align=""right"">
+                    <img src=""http://localhost:8069/logo.png?company=1"" style=""padding:0px; margin:0px; height:auto; width:80px"" alt=""My Company"">
+                </td></tr>
+                <tr><td colspan=""2"" style=""text-align:center"">
+                  <hr width=""100%"" style=""background-color:rgb(204,204,204); border:medium none; display:block; font-size:0px; min-height:1px; line-height:0; margin:16px 0px 16px 0px"">
+                </td></tr>
+            </table>
+        </td>
+    </tr>
+    <!-- CONTENT -->
+    <tr>
+        <td align=""center"" style=""min-width:590px"">
+            <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width:590px; background-color:white; padding:0px 8px 0px 8px; border-collapse:separate"">
+                <tr><td valign=""top"" style=""font-size:13px"">
+                    <div>
+                        尊敬的 GHJ,<br><br>
+                        您已经被邀请 Administrator 由 My Company 在Odoo上连接。
+                        <div style=""margin:16px 0px 16px 0px"">
+                            <a href=""http://localhost:8069/web/reset_password?db=demo_pos1&amp;token=NgW6tTo2e8v8lOXIJ3N5"" style=""background-color:#875A7B; padding:8px 16px 8px 16px; text-decoration:none; color:#fff; border-radius:5px; font-size:13px"">
+                               接受邀请
+                            </a>
+                        </div>
+                        您的Odoo链接是：<b><a href=""http://localhost:8069"">http://localhost:8069</a></b><br>
+                        您的账号是： <b><a href=""http://localhost:8069/web/login?login=gan.hongjiang@gmail.com"" target=""_blank"">gan.hongjiang@gmail.com</a></b><br><br>
+                        从没听说过Odoo？这是一款功能强大的商业软件，深受300多万用户的喜爱。这将大大提高您的工作效率，提升工作经验。
+                        <br><br>
+                        看一下 <a href=""https://www.odoo.com/page/tour?utm_source=db&amp;utm_medium=auth"" style=""color:#875A7B"">Odoo视频中心</a> 参考相关工具。
+                        <br><br>
+                        享受Odoo！<br>
+                        --<br>My Company 团队
+                    </div>
+                </td></tr>
+                <tr><td style=""text-align:center"">
+                  <hr width=""100%"" style=""background-color:rgb(204,204,204); border:medium none; display:block; font-size:0px; min-height:1px; line-height:0; margin:16px 0px 16px 0px"">
+                </td></tr>
+            </table>
+        </td>
+    </tr>
+    <!-- FOOTER -->
+    <tr>
+        <td align=""center"" style=""min-width:590px"">
+            <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width:590px; background-color:white; font-size:11px; padding:0px 8px 0px 8px; border-collapse:separate"">
+                <tr><td valign=""middle"" align=""left"">
+                    My Company
+                </td></tr>
+                <tr><td valign=""middle"" align=""left"" style=""opacity:0.7"">
+                    13910130607
+                        | <a href=""''mailto:%s'' % 945022147@qq.com"" style=""text-decoration:none; color:#454748"">945022147@qq.com</a>
+                        | <a href=""''%s'' % http://www.yourcompany.com"" style=""text-decoration:none; color:#454748"">
+                        http://www.yourcompany.com
+                    </a>
+                </td></tr>
+            </table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td align=""center"" style=""min-width:590px"">
+    <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width:590px; background-color:#F1F1F1; color:#454748; padding:8px; border-collapse:separate"">
+      <tr><td style=""text-align:center; font-size:13px"">
+        版权所有 <a target=""_blank"" href=""https://www.odoo.com?utm_source=db&amp;utm_medium=auth"" style=""color:#875A7B"">Odoo</a>
+      </td></tr>
+    </table>
+</td></tr>
+</table>', '2019-05-12 18:37:52', '""My Company"" <945022147@qq.com>', NULL, '<611934619185684.1557657472.077039957046509-openerp-6-res.users@test_ghj>', 'email', 'res.users', false, 'GHJ', '', 6, 'Administrator 来自 My Company 邀请你连接到Odoo') RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""mail_mail"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""auto_delete"", ""body_html"", ""email_cc"", ""email_to"", ""mail_message_id"", ""notification"", ""scheduled_date"", ""state"") VALUES (nextval('mail_mail_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), true, '<table border=""0"" cellpadding=""0"" cellspacing=""0"" style=""padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;""><tr><td align=""center"">
+<table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""padding: 16px; background-color: white; color: #454748; border-collapse:separate;"">
+<tbody>
+    <!-- HEADER -->
+    <tr>
+        <td align=""center"" style=""min-width: 590px;"">
+            <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"">
+                <tr><td valign=""middle"">
+                    <span style=""font-size: 10px;"">Odoo欢迎您</span><br/>
+                    <span style=""font-size: 20px; font-weight: bold;"">
+                        GHJ
+                    </span>
+                </td><td valign=""middle"" align=""right"">
+                    <img src=""http://localhost:8069/logo.png?company=1"" style=""padding: 0px; margin: 0px; height: auto; width: 80px;"" alt=""My Company""/>
+                </td></tr>
+                <tr><td colspan=""2"" style=""text-align:center;"">
+                  <hr width=""100%"" style=""background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;""/>
+                </td></tr>
+            </table>
+        </td>
+    </tr>
+    <!-- CONTENT -->
+    <tr>
+        <td align=""center"" style=""min-width: 590px;"">
+            <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;"">
+                <tr><td valign=""top"" style=""font-size: 13px;"">
+                    <div>
+                        尊敬的 GHJ,<br/><br/>
+                        您已经被邀请 Administrator 由 My Company 在Odoo上连接。
+                        <div style=""margin: 16px 0px 16px 0px;"">
+                            <a href=""http://localhost:8069/web/reset_password?db=demo_pos1&amp;token=NgW6tTo2e8v8lOXIJ3N5"" style=""background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;"">
+                               接受邀请
+                            </a>
+                        </div>
+                        您的Odoo链接是：<b><a href=""http://localhost:8069"">http://localhost:8069</a></b><br/>
+                        您的账号是： <b><a href=""http://localhost:8069/web/login?login=gan.hongjiang@gmail.com"" target=""_blank"">gan.hongjiang@gmail.com</a></b><br/><br/>
+                        从没听说过Odoo？这是一款功能强大的商业软件，深受300多万用户的喜爱。这将大大提高您的工作效率，提升工作经验。
+                        <br/><br/>
+                        看一下 <a href=""https://www.odoo.com/page/tour?utm_source=db&amp;utm_medium=auth"" style=""color: #875A7B;"">Odoo视频中心</a> 参考相关工具。
+                        <br/><br/>
+                        享受Odoo！<br/>
+                        --<br/>My Company 团队
+                    </div>
+                </td></tr>
+                <tr><td style=""text-align:center;"">
+                  <hr width=""100%"" style=""background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;""/>
+                </td></tr>
+            </table>
+        </td>
+    </tr>
+    <!-- FOOTER -->
+    <tr>
+        <td align=""center"" style=""min-width: 590px;"">
+            <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"">
+                <tr><td valign=""middle"" align=""left"">
+                    My Company
+                </td></tr>
+                <tr><td valign=""middle"" align=""left"" style=""opacity: 0.7;"">
+                    13910130607
+                        | <a href=""''mailto:%s'' % 945022147@qq.com"" style=""text-decoration:none; color: #454748;"">945022147@qq.com</a>
+                        | <a href=""''%s'' % http://www.yourcompany.com"" style=""text-decoration:none; color: #454748;"">
+                        http://www.yourcompany.com
+                    </a>
+                </td></tr>
+            </table>
+        </td>
+    </tr>
+</tbody>
+</table>
+</td></tr>
+<!-- POWERED BY -->
+<tr><td align=""center"" style=""min-width: 590px;"">
+    <table border=""0"" cellpadding=""0"" cellspacing=""0"" width=""590"" style=""min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;"">
+      <tr><td style=""text-align: center; font-size: 13px;"">
+        版权所有 <a target=""_blank"" href=""https://www.odoo.com?utm_source=db&amp;utm_medium=auth"" style=""color: #875A7B;"">Odoo</a>
+      </td></tr>
+    </table>
+</td></tr>
+</table>', '', 'gan.hongjiang@gmail.com', 93, false, '', 'outgoing') RETURNING id",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""signup_token""=NULL,""signup_type""=NULL,""signup_expiration""=NULL,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (16)",,,,,,,,,""

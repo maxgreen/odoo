@@ -1,0 +1,57 @@
+"语句: INSERT INTO ""product_template"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""active"", ""available_in_pos"", ""categ_id"", ""company_id"", ""default_code"", ""description"", ""description_picking"", ""description_pickingin"", ""description_pickingout"", ""description_sale"", ""list_price"", ""name"", ""pos_categ_id"", ""purchase_ok"", ""rental"", ""responsible_id"", ""sale_delay"", ""sale_ok"", ""sequence"", ""to_weight"", ""tracking"", ""type"", ""uom_id"", ""uom_po_id"", ""volume"", ""weight"") VALUES (nextval('product_template_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), true, true, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, '10.00', '商品1', NULL, true, false, 2, 0.0, true, 1, false, 'none', 'product', 1, 1, 0.0, '0.00') RETURNING id",,,,,,,,,""
+"语句: 
+                INSERT INTO product_taxes_rel (prod_id, tax_id) VALUES (3, 2)
+            ",,,,,,,,,""
+"语句: 
+                INSERT INTO product_supplier_taxes_rel (prod_id, tax_id) VALUES (3, 9)
+            ",,,,,,,,,""
+"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 3, 3, 'product.template') RETURNING id",,,,,,,,,""
+"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (57, 1)
+            ",,,,,,,,,""
+"语句: UPDATE ir_translation
+                            SET value=false, src=false, state='translated'
+                            WHERE lang='zh_CN' AND type='model' AND name='product.template,description_pickingout' AND res_id IN (3)
+                            RETURNING res_id",,,,,,,,,""
+"语句: INSERT INTO ""ir_translation"" (""id"", ""lang"", ""name"", ""res_id"", ""src"", ""state"", ""type"", ""value"") VALUES (nextval('ir_translation_id_seq'), 'zh_CN', 'product.template,description_pickingout', 3, NULL, 'translated', 'model', NULL) RETURNING id",,,,,,,,,""
+"语句: UPDATE ir_translation
+                            SET value=false, src=false, state='translated'
+                            WHERE lang='zh_CN' AND type='model' AND name='product.template,description_sale' AND res_id IN (3)
+                            RETURNING res_id",,,,,,,,,""
+"语句: INSERT INTO ""ir_translation"" (""id"", ""lang"", ""name"", ""res_id"", ""src"", ""state"", ""type"", ""value"") VALUES (nextval('ir_translation_id_seq'), 'zh_CN', 'product.template,description_sale', 3, NULL, 'translated', 'model', NULL) RETURNING id",,,,,,,,,""
+"语句: UPDATE ir_translation
+                            SET value=false, src=false, state='translated'
+                            WHERE lang='zh_CN' AND type='model' AND name='product.template,description_pickingin' AND res_id IN (3)
+                            RETURNING res_id",,,,,,,,,""
+"语句: INSERT INTO ""ir_translation"" (""id"", ""lang"", ""name"", ""res_id"", ""src"", ""state"", ""type"", ""value"") VALUES (nextval('ir_translation_id_seq'), 'zh_CN', 'product.template,description_pickingin', 3, NULL, 'translated', 'model', NULL) RETURNING id",,,,,,,,,""
+"语句: UPDATE ir_translation
+                            SET value=false, src=false, state='translated'
+                            WHERE lang='zh_CN' AND type='model' AND name='product.template,description' AND res_id IN (3)
+                            RETURNING res_id",,,,,,,,,""
+"语句: INSERT INTO ""ir_translation"" (""id"", ""lang"", ""name"", ""res_id"", ""src"", ""state"", ""type"", ""value"") VALUES (nextval('ir_translation_id_seq'), 'zh_CN', 'product.template,description', 3, NULL, 'translated', 'model', NULL) RETURNING id",,,,,,,,,""
+"语句: UPDATE ir_translation
+                            SET value='商品1', src='商品1', state='translated'
+                            WHERE lang='zh_CN' AND type='model' AND name='product.template,name' AND res_id IN (3)
+                            RETURNING res_id",,,,,,,,,""
+"语句: INSERT INTO ""ir_translation"" (""id"", ""lang"", ""name"", ""res_id"", ""src"", ""state"", ""type"", ""value"") VALUES (nextval('ir_translation_id_seq'), 'zh_CN', 'product.template,name', 3, '商品1', 'translated', 'model', '商品1') RETURNING id",,,,,,,,,""
+"语句: UPDATE ir_translation
+                            SET value=false, src=false, state='translated'
+                            WHERE lang='zh_CN' AND type='model' AND name='product.template,description_picking' AND res_id IN (3)
+                            RETURNING res_id",,,,,,,,,""
+"语句: INSERT INTO ""ir_translation"" (""id"", ""lang"", ""name"", ""res_id"", ""src"", ""state"", ""type"", ""value"") VALUES (nextval('ir_translation_id_seq'), 'zh_CN', 'product.template,description_picking', 3, NULL, 'translated', 'model', NULL) RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 3, '<p>产品模板 创建</p>', '2019-05-13 15:57:21', 'Administrator <945022147@qq.com>', '<904669213452064.1557734241.889862298965454-openerp-message-notify@test_ghj>', 'notification', 'product.template', false, NULL, 'Administrator <945022147@qq.com>', 3, NULL, 2) RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""product_product"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""active"", ""product_tmpl_id"") 
+					VALUES (nextval('product_product_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), true, 3) RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 3, 3, 'product.product') RETURNING id",,,,,,,,,""
+"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (58, 1)
+            ",,,,,,,,,""
+"语句: UPDATE ""product_template"" SET ""default_code""=NULL,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""product_template"" SET ""weight""='0.00',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""product_template"" SET ""volume""=0.0,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 3, '<p>产品 创建</p>', '2019-05-13 15:57:22', 'Administrator <945022147@qq.com>', '<391395623333108.1557734242.350713491439819-openerp-message-notify@test_ghj>', 'notification', 'product.product', false, NULL, 'Administrator <945022147@qq.com>', 3, NULL, 2) RETURNING id",,,,,,,,,""
+"语句: UPDATE ""product_template"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""product_product"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: INSERT INTO ""ir_property"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""company_id"", ""fields_id"", ""name"", ""res_id"", ""type"", ""value_float"") VALUES (nextval('ir_property_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 1, 2499, 'standard_price', 'product.product,3', 'float', 8.0) RETURNING id",,,,,,,,,""
+"语句: INSERT INTO ""product_price_history"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""company_id"", ""cost"", ""datetime"", ""product_id"") VALUES (nextval('product_price_history_id_seq'), 2, (now() at time zone 'UTC'), 2, (now() at time zone 'UTC'), 1, '8.00', '2019-05-13 15:57:22', 3) RETURNING id",,,,,,,,,""
+

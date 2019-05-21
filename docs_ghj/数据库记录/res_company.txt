@@ -1,0 +1,211 @@
+-- Table: public.res_company
+
+-- DROP TABLE public.res_company;
+
+CREATE TABLE public.res_company
+(
+  id integer NOT NULL DEFAULT nextval('res_company_id_seq'::regclass),
+  name character varying NOT NULL,
+  partner_id integer NOT NULL,
+  currency_id integer NOT NULL,
+  sequence integer,
+  create_date timestamp without time zone,
+  parent_id integer, -- Parent Company
+  report_header text, -- Company Tagline
+  report_footer text, -- Report Footer
+  logo_web bytea, -- Logo Web
+  account_no character varying, -- Account No.
+  email character varying, -- Email
+  phone character varying, -- Phone
+  company_registry character varying, -- Company Registry
+  paperformat_id integer, -- Paper format
+  external_report_layout_id integer, -- Document Template
+  base_onboarding_company_state character varying, -- State of the onboarding company step
+  create_uid integer, -- Created by
+  write_uid integer, -- Last Updated by
+  write_date timestamp without time zone, -- Last Updated on
+  nomenclature_id integer, -- Nomenclature
+  partner_gid integer, -- Company database ID
+  snailmail_color boolean, -- Color
+  snailmail_duplex boolean, -- Both sides
+  propagation_minimum_delta integer, -- Minimum Delta for Propagation of a Date Change on moves linked together
+  internal_transit_location_id integer, -- Internal Transit Location
+  fiscalyear_last_day integer NOT NULL, -- Fiscalyear Last Day
+  fiscalyear_last_month integer NOT NULL, -- Fiscalyear Last Month
+  period_lock_date date, -- Lock Date for Non-Advisers
+  fiscalyear_lock_date date, -- Lock Date
+  transfer_account_id integer, -- Inter-Banks Transfer Account
+  expects_chart_of_accounts boolean, -- Expects a Chart of Accounts
+  chart_template_id integer, -- Chart Template
+  bank_account_code_prefix character varying, -- Prefix of the bank accounts
+  cash_account_code_prefix character varying, -- Prefix of the cash accounts
+  transfer_account_code_prefix character varying, -- Prefix of the transfer accounts
+  account_sale_tax_id integer, -- Default Sale Tax
+  account_purchase_tax_id integer, -- Default Purchase Tax
+  tax_cash_basis_journal_id integer, -- Cash Basis Journal
+  tax_calculation_rounding_method character varying, -- Tax Calculation Rounding Method
+  currency_exchange_journal_id integer, -- Exchange Gain or Loss Journal
+  anglo_saxon_accounting boolean, -- Use anglo-saxon accounting
+  property_stock_account_input_categ_id integer, -- Input Account for Stock Valuation
+  property_stock_account_output_categ_id integer, -- Output Account for Stock Valuation
+  property_stock_valuation_account_id integer, -- Account Template for Stock Valuation
+  overdue_msg text, -- Overdue Payments Message
+  tax_exigibility boolean, -- Use Cash Basis
+  account_bank_reconciliation_start date, -- Bank Reconciliation Threshold
+  incoterm_id integer, -- Default incoterm
+  invoice_reference_type character varying, -- Default Communication Type
+  qr_code boolean, -- Display SEPA QR code
+  invoice_is_email boolean, -- Email by default
+  invoice_is_print boolean, -- Print by default
+  account_opening_move_id integer, -- Opening Journal Entry
+  account_setup_bank_data_state character varying, -- State of the onboarding bank data step
+  account_setup_fy_data_state character varying, -- State of the onboarding fiscal year step
+  account_setup_coa_state character varying, -- State of the onboarding charts of account step
+  account_onboarding_invoice_layout_state character varying, -- State of the onboarding invoice layout step
+  account_onboarding_sample_invoice_state character varying, -- State of the onboarding sample invoice step
+  account_onboarding_sale_tax_state character varying, -- State of the onboarding sale tax step
+  account_invoice_onboarding_state character varying, -- State of the account invoice onboarding panel
+  account_dashboard_onboarding_state character varying, -- State of the account dashboard onboarding panel
+  payment_acquirer_onboarding_state character varying, -- State of the onboarding payment acquirer step
+  payment_onboarding_payment_method character varying, -- Selected onboarding payment method
+  invoice_is_snailmail boolean, -- Send by Letter by default
+  CONSTRAINT res_company_pkey PRIMARY KEY (id),
+  CONSTRAINT res_company_account_opening_move_id_fkey FOREIGN KEY (account_opening_move_id)
+      REFERENCES public.account_move (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_account_purchase_tax_id_fkey FOREIGN KEY (account_purchase_tax_id)
+      REFERENCES public.account_tax (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_account_sale_tax_id_fkey FOREIGN KEY (account_sale_tax_id)
+      REFERENCES public.account_tax (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_chart_template_id_fkey FOREIGN KEY (chart_template_id)
+      REFERENCES public.account_chart_template (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_create_uid_fkey FOREIGN KEY (create_uid)
+      REFERENCES public.res_users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_currency_exchange_journal_id_fkey FOREIGN KEY (currency_exchange_journal_id)
+      REFERENCES public.account_journal (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_currency_id_fkey FOREIGN KEY (currency_id)
+      REFERENCES public.res_currency (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_external_report_layout_id_fkey FOREIGN KEY (external_report_layout_id)
+      REFERENCES public.ir_ui_view (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_incoterm_id_fkey FOREIGN KEY (incoterm_id)
+      REFERENCES public.account_incoterms (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_internal_transit_location_id_fkey FOREIGN KEY (internal_transit_location_id)
+      REFERENCES public.stock_location (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_nomenclature_id_fkey FOREIGN KEY (nomenclature_id)
+      REFERENCES public.barcode_nomenclature (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_paperformat_id_fkey FOREIGN KEY (paperformat_id)
+      REFERENCES public.report_paperformat (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_parent_id_fkey FOREIGN KEY (parent_id)
+      REFERENCES public.res_company (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_partner_id_fkey FOREIGN KEY (partner_id)
+      REFERENCES public.res_partner (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_property_stock_account_input_categ_id_fkey FOREIGN KEY (property_stock_account_input_categ_id)
+      REFERENCES public.account_account (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_property_stock_account_output_categ_id_fkey FOREIGN KEY (property_stock_account_output_categ_id)
+      REFERENCES public.account_account (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_property_stock_valuation_account_id_fkey FOREIGN KEY (property_stock_valuation_account_id)
+      REFERENCES public.account_account (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_tax_cash_basis_journal_id_fkey FOREIGN KEY (tax_cash_basis_journal_id)
+      REFERENCES public.account_journal (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_transfer_account_id_fkey FOREIGN KEY (transfer_account_id)
+      REFERENCES public.account_account (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_write_uid_fkey FOREIGN KEY (write_uid)
+      REFERENCES public.res_users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_company_name_uniq UNIQUE (name) -- unique (name)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.res_company
+  OWNER TO root;
+COMMENT ON COLUMN public.res_company.parent_id IS 'Parent Company';
+COMMENT ON COLUMN public.res_company.report_header IS 'Company Tagline';
+COMMENT ON COLUMN public.res_company.report_footer IS 'Report Footer';
+COMMENT ON COLUMN public.res_company.logo_web IS 'Logo Web';
+COMMENT ON COLUMN public.res_company.account_no IS 'Account No.';
+COMMENT ON COLUMN public.res_company.email IS 'Email';
+COMMENT ON COLUMN public.res_company.phone IS 'Phone';
+COMMENT ON COLUMN public.res_company.company_registry IS 'Company Registry';
+COMMENT ON COLUMN public.res_company.paperformat_id IS 'Paper format';
+COMMENT ON COLUMN public.res_company.external_report_layout_id IS 'Document Template';
+COMMENT ON COLUMN public.res_company.base_onboarding_company_state IS 'State of the onboarding company step';
+COMMENT ON COLUMN public.res_company.create_uid IS 'Created by';
+COMMENT ON COLUMN public.res_company.write_uid IS 'Last Updated by';
+COMMENT ON COLUMN public.res_company.write_date IS 'Last Updated on';
+COMMENT ON COLUMN public.res_company.nomenclature_id IS 'Nomenclature';
+COMMENT ON COLUMN public.res_company.partner_gid IS 'Company database ID';
+COMMENT ON COLUMN public.res_company.snailmail_color IS 'Color';
+COMMENT ON COLUMN public.res_company.snailmail_duplex IS 'Both sides';
+COMMENT ON COLUMN public.res_company.propagation_minimum_delta IS 'Minimum Delta for Propagation of a Date Change on moves linked together';
+COMMENT ON COLUMN public.res_company.internal_transit_location_id IS 'Internal Transit Location';
+COMMENT ON COLUMN public.res_company.fiscalyear_last_day IS 'Fiscalyear Last Day';
+COMMENT ON COLUMN public.res_company.fiscalyear_last_month IS 'Fiscalyear Last Month';
+COMMENT ON COLUMN public.res_company.period_lock_date IS 'Lock Date for Non-Advisers';
+COMMENT ON COLUMN public.res_company.fiscalyear_lock_date IS 'Lock Date';
+COMMENT ON COLUMN public.res_company.transfer_account_id IS 'Inter-Banks Transfer Account';
+COMMENT ON COLUMN public.res_company.expects_chart_of_accounts IS 'Expects a Chart of Accounts';
+COMMENT ON COLUMN public.res_company.chart_template_id IS 'Chart Template';
+COMMENT ON COLUMN public.res_company.bank_account_code_prefix IS 'Prefix of the bank accounts';
+COMMENT ON COLUMN public.res_company.cash_account_code_prefix IS 'Prefix of the cash accounts';
+COMMENT ON COLUMN public.res_company.transfer_account_code_prefix IS 'Prefix of the transfer accounts';
+COMMENT ON COLUMN public.res_company.account_sale_tax_id IS 'Default Sale Tax';
+COMMENT ON COLUMN public.res_company.account_purchase_tax_id IS 'Default Purchase Tax';
+COMMENT ON COLUMN public.res_company.tax_cash_basis_journal_id IS 'Cash Basis Journal';
+COMMENT ON COLUMN public.res_company.tax_calculation_rounding_method IS 'Tax Calculation Rounding Method';
+COMMENT ON COLUMN public.res_company.currency_exchange_journal_id IS 'Exchange Gain or Loss Journal';
+COMMENT ON COLUMN public.res_company.anglo_saxon_accounting IS 'Use anglo-saxon accounting';
+COMMENT ON COLUMN public.res_company.property_stock_account_input_categ_id IS 'Input Account for Stock Valuation';
+COMMENT ON COLUMN public.res_company.property_stock_account_output_categ_id IS 'Output Account for Stock Valuation';
+COMMENT ON COLUMN public.res_company.property_stock_valuation_account_id IS 'Account Template for Stock Valuation';
+COMMENT ON COLUMN public.res_company.overdue_msg IS 'Overdue Payments Message';
+COMMENT ON COLUMN public.res_company.tax_exigibility IS 'Use Cash Basis';
+COMMENT ON COLUMN public.res_company.account_bank_reconciliation_start IS 'Bank Reconciliation Threshold';
+COMMENT ON COLUMN public.res_company.incoterm_id IS 'Default incoterm';
+COMMENT ON COLUMN public.res_company.invoice_reference_type IS 'Default Communication Type';
+COMMENT ON COLUMN public.res_company.qr_code IS 'Display SEPA QR code';
+COMMENT ON COLUMN public.res_company.invoice_is_email IS 'Email by default';
+COMMENT ON COLUMN public.res_company.invoice_is_print IS 'Print by default';
+COMMENT ON COLUMN public.res_company.account_opening_move_id IS 'Opening Journal Entry';
+COMMENT ON COLUMN public.res_company.account_setup_bank_data_state IS 'State of the onboarding bank data step';
+COMMENT ON COLUMN public.res_company.account_setup_fy_data_state IS 'State of the onboarding fiscal year step';
+COMMENT ON COLUMN public.res_company.account_setup_coa_state IS 'State of the onboarding charts of account step';
+COMMENT ON COLUMN public.res_company.account_onboarding_invoice_layout_state IS 'State of the onboarding invoice layout step';
+COMMENT ON COLUMN public.res_company.account_onboarding_sample_invoice_state IS 'State of the onboarding sample invoice step';
+COMMENT ON COLUMN public.res_company.account_onboarding_sale_tax_state IS 'State of the onboarding sale tax step';
+COMMENT ON COLUMN public.res_company.account_invoice_onboarding_state IS 'State of the account invoice onboarding panel';
+COMMENT ON COLUMN public.res_company.account_dashboard_onboarding_state IS 'State of the account dashboard onboarding panel';
+COMMENT ON COLUMN public.res_company.payment_acquirer_onboarding_state IS 'State of the onboarding payment acquirer step';
+COMMENT ON COLUMN public.res_company.payment_onboarding_payment_method IS 'Selected onboarding payment method';
+COMMENT ON COLUMN public.res_company.invoice_is_snailmail IS 'Send by Letter by default';
+
+COMMENT ON CONSTRAINT res_company_name_uniq ON public.res_company IS 'unique (name)';
+
+
+-- Index: public.res_company_parent_id_index
+
+-- DROP INDEX public.res_company_parent_id_index;
+
+CREATE INDEX res_company_parent_id_index
+  ON public.res_company
+  USING btree
+  (parent_id);
+

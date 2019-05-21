@@ -1,0 +1,41 @@
+2019-05-05 21:05:18.701 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4746,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,0,日志,00000,"语句: UPDATE ""account_journal"" SET ""journal_user""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (8)",,,,,,,,,""
+2019-05-05 21:05:18.703 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4748,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""pos_config"" SET ""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+2019-05-05 21:05:18.704 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4751,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: 
+                INSERT INTO pos_config_journal_rel (pos_config_id, journal_id)
+                VALUES (5, 8)
+                ON CONFLICT DO NOTHING
+            ",,,,,,,,,""
+2019-05-05 21:05:18.763 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4787,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: INSERT INTO ""account_bank_statement"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""balance_start"", ""company_id"", ""date"", ""journal_id"", ""name"", ""state"", ""user_id"") 
+VALUES (nextval('account_bank_statement_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 0.0, 1, '2019-05-05', 8, 'POS/2019/05/05/04', 'open', 2) RETURNING id",,,,,,,,,""
+
+2019-05-05 21:05:18.885 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4789,"SELECT",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"执行时间: 85.555 ms 语句: SELECT id FROM ""account_bank_statement_line"" WHERE ""statement_id"" in (4)",,,,,,,,,""
+2019-05-05 21:05:18.888 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4794,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 4, 'account.bank.statement') RETURNING id",,,,,,,,,""
+
+2019-05-05 21:05:19.001 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4796,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (13, 1)
+            ",,,,,,,,,""
+
+2019-05-05 21:05:19.044 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4803,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""account_bank_statement"" SET ""total_entry_encoding""='0.00',""balance_end""='0.00',""difference""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:19.045 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4806,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""account_bank_statement"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:19.068 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4815,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>银行对账单 创建</p>', '2019-05-05 13:05:19', 'OdooBot <odoobot@example.com>', '<865146910063099.1557061519.065534830093384-openerp-message-notify@test_ghj>', 'notification', 'account.bank.statement', false, NULL, 'OdooBot <odoobot@example.com>', 4, NULL, 2) RETURNING id",,,,,,,,,""
+2019-05-05 21:05:19.112 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4822,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: INSERT INTO ""pos_session"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""config_id"", ""login_number"", ""name"", ""rescue"", ""sequence_number"", ""state"", ""user_id"") VALUES (nextval('pos_session_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 5, 0, 'POS/2019/05/05/04', false, 1, 'opening_control', 2) RETURNING id",,,,,,,,,""
+2019-05-05 21:05:19.137 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4827,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""account_bank_statement"" SET ""pos_session_id""=4,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:19.144 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4835,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""pos_session"" SET ""cash_journal_id""=NULL,""cash_register_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:19.144 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4837,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""pos_session"" SET ""start_at""='2019-05-05 13:05:19',""state""='opened',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:19.147 HKT,"root","odoo_pos",220,"::1:51682",5cce25ea.dc,4843,"idle in transaction",2019-05-05 07:53:14 HKT,9/1485,17762,日志,00000,"语句: UPDATE ""account_bank_statement"" SET ""state""='open',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:19.504 HKT,"root","odoo_pos",19276,"::1:51666",5cce25e7.4b4c,5390,"idle in transaction",2019-05-05 07:53:11 HKT,6/1487,0,日志,00000,"语句: UPDATE ""pos_session"" SET ""login_number""=1,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+2019-05-05 21:05:22.315 HKT,"root","odoo_test",12392,"::1:63550",5cce8e24.3068,3169,"idle in transaction",2019-05-05 15:17:56 HKT,21/965,17764,日志,00000,"语句: UPDATE ir_cron SET nextcall='2019-05-05 13:15:18', numbercall= -1 WHERE id=12",,,,,,,,,""
+2019-05-05 21:05:24.919 HKT,"root","odoo_pos",20028,"::1:51669",5cce25e9.4e3c,5996,"SELECT",2019-05-05 07:53:13 HKT,7/1503,0,日志,00000,"执行时间: 94.545 ms 语句:  SELECT product_taxes_rel.prod_id, product_taxes_rel.tax_id FROM product_taxes_rel, ""account_tax""
+                    WHERE ((""account_tax"".""active"" = true)  AND  (""account_tax"".""type_tax_use"" = 'sale')) AND (""account_tax"".""company_id"" IS NULL   OR  (""account_tax"".""company_id"" in (1))) AND product_taxes_rel.prod_id IN (1, 2) AND product_taxes_rel.tax_id = account_tax.id
+                     ORDER BY ""account_tax"".""sequence"" ,""account_tax"".""id""    OFFSET 0
+                ",,,,,,,,,""
+2019-05-05 21:05:24.992 HKT,"root","odoo_pos",20028,"::1:51669",5cce25e9.4e3c,5999,"SELECT",2019-05-05 07:53:13 HKT,7/1503,0,日志,00000,"执行时间: 67.367 ms 语句:  SELECT product_attribute_value_product_product_rel.product_product_id, product_attribute_value_product_product_rel.product_attribute_value_id FROM product_attribute_value_product_product_rel, ""product_attribute_value"" LEFT JOIN ""product_attribute"" as ""product_attribute_value__attribute_id"" ON (""product_attribute_value"".""attribute_id"" = ""product_attribute_value__attribute_id"".""id"")
+                    WHERE 1=1 AND product_attribute_value_product_product_rel.product_product_id IN (1, 2) AND product_attribute_value_product_product_rel.product_attribute_value_id = product_attribute_value.id
+                     ORDER BY ""product_attribute_value__attribute_id"".""sequence"" ,""product_attribute_value__attribute_id"".""id"" ,""product_attribute_value"".""sequence"" ,""product_attribute_value"".""id""    OFFSET 0
+                ",,,,,,,,,""
+2019-05-05 21:05:26.055 HKT,"root","odoo_pos",19880,"::1:51687",5cce25eb.4da8,5204,"SELECT",2019-05-05 07:53:15 HKT,10/1503,0,日志,00000,"执行时间: 89.876 ms 语句: SELECT c.logo_web, c.write_date
+                                        FROM res_users u
+                                   LEFT JOIN res_company c
+                                          ON c.id = u.company_id
+                                       WHERE u.id = 2
+                                   ",,,,,,,,,""

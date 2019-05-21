@@ -1,0 +1,32 @@
+语句: INSERT INTO ""account_bank_statement"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""balance_start"", ""company_id"", ""date"", ""journal_id"", ""name"", ""state"", ""user_id"")
+ VALUES (nextval('account_bank_statement_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 0.0, 1, '2019-05-07', 8, 'POS/2019/05/07/03', 'open', 2) RETURNING id",,,,,,,,,""
+ 
+ 
+INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 3, 'account.bank.statement') RETURNING id",,,,,,,,,""
+2019-05-07 20:57:32.308 HKT,"root","demo_pos1",21724,"::1:53781",5cd0d76b.54dc,13167,"idle in transaction",2019-05-07 08:55:07 HKT,23/3553,21773,日志,00000,"语句: 
+                INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (9, 1)
+            ",,,,,,,,,""
+			
+UPDATE ""account_bank_statement"" SET ""total_entry_encoding""='0.00',""balance_end""='0.00',""difference""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+UPDATE ""account_bank_statement"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>银行对账单 创建</p>', '2019-05-07 12:57:32', 'OdooBot <odoobot@example.com>', '<907196016867393.1557233852.324713468551636-openerp-message-notify@test_ghj>', 'notification', 'account.bank.statement', false, NULL, 'OdooBot <odoobot@example.com>', 3, NULL, 2) RETURNING id",,,,,,,,,""
+
+"语句: INSERT INTO ""account_bank_statement"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""balance_start"", ""company_id"", ""date"", ""journal_id"", ""name"", ""state"", ""user_id"") 
+VALUES (nextval('account_bank_statement_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 0.0, 1, '2019-05-07', 18, 'POS/2019/05/07/03', 'open', 2) RETURNING id",,,,,,,,,""
+
+INSERT INTO ""mail_followers"" (""id"", ""partner_id"", ""res_id"", ""res_model"") VALUES (nextval('mail_followers_id_seq'), 2, 4, 'account.bank.statement') RETURNING id",,,,,,,,,""
+"语句:                 INSERT INTO mail_followers_mail_message_subtype_rel (mail_followers_id, mail_message_subtype_id) VALUES (10, 1)
+            ",,,,,,,,,""
+UPDATE ""account_bank_statement"" SET ""total_entry_encoding""='0.00',""balance_end""='0.00',""difference""='0.00',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+"语句: UPDATE ""account_bank_statement"" SET ""company_id""=1,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+"语句: INSERT INTO ""mail_message"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""add_sign"", ""author_id"", ""body"", ""date"", ""email_from"", ""message_id"", ""message_type"", ""model"", ""no_auto_thread"", ""record_name"", ""reply_to"", ""res_id"", ""subject"", ""subtype_id"") VALUES (nextval('mail_message_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), true, 2, '<p>银行对账单 创建</p>', '2019-05-07 12:57:32', 'OdooBot <odoobot@example.com>', '<093534646046453.1557233852.349705696105957-openerp-message-notify@test_ghj>', 'notification', 'account.bank.statement', false, NULL, 'OdooBot <odoobot@example.com>', 4, NULL, 2) RETURNING id",,,,,,,,,""
+
+"语句: INSERT INTO ""pos_session"" (""id"", ""create_uid"", ""create_date"", ""write_uid"", ""write_date"", ""config_id"", ""login_number"", ""name"", ""rescue"", ""sequence_number"", ""state"", ""user_id"") VALUES (nextval('pos_session_id_seq'), 1, (now() at time zone 'UTC'), 1, (now() at time zone 'UTC'), 2, 0, 'POS/2019/05/07/03', false, 1, 'opening_control', 2) RETURNING id",,,,,,,,,""
+UPDATE ""account_bank_statement"" SET ""pos_session_id""=3,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3, 4)",,,,,,,,,""
+"语句: UPDATE ""pos_session"" SET ""cash_journal_id""=NULL,""cash_register_id""=NULL,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""pos_session"" SET ""start_at""='2019-05-07 12:57:32',""state""='opened',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+"语句: UPDATE ""account_bank_statement"" SET ""state""='open',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (4)",,,,,,,,,""
+"语句: UPDATE ""account_bank_statement"" SET ""state""='open',""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+
+"语句: UPDATE ""pos_session"" SET ""login_number""=1,""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""

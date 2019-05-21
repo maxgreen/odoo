@@ -57,8 +57,9 @@ def _initialize_db(id, db_name, demo, lang, user_password, login='admin', countr
             # TODO this should be removed as it is done by Registry.new().
             odoo.modules.db.initialize(cr)
             odoo.tools.config['load_language'] = lang
+            # 这一步基本sql文本文件 15个表
             cr.commit()
-
+        #  这一步完成框架数据结构107个表,未安装任何业务插件,只完成了"base"和'web'插件的安装
         registry = odoo.modules.registry.Registry.new(db_name, demo, None, update_module=True)
 
         with closing(db.cursor()) as cr:
