@@ -160,6 +160,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {jQuery} target
      */
     appendTo: function (target) {
+        console.log('appendTo: function (target) ');
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
             self.$el.appendTo(t);

@@ -15,6 +15,7 @@ return AbstractWebClient.extend({
         menu_clicked: 'on_menu_clicked',
     }),
     start: function () {
+        console.log('web.WebClient start()');
         core.bus.on('change_menu_section', this, function (menuID) {
             this.do_push_state(_.extend($.bbq.getState(), {
                 menu_id: menuID,
@@ -55,6 +56,7 @@ return AbstractWebClient.extend({
         });
     },
     load_menus: function () {
+        console.log('load_menus: function () ');
         return this._rpc({
                 model: 'ir.ui.menu',
                 method: 'load_menus',
@@ -79,6 +81,7 @@ return AbstractWebClient.extend({
             });
     },
     show_application: function () {
+        console.log('show_application: function ()');
         var self = this;
         this.set_title();
 
@@ -131,6 +134,7 @@ return AbstractWebClient.extend({
     // URL state handling
     // --------------------------------------------------------------
     on_hashchange: function (event) {
+        console.log(' on_hashchange: function (event)',event);
         if (this._ignore_hashchange) {
             this._ignore_hashchange = false;
             return $.when();
@@ -177,6 +181,7 @@ return AbstractWebClient.extend({
     // Menu handling
     // --------------------------------------------------------------
     on_app_clicked: function (ev) {
+        console.warn("on_app_clicked: function (ev)",ev);
         var self = this;
         return this.menu_dm.add(data_manager.load_action(ev.data.action_id))
             .then(function (result) {
@@ -205,6 +210,7 @@ return AbstractWebClient.extend({
         return $.Deferred().resolve();
     },
     on_menu_clicked: function (ev) {
+        console.warn(" on_menu_clicked: function (ev) ");
         var self = this;
         return this.menu_dm.add(data_manager.load_action(ev.data.action_id))
             .then(function (result) {

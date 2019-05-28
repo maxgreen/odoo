@@ -23,16 +23,21 @@
         <!-- Bootstrap variables should not be necessary, all pages come with bootstrap in at least one of their -->
         <!-- bundle and, ideally, these should be available in all assets... with their odoo override. This system -->
         <!-- however works for now as non-backend and non-frontend assets do not need overriden BS variables yet. -->
-        <link t-if="not no_bs_vars" rel="stylesheet" type="text/scss" href="/web/static/lib/bootstrap/scss/_variables.scss"/>
+        <link t-if="not no_bs_vars" rel="stylesheet" type="text/scss"
+              href="/web/static/lib/bootstrap/scss/_variables.scss"/>
     </template>
 
     <template id="_assets_backend_helpers">
-        <t t-call="web._assets_helpers"><t t-set="no_bs_vars" t-value="True"/></t>
+        <t t-call="web._assets_helpers">
+            <t t-set="no_bs_vars" t-value="True"/>
+        </t>
         <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/bootstrap_overridden.scss"/>
     </template>
 
     <template id="_assets_frontend_helpers">
-        <t t-call="web._assets_helpers"><t t-set="no_bs_vars" t-value="True"/></t>
+        <t t-call="web._assets_helpers">
+            <t t-set="no_bs_vars" t-value="True"/>
+        </t>
         <link rel="stylesheet" type="text/scss" href="/web/static/src/scss/bootstrap_overridden_frontend.scss"/>
     </template>
 
@@ -82,7 +87,8 @@
         <script type="text/javascript" src="/web/static/lib/jquery.placeholder/jquery.placeholder.js"></script>
         <script type="text/javascript" src="/web/static/lib/jquery.form/jquery.form.js"></script>
         <script type="text/javascript" src="/web/static/lib/jquery.ba-bbq/jquery.ba-bbq.js"></script>
-        <script type="text/javascript" src="/web/static/lib/jquery.mjs.nestedSortable/jquery.mjs.nestedSortable.js"></script>
+        <script type="text/javascript"
+                src="/web/static/lib/jquery.mjs.nestedSortable/jquery.mjs.nestedSortable.js"></script>
 
         <script type="text/javascript" src="/web/static/lib/popper/popper.js"></script>
 
@@ -191,7 +197,7 @@
         <script type="text/javascript" src="/web/static/lib/fuzzy-master/fuzzy.js"></script>
 
         <script type="text/javascript" charset="utf-8">
-            odoo._modules = <t t-raw="get_modules_order()"/>;
+            odoo._modules =<t t-raw="get_modules_order()"/>;
         </script>
 
         <script type="text/javascript" src="/web/static/lib/py.js/lib/py.js"></script>
@@ -336,7 +342,7 @@
 
                 <script type="text/javascript">
                     var odoo = {
-                        csrf_token: "<t t-esc="request.csrf_token(None)"/>",
+                    csrf_token: "<t t-esc="request.csrf_token(None)"/>",
                     };
                 </script>
 
@@ -360,17 +366,21 @@
             <t t-set="body_classname" t-value="'bg-100'"/>
 
             <div class="container mb-5 pb-5">
-                <div t-attf-class="card border-0 mx-auto mt-5 bg-100 {{login_card_classes}} o_database_list" style="max-width: 300px;">
+                <div t-attf-class="card border-0 mx-auto mt-5 bg-100 {{login_card_classes}} o_database_list"
+                     style="max-width: 300px;">
                     <div class="card-body">
                         <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
-                            <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+                            <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="Logo"
+                                 style="max-height:120px; max-width: 100%; width:auto"/>
                         </div>
                         <t t-raw="0"/>
                         <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">
                             <t t-if="not disable_database_manager">
                                 <a class="border-right pr-2 mr-1" href="/web/database/manager">Manage Databases</a>
                             </t>
-                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+                            <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by
+                                <span>Odoo</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -380,27 +390,37 @@
 
     <template id="web.login" name="Login">
         <t t-call="web.login_layout">
-            <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
+            <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}"
+                  method="post" onsubmit="this.action = this.action + location.hash">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 
                 <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
                     <label for="db" class="col-form-label">Database</label>
                     <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
-                        <input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly"/>
+                        <input type="text" name="db" t-att-value="request.db" id="db"
+                               t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
+                               required="required" readonly="readonly"/>
                         <span class="input-group-append">
-                            <a role="button" href="/web/database/selector" class="btn btn-secondary">Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i></a>
+                            <a role="button" href="/web/database/selector" class="btn btn-secondary">Select
+                                <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i>
+                            </a>
                         </span>
                     </div>
                 </div>
 
                 <div class="form-group field-login">
                     <label for="login">Email</label>
-                    <input type="text" placeholder="Email" name="login" t-att-value="login" id="login" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off"/>
+                    <input type="text" placeholder="Email" name="login" t-att-value="login" id="login"
+                           t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"
+                           autofocus="autofocus" autocapitalize="off"/>
                 </div>
 
                 <div class="form-group field-password">
                     <label for="password">Password</label>
-                    <input type="password" placeholder="Password" name="password" id="password" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+                    <input type="password" placeholder="Password" name="password" id="password"
+                           t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"
+                           autocomplete="current-password" t-att-autofocus="'autofocus' if login else None"
+                           maxlength="4096"/>
                 </div>
 
                 <p class="alert alert-danger" t-if="error" role="alert">
@@ -413,7 +433,9 @@
                 <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
                     <button type="submit" class="btn btn-primary btn-block">Log in</button>
                     <t t-if="debug">
-                        <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>
+                        <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">
+                            Log in as superuser
+                        </button>
                     </t>
                     <div class="o_login_auth"/>
                 </div>
@@ -448,45 +470,45 @@
 
         <script type="text/javascript">
             odoo.define('web.WebClientWithoutServices', function (require) {
-                var ServiceProviderMixin = require('web.ServiceProviderMixin');
-                var WebClient = require('web.WebClient');
-                var WebClientWithoutServices = WebClient.extend({
-                    /**
-                     * Patch web client so that it is no longer a service provider.
-                     *
-                     * @override
-                     */
-                    init: function () {
-                        var originalServiceProviderMixinInit = ServiceProviderMixin.init;
-                        ServiceProviderMixin.init = function () {};
-                        this._super.apply(this, arguments);
-                        ServiceProviderMixin.init = originalServiceProviderMixinInit;
-                    },
-                });
-                return WebClientWithoutServices;
+            var ServiceProviderMixin = require('web.ServiceProviderMixin');
+            var WebClient = require('web.WebClient');
+            var WebClientWithoutServices = WebClient.extend({
+            /**
+            * Patch web client so that it is no longer a service provider.
+            *
+            * @override
+            */
+            init: function () {
+            var originalServiceProviderMixinInit = ServiceProviderMixin.init;
+            ServiceProviderMixin.init = function () {};
+            this._super.apply(this, arguments);
+            ServiceProviderMixin.init = originalServiceProviderMixinInit;
+            },
+            });
+            return WebClientWithoutServices;
             });
             // define the 'web.web_client' module because some other modules require it
             odoo.define('web.web_client', function (require) {
-                var WebClient = require('web.WebClientWithoutServices');
-                var web_client = new WebClient();
-                return web_client;
+            var WebClient = require('web.WebClientWithoutServices');
+            var web_client = new WebClient();
+            return web_client;
             });
         </script>
 
         <style>
             body {
-                position: relative; // bootstrap-datepicker needs this
+            position: relative; // bootstrap-datepicker needs this
             }
             body:not(.debug) .modal-backdrop, body:not(.debug) .modal, body:not(.debug) .ui-autocomplete {
-                opacity: 0 !important;
+            opacity: 0 !important;
             }
             #qunit-testrunner-toolbar label {
-                font-weight: inherit;
-                margin-bottom: inherit;
+            font-weight: inherit;
+            margin-bottom: inherit;
             }
             #qunit-testrunner-toolbar input[type=text] {
-                width: inherit;
-                display: inherit;
+            width: inherit;
+            display: inherit;
             }
         </style>
 
@@ -556,7 +578,8 @@
                 <script type="text/javascript" src="/web/static/tests/chrome/action_manager_tests.js"></script>
                 <script type="text/javascript" src="/web/static/tests/chrome/search_tests.js"></script>
                 <script type="text/javascript" src="/web/static/tests/chrome/pager_tests.js"></script>
-                <script type="text/javascript" src="/web/static/tests/chrome/keyboard_navigation_mixin_tests.js"></script>
+                <script type="text/javascript"
+                        src="/web/static/tests/chrome/keyboard_navigation_mixin_tests.js"></script>
                 <script type="text/javascript" src="/web/static/tests/chrome/user_menu_tests.js"></script>
 
                 <script type="text/javascript" src="/web/static/tests/widgets/data_export_tests.js"/>
@@ -583,21 +606,21 @@
                     window.odoo = {};
                     var odooDefine;
                     Object.defineProperty(window.odoo, 'define', {
-                        get: function () {
-                            return odooDefine;
-                        },
-                        set: function (define) {
-                            odooDefine = function () {
-                                define.apply(this, arguments);
-                                if (arguments[0] === 'web.config') {
-                                    define.call(this, 'web.config.patch', function (require) {
-                                        var config = require('web.config');
-                                        config.device.isMobile = true;
-                                        config.device.size_class = config.device.SIZES.XS;
-                                    });
-                                }
-                            };
-                        },
+                    get: function () {
+                    return odooDefine;
+                    },
+                    set: function (define) {
+                    odooDefine = function () {
+                    define.apply(this, arguments);
+                    if (arguments[0] === 'web.config') {
+                    define.call(this, 'web.config.patch', function (require) {
+                    var config = require('web.config');
+                    config.device.isMobile = true;
+                    config.device.size_class = config.device.SIZES.XS;
+                    });
+                    }
+                    };
+                    },
                     });
                 </script>
 
@@ -612,7 +635,8 @@
                 <script type="text/javascript" src="/web/static/tests/views/kanban_mobile_tests.js"></script>
                 <script type="text/javascript" src="/web/static/tests/views/form_mobile_tests.js"></script>
                 <script type="text/javascript" src="/web/static/tests/fields/basic_fields_mobile_tests.js"></script>
-                <script type="text/javascript" src="/web/static/tests/fields/relational_fields_mobile_tests.js"></script>
+                <script type="text/javascript"
+                        src="/web/static/tests/fields/relational_fields_mobile_tests.js"></script>
             </t>
 
             <div id="qunit"/>
@@ -640,42 +664,42 @@
                     QUnit.config.hidepassed = false;
 
                     odoo.define('web.WebClientWithoutServices', function (require) {
-                        var ServiceProviderMixin = require('web.ServiceProviderMixin');
-                        var WebClient = require('web.WebClient');
-                        var WebClientWithoutServices = WebClient.extend({
-                            /**
-                             * Patch web client so that it is no longer a service provider.
-                             *
-                             * @override
-                             */
-                            init: function () {
-                                var originalServiceProviderMixinInit = ServiceProviderMixin.init;
-                                ServiceProviderMixin.init = function () {};
-                                this._super.apply(this, arguments);
-                                ServiceProviderMixin.init = originalServiceProviderMixinInit;
-                            },
-                        });
-                        return WebClientWithoutServices;
+                    var ServiceProviderMixin = require('web.ServiceProviderMixin');
+                    var WebClient = require('web.WebClient');
+                    var WebClientWithoutServices = WebClient.extend({
+                    /**
+                    * Patch web client so that it is no longer a service provider.
+                    *
+                    * @override
+                    */
+                    init: function () {
+                    var originalServiceProviderMixinInit = ServiceProviderMixin.init;
+                    ServiceProviderMixin.init = function () {};
+                    this._super.apply(this, arguments);
+                    ServiceProviderMixin.init = originalServiceProviderMixinInit;
+                    },
+                    });
+                    return WebClientWithoutServices;
                     });
                     // define the 'web.web_client' module because some other modules require it
                     odoo.define('web.web_client', function (require) {
-                        var WebClient = require('web.WebClientWithoutServices');
-                        var web_client = new WebClient();
-                        return web_client;
+                    var WebClient = require('web.WebClientWithoutServices');
+                    var web_client = new WebClient();
+                    return web_client;
                     });
                 </script>
 
                 <style>
                     body:not(.debug) .modal-backdrop, body:not(.debug) .modal, body:not(.debug) .ui-autocomplete {
-                        opacity: 0 !important;
+                    opacity: 0 !important;
                     }
                     #qunit-testrunner-toolbar label {
-                        font-weight: inherit;
-                        margin-bottom: inherit;
+                    font-weight: inherit;
+                    margin-bottom: inherit;
                     }
                     #qunit-testrunner-toolbar input[type=text] {
-                        width: inherit;
-                        display: inherit;
+                    width: inherit;
+                    display: inherit;
                     }
                 </style>
 
@@ -705,7 +729,7 @@
         <t t-call="web.layout">
             <t t-set="head_web">
                 <script type="text/javascript">
-                    odoo.session_info = <t t-raw="session_info"/>;
+                    odoo.session_info =<t t-raw="session_info"/>;
                 </script>
 
                 <t t-call-assets="web.assets_common" t-js="false"/>
@@ -721,13 +745,13 @@
 
                 <script type="text/javascript">
                     odoo.define('web.web_client', function (require) {
-                        var WebClient = require('web.WebClient');
-                        var web_client = new WebClient();
-                        $(function() {
-                            web_client.setElement($(document.body));
-                            web_client.start();
-                        });
-                        return web_client;
+                    var WebClient = require('web.WebClient');
+                    var web_client = new WebClient();
+                    $(function() {
+                    web_client.setElement($(document.body));
+                    web_client.start();
+                    });
+                    return web_client;
                     });
                 </script>
             </t>

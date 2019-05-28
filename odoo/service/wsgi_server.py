@@ -106,6 +106,8 @@ def application_unproxied(environ, start_response):
     # odoo.service.web_services.objects_proxy.dispatch().
     # /!\ The cleanup cannot be done at the end of this `application`
     # method because werkzeug still produces relevant logging afterwards
+    if(environ['PATH_INFO']!="/longpolling/poll"):
+        ghj=888
     if hasattr(threading.current_thread(), 'uid'):
         del threading.current_thread().uid
     if hasattr(threading.current_thread(), 'dbname'):
