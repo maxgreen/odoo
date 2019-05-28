@@ -31,6 +31,11 @@ def initialize(cr):
     with odoo.tools.misc.file_open(f) as base_sql_file:
         cr.execute(base_sql_file.read())
 
+        # ghj and start
+        cr.commit()
+        ghj = 888
+        # ghj add end
+
     for i in odoo.modules.get_modules():
         mod_path = odoo.modules.get_module_path(i)
         if not mod_path:
@@ -66,9 +71,18 @@ def initialize(cr):
             (name,model,module, res_id, noupdate) VALUES (%s,%s,%s,%s,%s)', (
                 'module_'+i, 'ir.module.module', 'base', id, True))
         dependencies = info['depends']
+        # ghj add start
+        cr.commit()
+        ghj = 888
+        # ghj add end
         for d in dependencies:
             cr.execute('INSERT INTO ir_module_module_dependency \
                     (module_id,name) VALUES (%s, %s)', (id, d))
+
+        # ghj add start
+        cr.commit()
+        ghj = 888
+        # ghj add end
 
     # Install recursively all auto-installing modules
     while True:
@@ -77,10 +91,21 @@ def initialize(cr):
                           SELECT 1 FROM ir_module_module_dependency d JOIN ir_module_module mdep ON (d.name = mdep.name)
                                    WHERE d.module_id = m.id AND mdep.state != 'to install'
                       )""")
-        to_auto_install = [x[0] for x in cr.fetchall()]
-        if not to_auto_install: break
-        cr.execute("""UPDATE ir_module_module SET state='to install' WHERE name in %s""", (tuple(to_auto_install),))
 
+        # ghj add start
+        cr.commit()
+        ghj = 888
+        # ghj add end
+
+        to_auto_install = [x[0] for x in cr.fetchall()]
+
+        if not to_auto_install:
+            break
+        cr.execute("""UPDATE ir_module_module SET state='to install' WHERE name in %s""", (tuple(to_auto_install),))
+        # ghj add start
+        cr.commit()
+        ghj=888
+        # ghj add end
 def create_categories(cr, categories):
     """ Create the ir_module_category entries for some categories.
 

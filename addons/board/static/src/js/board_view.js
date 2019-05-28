@@ -237,6 +237,7 @@ var BoardRenderer = FormRenderer.extend({
      * @returns {Deferred}
      */
     _createController: function (params) {
+        console.log('_createController: function (params) ',params);
         var self = this;
         return this._rpc({
                 route: '/web/action/load',

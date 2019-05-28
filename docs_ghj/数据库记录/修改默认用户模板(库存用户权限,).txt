@@ -1,0 +1,9 @@
+"语句: UPDATE ""res_users"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: 
+                DELETE FROM res_groups_users_rel WHERE uid=3 AND gid=22
+            ",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""

@@ -783,6 +783,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred<Object>} resolved with the description of the action
      */
     _loadAction: function (actionID, context) {
+        console.warn("_loadAction: function (actionID, context)");
         var def = $.Deferred();
         this.trigger_up('load_action', {
             actionID: actionID,

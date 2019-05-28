@@ -1,0 +1,225 @@
+-- Table: public.res_config_settings
+
+-- DROP TABLE public.res_config_settings;
+
+CREATE TABLE public.res_config_settings
+(
+  id integer NOT NULL DEFAULT nextval('res_config_settings_id_seq'::regclass),
+  create_uid integer, -- Created by
+  create_date timestamp without time zone, -- Created on
+  write_uid integer, -- Last Updated by
+  write_date timestamp without time zone, -- Last Updated on
+  group_multi_company boolean, -- Manage multiple companies
+  company_id integer NOT NULL, -- Company
+  user_default_rights boolean, -- Default Access Rights
+  external_email_server_default boolean, -- External Email Servers
+  module_base_import boolean, -- Allow users to import data from CSV/XLS/XLSX/ODS files
+  module_google_calendar boolean, -- Allow the users to synchronize their calendar  with Google Calendar
+  module_google_drive boolean, -- Attach Google documents to any record
+  module_google_spreadsheet boolean, -- Google Spreadsheet
+  module_auth_oauth boolean, -- Use external authentication providers (OAuth)
+  module_auth_ldap boolean, -- LDAP Authentication
+  module_base_gengo boolean, -- Translate Your Website with Gengo
+  module_inter_company_rules boolean, -- Manage Inter Company
+  module_pad boolean, -- Collaborative Pads
+  module_voip boolean, -- Asterisk (VoIP)
+  module_web_unsplash boolean, -- Unsplash Image Library
+  module_partner_autocomplete boolean, -- Auto-populate company data
+  company_share_partner boolean, -- Share partners to all companies
+  group_multi_currency boolean, -- Multi-Currencies
+  show_effect boolean, -- Show Effect
+  fail_counter integer, -- Fail Mail
+  alias_domain character varying, -- Alias Domain
+  unsplash_access_key character varying, -- Access Key
+  auth_signup_reset_password boolean, -- Enable password reset from Login page
+  auth_signup_uninvited character varying, -- Customer Account
+  auth_signup_template_user_id integer, -- Template user for new users created through signup
+  company_share_product boolean, -- Share product to all companies
+  group_uom boolean, -- Units of Measure
+  group_product_variant boolean, -- Variants and Options
+  group_stock_packaging boolean, -- Product Packagings
+  group_sale_pricelist boolean, -- Use pricelists to adapt your price per customers
+  group_product_pricelist boolean, -- Show pricelists On Products
+  group_pricelist_item boolean, -- Show pricelists to customers
+  product_weight_in_lbs character varying, -- Weight unit of measure
+  digest_emails boolean, -- Digest Emails
+  digest_id integer, -- Digest Email
+  module_procurement_jit integer, -- Reservation
+  module_product_expiry boolean, -- Expiration Dates
+  group_stock_production_lot boolean, -- Lots & Serial Numbers
+  group_lot_on_delivery_slip boolean, -- Display Lots & Serial Numbers
+  group_stock_tracking_lot boolean, -- Delivery Packages
+  group_stock_tracking_owner boolean, -- Consignment
+  group_stock_adv_location boolean, -- Multi-Step Routes
+  group_warning_stock boolean, -- Warnings for Stock
+  use_propagation_minimum_delta boolean, -- No Rescheduling Propagation
+  module_stock_picking_batch boolean, -- Batch Pickings
+  module_stock_barcode boolean, -- Barcode Scanner
+  module_delivery_dhl boolean, -- DHL USA
+  module_delivery_fedex boolean, -- FedEx
+  module_delivery_ups boolean, -- UPS
+  module_delivery_usps boolean, -- USPS
+  module_delivery_bpost boolean, -- bpost
+  module_delivery_easypost boolean, -- Easypost
+  group_stock_multi_locations boolean, -- Storage Locations
+  group_stock_multi_warehouses boolean, -- Multi-Warehouses
+  chart_template_id integer, -- Template
+  module_account_accountant boolean, -- Accounting
+  group_analytic_accounting boolean, -- Analytic Accounting
+  group_analytic_tags boolean, -- Analytic Tags
+  group_warning_account boolean, -- Warnings in Invoices
+  group_cash_rounding boolean, -- Cash Rounding
+  group_fiscal_year boolean, -- Fiscal Years
+  group_show_line_subtotals_tax_excluded boolean, -- Show line subtotals without taxes (B2B)
+  group_show_line_subtotals_tax_included boolean, -- Show line subtotals with taxes (B2C)
+  group_products_in_bills boolean, -- Use products in vendor bills
+  show_line_subtotals_tax_selection character varying NOT NULL, -- Line Subtotals Tax Display
+  module_account_asset boolean, -- Assets Management
+  module_account_deferred_revenue boolean, -- Revenue Recognition
+  module_account_budget boolean, -- Budget Management
+  module_account_payment boolean, -- Invoice Online Payment
+  module_account_reports boolean, -- Dynamic Reports
+  module_account_reports_followup boolean, -- Follow-up Levels
+  module_account_check_printing boolean, -- Allow check printing and deposits
+  module_account_batch_payment boolean, -- Use batch payments
+  module_account_sepa boolean, -- SEPA Credit Transfer (SCT)
+  module_account_sepa_direct_debit boolean, -- Use SEPA Direct Debit
+  module_account_plaid boolean, -- Plaid Connector
+  module_account_yodlee boolean, -- Bank Interface - Sync your bank feeds automatically
+  module_account_bank_statement_import_qif boolean, -- Import .qif files
+  module_account_bank_statement_import_ofx boolean, -- Import in .ofx format
+  module_account_bank_statement_import_csv boolean, -- Import in .csv format
+  module_account_bank_statement_import_camt boolean, -- Import in CAMT.053 format
+  module_currency_rate_live boolean, -- Automatic Currency Rates
+  module_account_intrastat boolean, -- Intrastat
+  module_product_margin boolean, -- Allow Product Margin
+  module_l10n_eu_service boolean, -- EU Digital Goods VAT
+  module_account_taxcloud boolean, -- Account TaxCloud
+  module_account_invoice_extract boolean, -- Automate Bill Processing
+  module_stock_landed_costs boolean, -- Landed Costs
+  module_pos_mercury boolean, -- Integrated Card Payments
+  pos_sales_price boolean, -- Multiple Product Prices
+  pos_pricelist_setting character varying, -- POS Pricelists
+  CONSTRAINT res_config_settings_pkey PRIMARY KEY (id),
+  CONSTRAINT res_config_settings_auth_signup_template_user_id_fkey FOREIGN KEY (auth_signup_template_user_id)
+      REFERENCES public.res_users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_config_settings_chart_template_id_fkey FOREIGN KEY (chart_template_id)
+      REFERENCES public.account_chart_template (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_config_settings_company_id_fkey FOREIGN KEY (company_id)
+      REFERENCES public.res_company (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_config_settings_create_uid_fkey FOREIGN KEY (create_uid)
+      REFERENCES public.res_users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_config_settings_digest_id_fkey FOREIGN KEY (digest_id)
+      REFERENCES public.digest_digest (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL,
+  CONSTRAINT res_config_settings_write_uid_fkey FOREIGN KEY (write_uid)
+      REFERENCES public.res_users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE SET NULL
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.res_config_settings
+  OWNER TO root;
+COMMENT ON TABLE public.res_config_settings
+  IS 'Config Settings';
+COMMENT ON COLUMN public.res_config_settings.create_uid IS 'Created by';
+COMMENT ON COLUMN public.res_config_settings.create_date IS 'Created on';
+COMMENT ON COLUMN public.res_config_settings.write_uid IS 'Last Updated by';
+COMMENT ON COLUMN public.res_config_settings.write_date IS 'Last Updated on';
+COMMENT ON COLUMN public.res_config_settings.group_multi_company IS 'Manage multiple companies';
+COMMENT ON COLUMN public.res_config_settings.company_id IS 'Company';
+COMMENT ON COLUMN public.res_config_settings.user_default_rights IS 'Default Access Rights';
+COMMENT ON COLUMN public.res_config_settings.external_email_server_default IS 'External Email Servers';
+COMMENT ON COLUMN public.res_config_settings.module_base_import IS 'Allow users to import data from CSV/XLS/XLSX/ODS files';
+COMMENT ON COLUMN public.res_config_settings.module_google_calendar IS 'Allow the users to synchronize their calendar  with Google Calendar';
+COMMENT ON COLUMN public.res_config_settings.module_google_drive IS 'Attach Google documents to any record';
+COMMENT ON COLUMN public.res_config_settings.module_google_spreadsheet IS 'Google Spreadsheet';
+COMMENT ON COLUMN public.res_config_settings.module_auth_oauth IS 'Use external authentication providers (OAuth)';
+COMMENT ON COLUMN public.res_config_settings.module_auth_ldap IS 'LDAP Authentication';
+COMMENT ON COLUMN public.res_config_settings.module_base_gengo IS 'Translate Your Website with Gengo';
+COMMENT ON COLUMN public.res_config_settings.module_inter_company_rules IS 'Manage Inter Company';
+COMMENT ON COLUMN public.res_config_settings.module_pad IS 'Collaborative Pads';
+COMMENT ON COLUMN public.res_config_settings.module_voip IS 'Asterisk (VoIP)';
+COMMENT ON COLUMN public.res_config_settings.module_web_unsplash IS 'Unsplash Image Library';
+COMMENT ON COLUMN public.res_config_settings.module_partner_autocomplete IS 'Auto-populate company data';
+COMMENT ON COLUMN public.res_config_settings.company_share_partner IS 'Share partners to all companies';
+COMMENT ON COLUMN public.res_config_settings.group_multi_currency IS 'Multi-Currencies';
+COMMENT ON COLUMN public.res_config_settings.show_effect IS 'Show Effect';
+COMMENT ON COLUMN public.res_config_settings.fail_counter IS 'Fail Mail';
+COMMENT ON COLUMN public.res_config_settings.alias_domain IS 'Alias Domain';
+COMMENT ON COLUMN public.res_config_settings.unsplash_access_key IS 'Access Key';
+COMMENT ON COLUMN public.res_config_settings.auth_signup_reset_password IS 'Enable password reset from Login page';
+COMMENT ON COLUMN public.res_config_settings.auth_signup_uninvited IS 'Customer Account';
+COMMENT ON COLUMN public.res_config_settings.auth_signup_template_user_id IS 'Template user for new users created through signup';
+COMMENT ON COLUMN public.res_config_settings.company_share_product IS 'Share product to all companies';
+COMMENT ON COLUMN public.res_config_settings.group_uom IS 'Units of Measure';
+COMMENT ON COLUMN public.res_config_settings.group_product_variant IS 'Variants and Options';
+COMMENT ON COLUMN public.res_config_settings.group_stock_packaging IS 'Product Packagings';
+COMMENT ON COLUMN public.res_config_settings.group_sale_pricelist IS 'Use pricelists to adapt your price per customers';
+COMMENT ON COLUMN public.res_config_settings.group_product_pricelist IS 'Show pricelists On Products';
+COMMENT ON COLUMN public.res_config_settings.group_pricelist_item IS 'Show pricelists to customers';
+COMMENT ON COLUMN public.res_config_settings.product_weight_in_lbs IS 'Weight unit of measure';
+COMMENT ON COLUMN public.res_config_settings.digest_emails IS 'Digest Emails';
+COMMENT ON COLUMN public.res_config_settings.digest_id IS 'Digest Email';
+COMMENT ON COLUMN public.res_config_settings.module_procurement_jit IS 'Reservation';
+COMMENT ON COLUMN public.res_config_settings.module_product_expiry IS 'Expiration Dates';
+COMMENT ON COLUMN public.res_config_settings.group_stock_production_lot IS 'Lots & Serial Numbers';
+COMMENT ON COLUMN public.res_config_settings.group_lot_on_delivery_slip IS 'Display Lots & Serial Numbers';
+COMMENT ON COLUMN public.res_config_settings.group_stock_tracking_lot IS 'Delivery Packages';
+COMMENT ON COLUMN public.res_config_settings.group_stock_tracking_owner IS 'Consignment';
+COMMENT ON COLUMN public.res_config_settings.group_stock_adv_location IS 'Multi-Step Routes';
+COMMENT ON COLUMN public.res_config_settings.group_warning_stock IS 'Warnings for Stock';
+COMMENT ON COLUMN public.res_config_settings.use_propagation_minimum_delta IS 'No Rescheduling Propagation';
+COMMENT ON COLUMN public.res_config_settings.module_stock_picking_batch IS 'Batch Pickings';
+COMMENT ON COLUMN public.res_config_settings.module_stock_barcode IS 'Barcode Scanner';
+COMMENT ON COLUMN public.res_config_settings.module_delivery_dhl IS 'DHL USA';
+COMMENT ON COLUMN public.res_config_settings.module_delivery_fedex IS 'FedEx';
+COMMENT ON COLUMN public.res_config_settings.module_delivery_ups IS 'UPS';
+COMMENT ON COLUMN public.res_config_settings.module_delivery_usps IS 'USPS';
+COMMENT ON COLUMN public.res_config_settings.module_delivery_bpost IS 'bpost';
+COMMENT ON COLUMN public.res_config_settings.module_delivery_easypost IS 'Easypost';
+COMMENT ON COLUMN public.res_config_settings.group_stock_multi_locations IS 'Storage Locations';
+COMMENT ON COLUMN public.res_config_settings.group_stock_multi_warehouses IS 'Multi-Warehouses';
+COMMENT ON COLUMN public.res_config_settings.chart_template_id IS 'Template';
+COMMENT ON COLUMN public.res_config_settings.module_account_accountant IS 'Accounting';
+COMMENT ON COLUMN public.res_config_settings.group_analytic_accounting IS 'Analytic Accounting';
+COMMENT ON COLUMN public.res_config_settings.group_analytic_tags IS 'Analytic Tags';
+COMMENT ON COLUMN public.res_config_settings.group_warning_account IS 'Warnings in Invoices';
+COMMENT ON COLUMN public.res_config_settings.group_cash_rounding IS 'Cash Rounding';
+COMMENT ON COLUMN public.res_config_settings.group_fiscal_year IS 'Fiscal Years';
+COMMENT ON COLUMN public.res_config_settings.group_show_line_subtotals_tax_excluded IS 'Show line subtotals without taxes (B2B)';
+COMMENT ON COLUMN public.res_config_settings.group_show_line_subtotals_tax_included IS 'Show line subtotals with taxes (B2C)';
+COMMENT ON COLUMN public.res_config_settings.group_products_in_bills IS 'Use products in vendor bills';
+COMMENT ON COLUMN public.res_config_settings.show_line_subtotals_tax_selection IS 'Line Subtotals Tax Display';
+COMMENT ON COLUMN public.res_config_settings.module_account_asset IS 'Assets Management';
+COMMENT ON COLUMN public.res_config_settings.module_account_deferred_revenue IS 'Revenue Recognition';
+COMMENT ON COLUMN public.res_config_settings.module_account_budget IS 'Budget Management';
+COMMENT ON COLUMN public.res_config_settings.module_account_payment IS 'Invoice Online Payment';
+COMMENT ON COLUMN public.res_config_settings.module_account_reports IS 'Dynamic Reports';
+COMMENT ON COLUMN public.res_config_settings.module_account_reports_followup IS 'Follow-up Levels';
+COMMENT ON COLUMN public.res_config_settings.module_account_check_printing IS 'Allow check printing and deposits';
+COMMENT ON COLUMN public.res_config_settings.module_account_batch_payment IS 'Use batch payments';
+COMMENT ON COLUMN public.res_config_settings.module_account_sepa IS 'SEPA Credit Transfer (SCT)';
+COMMENT ON COLUMN public.res_config_settings.module_account_sepa_direct_debit IS 'Use SEPA Direct Debit';
+COMMENT ON COLUMN public.res_config_settings.module_account_plaid IS 'Plaid Connector';
+COMMENT ON COLUMN public.res_config_settings.module_account_yodlee IS 'Bank Interface - Sync your bank feeds automatically';
+COMMENT ON COLUMN public.res_config_settings.module_account_bank_statement_import_qif IS 'Import .qif files';
+COMMENT ON COLUMN public.res_config_settings.module_account_bank_statement_import_ofx IS 'Import in .ofx format';
+COMMENT ON COLUMN public.res_config_settings.module_account_bank_statement_import_csv IS 'Import in .csv format';
+COMMENT ON COLUMN public.res_config_settings.module_account_bank_statement_import_camt IS 'Import in CAMT.053 format';
+COMMENT ON COLUMN public.res_config_settings.module_currency_rate_live IS 'Automatic Currency Rates';
+COMMENT ON COLUMN public.res_config_settings.module_account_intrastat IS 'Intrastat';
+COMMENT ON COLUMN public.res_config_settings.module_product_margin IS 'Allow Product Margin';
+COMMENT ON COLUMN public.res_config_settings.module_l10n_eu_service IS 'EU Digital Goods VAT';
+COMMENT ON COLUMN public.res_config_settings.module_account_taxcloud IS 'Account TaxCloud';
+COMMENT ON COLUMN public.res_config_settings.module_account_invoice_extract IS 'Automate Bill Processing';
+COMMENT ON COLUMN public.res_config_settings.module_stock_landed_costs IS 'Landed Costs';
+COMMENT ON COLUMN public.res_config_settings.module_pos_mercury IS 'Integrated Card Payments';
+COMMENT ON COLUMN public.res_config_settings.pos_sales_price IS 'Multiple Product Prices';
+COMMENT ON COLUMN public.res_config_settings.pos_pricelist_setting IS 'POS Pricelists';
+

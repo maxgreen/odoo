@@ -41,6 +41,7 @@ var AppsMenu = Widget.extend({
      * Open the first app in the list of apps
      */
     openFirstApp: function () {
+        console.log('openFirstApp: function ()');
         if (!this._apps.length) {
             return
         }
@@ -57,6 +58,7 @@ var AppsMenu = Widget.extend({
      * @param {Object} app
      */
     _openApp: function (app) {
+        console.warn("_openApp: function (app)",app);
         this._setActiveApp(app);
         this.trigger_up('app_clicked', {
             action_id: app.actionID,
@@ -85,6 +87,7 @@ var AppsMenu = Widget.extend({
      * @param {MouseEvent} ev
      */
     _onAppsMenuItemClicked: function (ev) {
+        console.warn("_onAppsMenuItemClicked: function (ev)");
         var $target = $(ev.currentTarget);
         var actionID = $target.data('action-id');
         var menuID = $target.data('menu-id');

@@ -1,0 +1,17 @@
+
+"语句: UPDATE ""res_users"" SET ""signature""='<p><br></p>',""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: 
+                INSERT INTO res_groups_users_rel (uid, gid)
+                VALUES (3, 3)
+                ON CONFLICT DO NOTHING
+            ",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""write_uid""=2,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: 
+                INSERT INTO res_groups_users_rel (uid, gid)
+                VALUES (3, 2)
+                ON CONFLICT DO NOTHING
+            ",,,,,,,,,""
+"语句: UPDATE ""res_users"" SET ""share""=false,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (3)",,,,,,,,,""
+"语句: UPDATE ""res_partner"" SET ""partner_share""=true,""write_uid""=1,""write_date""=(now() at time zone 'UTC') WHERE id IN (5)",,,,,,,,,""

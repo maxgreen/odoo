@@ -101,6 +101,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         this.set('title_part', {"zopenerp": "Odoo"});
     },
     start: function () {
+        console.log('AbstractWebClient start()');
         var self = this;
 
         // we add the o_touch_device css class to allow CSS to target touch
@@ -229,6 +230,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         });
     },
     set_loading: function () {
+        console.log('set_loading: function ()');
         this.loading = new Loading(this);
         return this.loading.appendTo(this.$el);
     },
@@ -414,6 +416,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
      * @param {function} event.data.on_success
      */
     _onLoadAction: function (event) {
+        console.warn(" _onLoadAction: function (event)");
         data_manager
             .load_action(event.data.actionID, event.data.context)
             .then(event.data.on_success);
