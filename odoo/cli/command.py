@@ -9,6 +9,7 @@ from odoo.modules import get_modules, get_module_path
 
 commands = {}
 
+# 得到所有继承CommandType的初始化后填充到commands数组中
 class CommandType(type):
     def __init__(cls, name, bases, attrs):
         super(CommandType, cls).__init__(name, bases, attrs)
