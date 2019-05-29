@@ -26,9 +26,9 @@ var ServiceProviderMixin = {
             self.UndeployedServices[serviceName] = Service;
         });
         this._deployServices();
-
         // listen on newly added services
         core.serviceRegistry.onAdd(function (serviceName, Service) {
+            console.debug("ServiceProviderMixin serviceRegistry onAdd",serviceName, Service);
             if (serviceName in self.services || serviceName in self.UndeployedServices) {
                 throw new Error('Service "' + serviceName + '" is already loaded.');
             }
@@ -55,6 +55,7 @@ var ServiceProviderMixin = {
                 });
             });
             if (serviceName) {
+                console.debug("ServiceProviderMixin _deployServices",serviceName);
                 var service = new this.UndeployedServices[serviceName](this);
                 this.services[serviceName] = service;
                 delete this.UndeployedServices[serviceName];
@@ -111,7 +112,7 @@ var ServicesMixin = {
      * @return {any} result of the service called
      */
     call: function (service, method) {
-        console.log("ServicesMixin call",service,method);
+        console.debug("ServicesMixin call",service,method);
         var args = Array.prototype.slice.call(arguments, 2);
         var result;
         this.trigger_up('call_service', {
@@ -133,7 +134,7 @@ var ServicesMixin = {
      * @returns {Promise}
      */
     _rpc: function (params, options) {
-        console.log("ServicesMixin _rpc",params,options);
+        console.debug("ServicesMixin _rpc",params,options);
         var query = rpc.buildQuery(params);
         var def = this.call('ajax', 'rpc', query.route, query.params, options, this) || $.Deferred();
         var promise = def.promise();
@@ -142,13 +143,13 @@ var ServicesMixin = {
         return promise;
     },
     loadFieldView: function (dataset, view_id, view_type, options) {
-        console.log("ServicesMixin loadFieldView",dataset, view_id, view_type, options);
+        console.debug("ServicesMixin loadFieldView",dataset, view_id, view_type, options);
         return this.loadViews(dataset.model, dataset.get_context().eval(), [[view_id, view_type]], options).then(function (result) {
             return result[view_type];
         });
     },
     loadViews: function (modelName, context, views, options) {
-        console.log("ServicesMixin loadViews",modelName, context, views, options);
+        console.debug("ServicesMixin loadViews",modelName, context, views, options);
         var def = $.Deferred();
         this.trigger_up('load_views', {
             modelName: modelName,
@@ -160,7 +161,7 @@ var ServicesMixin = {
         return def;
     },
     loadFilters: function (dataset, action_id) {
-        console.log("ServicesMixin loadFilters",dataset, action_id);
+        console.debug("ServicesMixin loadFilters",dataset, action_id);
         var def = $.Deferred();
         this.trigger_up('load_filters', {
             dataset: dataset,
@@ -190,7 +191,7 @@ var ServicesMixin = {
      * @returns {Deferred}
      */
     do_action: function (action, options) {
-        console.log("ServicesMixin do_action",action, options);
+        console.debug("ServicesMixin do_action",action, options);
         var def = $.Deferred();
 
         this.trigger_up('do_action', {
@@ -202,9 +203,11 @@ var ServicesMixin = {
         return def;
     },
     do_notify: function (title, message, sticky, className) {
+        console.debug("ServicesMixin do_notify",title, message, sticky, className);
         return this.call('notification', 'notify', {title: title, message: message, sticky: sticky, className: className});
     },
     do_warn: function (title, message, sticky, className) {
+        console.debug("ServicesMixin do_warn",title, message, sticky, className);
         return this.call('notification', 'notify', {type: 'warning', title: title, message: message, sticky: sticky, className: className});
     },
 };
