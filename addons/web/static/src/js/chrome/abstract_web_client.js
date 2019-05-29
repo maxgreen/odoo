@@ -73,6 +73,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
             }
         },
         do_action: function (event) {
+            console.debug("abstract_web_client.js do_action(event)",event);
             this.do_action(event.data.action, event.data.options || {}).then(function (result) {
                 if (event.data.on_success) {
                     event.data.on_success(result);
@@ -288,6 +289,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
      * This allows to widgets that are not inside the ActionManager to perform do_action
      */
     do_action: function () {
+        console.debug("abstract_web_client.js do_action()");
         return this.action_manager.doAction.apply(this.action_manager, arguments);
     },
     do_reload: function () {

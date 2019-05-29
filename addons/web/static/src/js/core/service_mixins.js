@@ -112,7 +112,7 @@ var ServicesMixin = {
      * @return {any} result of the service called
      */
     call: function (service, method) {
-        console.debug("ServicesMixin call",service,method);
+        console.debug("ServicesMixin call()",service,method);
         var args = Array.prototype.slice.call(arguments, 2);
         var result;
         this.trigger_up('call_service', {

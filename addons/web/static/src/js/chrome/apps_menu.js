@@ -58,7 +58,7 @@ var AppsMenu = Widget.extend({
      * @param {Object} app
      */
     _openApp: function (app) {
-        console.warn("_openApp: function (app)",app);
+        console.debug("_openApp: function (app)",app);
         this._setActiveApp(app);
         this.trigger_up('app_clicked', {
             action_id: app.actionID,

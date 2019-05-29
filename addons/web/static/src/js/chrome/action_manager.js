@@ -142,6 +142,7 @@ var ActionManager = Widget.extend({
      *   before this one was complete).
      */
     doAction: function (action, options) {
+        console.debug("action_manager.js doAction ",action,options);
         var self = this;
         options = _.defaults({}, options, {
             additional_context: {},

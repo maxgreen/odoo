@@ -218,6 +218,7 @@ var Discuss = AbstractAction.extend(ControlPanelMixin, {
      * @override
      */
     willStart: function () {
+        console.debug("discuss.js willStart()");
         var self = this;
         var viewID = this.action &&
                         this.action.search_view_id &&

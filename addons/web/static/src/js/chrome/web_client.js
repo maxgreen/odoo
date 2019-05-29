@@ -183,7 +183,7 @@ odoo.define('web.WebClient', function (require) {
         // Menu handling
         // --------------------------------------------------------------
         on_app_clicked: function (ev) {
-            console.warn("on_app_clicked: function (ev)", ev);
+            console.debug("on_app_clicked: function (ev)", ev);
             var self = this;
             return this.menu_dm.add(data_manager.load_action(ev.data.action_id))
                 .then(function (result) {
@@ -244,6 +244,7 @@ odoo.define('web.WebClient', function (require) {
          * @returns {Deferred}
          */
         _openMenu: function (action, options) {
+            console.debug("web_client _openMenu:",action,options);
             return this.do_action(action, options);
         },
 

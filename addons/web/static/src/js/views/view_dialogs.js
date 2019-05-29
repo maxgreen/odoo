@@ -175,6 +175,7 @@ var FormViewDialog = ViewDialog.extend({
      * @returns {FormViewDialog} this instance
      */
     open: function () {
+        console.debug("view_dialogs.js open()");
         var self = this;
         var _super = this._super.bind(this);
         var FormView = view_registry.get('form');

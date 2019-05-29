@@ -566,6 +566,7 @@ var BasicRenderer = AbstractRenderer.extend({
      * @returns {jQueryElement}
      */
     _renderFieldWidget: function (node, record, options) {
+        console.debug("basic_renderer.js _renderFieldWidget",node, record, options);
         options = options || {};
         var fieldName = node.attrs.name;
         // Register the node-associated modifiers
@@ -660,6 +661,7 @@ var BasicRenderer = AbstractRenderer.extend({
      * @returns {jQueryElement}
      */
     _renderWidget: function (record, node) {
+        console.debug("basic_renderer.js _renderWidget",record, node);
         var Widget = widgetRegistry.get(node.attrs.name);
         var widget = new Widget(this, record, node);
 

@@ -160,7 +160,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {jQuery} target
      */
     appendTo: function (target) {
-        console.log('appendTo: function (target) ');
+        console.debug('widget.js appendTo: function (target) ',target);
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
             self.$el.appendTo(t);
@@ -390,6 +390,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Deferred}
      */
     _widgetRenderAndInsert: function (insertion, target) {
+        console.debug("widget.js _widgetRenderAndInsert",insertion,target);
         var self = this;
         return this.willStart().then(function () {
             if (self.__parentedDestroyed) {
