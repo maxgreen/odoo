@@ -133,6 +133,7 @@ var ServicesMixin = {
      * @returns {Promise}
      */
     _rpc: function (params, options) {
+        console.log("ServicesMixin _rpc",params,options);
         var query = rpc.buildQuery(params);
         var def = this.call('ajax', 'rpc', query.route, query.params, options, this) || $.Deferred();
         var promise = def.promise();
@@ -141,11 +142,13 @@ var ServicesMixin = {
         return promise;
     },
     loadFieldView: function (dataset, view_id, view_type, options) {
+        console.log("ServicesMixin loadFieldView",dataset, view_id, view_type, options);
         return this.loadViews(dataset.model, dataset.get_context().eval(), [[view_id, view_type]], options).then(function (result) {
             return result[view_type];
         });
     },
     loadViews: function (modelName, context, views, options) {
+        console.log("ServicesMixin loadViews",modelName, context, views, options);
         var def = $.Deferred();
         this.trigger_up('load_views', {
             modelName: modelName,
@@ -157,6 +160,7 @@ var ServicesMixin = {
         return def;
     },
     loadFilters: function (dataset, action_id) {
+        console.log("ServicesMixin loadFilters",dataset, action_id);
         var def = $.Deferred();
         this.trigger_up('load_filters', {
             dataset: dataset,
@@ -186,6 +190,7 @@ var ServicesMixin = {
      * @returns {Deferred}
      */
     do_action: function (action, options) {
+        console.log("ServicesMixin do_action",action, options);
         var def = $.Deferred();
 
         this.trigger_up('do_action', {

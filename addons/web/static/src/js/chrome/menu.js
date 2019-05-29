@@ -196,6 +196,7 @@ var Menu = Widget.extend({
      * Open the first app
      */
     openFirstApp: function () {
+        console.log('menu.js openFirstApp: function ()');
         this._appsMenu.openFirstApp();
     },
 

@@ -36,7 +36,7 @@ return core.Class.extend({
      * @return {Deferred} resolved with the action whose id or xmlid is action_id
      */
     load_action: function (action_id, additional_context) {
-        console.warn(" load_action:",action_id," adfadf ",additional_context);
+        console.warn(" load_action:",action_id,additional_context);
         var self = this;
         var key = this._gen_key(action_id, additional_context || {});
 

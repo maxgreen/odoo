@@ -87,11 +87,11 @@ var AppsMenu = Widget.extend({
      * @param {MouseEvent} ev
      */
     _onAppsMenuItemClicked: function (ev) {
-        console.warn("_onAppsMenuItemClicked: function (ev)");
         var $target = $(ev.currentTarget);
         var actionID = $target.data('action-id');
         var menuID = $target.data('menu-id');
         var app = _.findWhere(this._apps, { actionID: actionID, menuID: menuID });
+        console.warn("_onAppsMenuItemClicked: function (ev)",this._apps,   actionID,  menuID );
         this._openApp(app);
     },
 
