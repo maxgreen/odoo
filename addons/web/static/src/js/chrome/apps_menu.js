@@ -15,6 +15,7 @@ var AppsMenu = Widget.extend({
      * @param {Object[]} menuData.children
      */
     init: function (parent, menuData) {
+        console.debug("AppsMenu init",parent,menuData);
         this._super.apply(this, arguments);
         this._activeApp = undefined;
         this._apps = _.map(menuData.children, function (appMenuData) {

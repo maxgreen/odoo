@@ -81,7 +81,7 @@ odoo.define('web.WebClient', function (require) {
                 });
         },
         show_application: function () {
-            console.debug('WebClient show_application: function ()');
+            console.debug('WebClient show_application: function () start');
             var self = this;
             this.set_title();
             //构建顶部右上角的菜单

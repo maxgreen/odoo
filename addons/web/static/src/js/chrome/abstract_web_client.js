@@ -230,6 +230,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         this.action_manager = new ActionManager(this, session.user_context);
         var fragment = document.createDocumentFragment();
         return this.action_manager.appendTo(fragment).then(function () {
+            console.debug("this.action_manager.appendTo(fragment) end");
             dom.append(self.$('.o_main_content'), fragment, {
                 in_DOM: true,
                 callbacks: [{widget: self.action_manager}],

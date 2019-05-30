@@ -93,7 +93,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      *   current instance will be destroyed too. Can be null.
      */
     init: function (parent) {
-        console.debug("widget init",this);
+        console.debug("Widget init()",parent);
         mixins.PropertiesMixin.init.call(this);
         this.setParent(parent);
         // Bind on_/do_* methods to this
@@ -116,12 +116,14 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Deferred}
      */
     willStart: function () {
+        console.debug('willStart start');
         if (this.xmlDependencies) {
             var defs = _.map(this.xmlDependencies, function (xmlPath) {
                 return ajax.loadXML(xmlPath, core.qweb);
             });
             return $.when.apply($, defs);
         }
+        console.debug('willStart end');
         return $.when();
     },
     /**
@@ -164,6 +166,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
         console.debug('widget.js appendTo: function (target) ',target);
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
+            console.debug('_widgetRenderAndInsert() end');
             self.$el.appendTo(t);
         }, target);
     },
@@ -392,9 +395,10 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Deferred}
      */
     _widgetRenderAndInsert: function (insertion, target) {
-        console.debug("widget.js _widgetRenderAndInsert",insertion,target);
+        console.debug("widget.js _widgetRenderAndInsert start",insertion,target);
         var self = this;
         return this.willStart().then(function () {
+            console.debug('willStart end');
             if (self.__parentedDestroyed) {
                 return;
             }
