@@ -10,6 +10,7 @@ var ServiceProviderMixin = {
      * @override
      */
     init: function (parent) {
+        console.log('ServiceProviderMixin init: function (parent)');
         var self = this;
         // to properly instantiate services with this as parent, this mixin
         // assumes that it is used along the EventDispatcherMixin, and that
@@ -45,6 +46,7 @@ var ServiceProviderMixin = {
      * @private
      */
     _deployServices: function () {
+        console.log("ServiceProviderMixin _deployServices: function ()");
         var self = this;
         var done = false;
         while (!done) {
@@ -80,6 +82,7 @@ var ServiceProviderMixin = {
      * @param  {OdooEvent} event
      */
     _call_service: function (event) {
+        console.log("ServiceProviderMixin _call_service: function (event)",event);
         var args = event.data.args || [];
         if (event.data.service === 'ajax' && event.data.method === 'rpc') {
             // ajax service uses an extra 'target' argument for rpc
@@ -133,6 +136,7 @@ var ServicesMixin = {
      * @returns {Promise}
      */
     _rpc: function (params, options) {
+        console.log("ServicesMixin _rpc: function (params, options) ",params,options);
         var query = rpc.buildQuery(params);
         var def = this.call('ajax', 'rpc', query.route, query.params, options, this) || $.Deferred();
         var promise = def.promise();
@@ -141,11 +145,13 @@ var ServicesMixin = {
         return promise;
     },
     loadFieldView: function (dataset, view_id, view_type, options) {
+        console.log("ServicesMixin loadFieldView: function (dataset, view_id, view_type, options)",dataset,view_id,view_type,options);
         return this.loadViews(dataset.model, dataset.get_context().eval(), [[view_id, view_type]], options).then(function (result) {
             return result[view_type];
         });
     },
     loadViews: function (modelName, context, views, options) {
+        console.log("ServicesMixin loadViews: function (modelName, context, views, options)",modelName,context,views,options);
         var def = $.Deferred();
         this.trigger_up('load_views', {
             modelName: modelName,
@@ -157,6 +163,7 @@ var ServicesMixin = {
         return def;
     },
     loadFilters: function (dataset, action_id) {
+        console.log("ServicesMixin loadFilters: function (dataset, action_id) ",dataset,action_id);
         var def = $.Deferred();
         this.trigger_up('load_filters', {
             dataset: dataset,
@@ -167,6 +174,7 @@ var ServicesMixin = {
     },
     // Session stuff
     getSession: function () {
+        console.log("ServicesMixin  getSession: function () ");
         var session;
         this.trigger_up('get_session', {
             callback: function (result) {
@@ -186,6 +194,7 @@ var ServicesMixin = {
      * @returns {Deferred}
      */
     do_action: function (action, options) {
+        console.log("ServicesMixin do_action: function (action, options) ",action,options);
         var def = $.Deferred();
 
         this.trigger_up('do_action', {
@@ -197,9 +206,11 @@ var ServicesMixin = {
         return def;
     },
     do_notify: function (title, message, sticky, className) {
+        console.log("ServicesMixin do_notify: function (title, message, sticky, className)",title,message, sticky, className);
         return this.call('notification', 'notify', {title: title, message: message, sticky: sticky, className: className});
     },
     do_warn: function (title, message, sticky, className) {
+        console.log("ServicesMixin do_warn: function (title, message, sticky, className) ",title, message, sticky, className);
         return this.call('notification', 'notify', {type: 'warning', title: title, message: message, sticky: sticky, className: className});
     },
 };
