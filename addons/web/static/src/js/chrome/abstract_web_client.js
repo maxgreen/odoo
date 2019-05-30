@@ -49,6 +49,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         warning: '_onDisplayWarning',
         load_action: '_onLoadAction',
         load_views: function (event) {
+            console.debug('AbstractWebClient load_views',event);
             var params = {
                 model: event.data.modelName,
                 context: event.data.context,
@@ -59,6 +60,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
                 .then(event.data.on_success);
         },
         load_filters: function (event) {
+            console.debug('AbstractWebClient load_filters',event);
             return data_manager
                 .load_filters(event.data.dataset, event.data.action_id)
                 .then(event.data.on_success);
@@ -102,7 +104,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         this.set('title_part', {"zopenerp": "Odoo"});
     },
     start: function () {
-        console.log('AbstractWebClient start()');
+        console.log('AbstractWebClient start() start');
         var self = this;
 
         // we add the o_touch_device css class to allow CSS to target touch
@@ -119,9 +121,11 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
                 self.bind_events();
                 return $.when(
                     self.set_action_manager(),
+                    console.debug("self.set_loading() start"),
                     self.set_loading()
                 );
             }).then(function () {
+                console.debug("self.set_loading() end");
                 if (session.session_is_valid()) {
                     return self.show_application();
                 } else {
@@ -137,6 +141,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
                 if (session.uid === 1) {
                     self.$el.addClass('o_is_superuser');
                 }
+                console.log('AbstractWebClient start() end');
             });
     },
 
@@ -220,6 +225,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         };
     },
     set_action_manager: function () {
+        console.debug("abstract_web_client.js set_action_manager() ");
         var self = this;
         this.action_manager = new ActionManager(this, session.user_context);
         var fragment = document.createDocumentFragment();
@@ -231,7 +237,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         });
     },
     set_loading: function () {
-        console.log('set_loading: function ()');
+        console.debug('abstract_web_client.js set_loading()');
         this.loading = new Loading(this);
         return this.loading.appendTo(this.$el);
     },
@@ -418,7 +424,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
      * @param {function} event.data.on_success
      */
     _onLoadAction: function (event) {
-        console.warn(" _onLoadAction: function (event)");
+        console.debug(" _onLoadAction: function (event)",event);
         data_manager
             .load_action(event.data.actionID, event.data.context)
             .then(event.data.on_success);

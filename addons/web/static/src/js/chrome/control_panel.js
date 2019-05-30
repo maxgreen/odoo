@@ -74,6 +74,7 @@ var ControlPanel = Widget.extend({
      * By default, the template 'ControlPanel' will be used
      */
     init: function(parent, template) {
+        console.debug("ControlPanel init()");
         this._super(parent);
         if (template) {
             this.template = template;
@@ -90,6 +91,7 @@ var ControlPanel = Widget.extend({
      * @return {jQuery.Deferred}
      */
     start: function() {
+        console.debug("ControlPanel start()");
         // Exposed jQuery nodesets
         this.nodes = {
             $buttons: this.$('.o_cp_buttons'),

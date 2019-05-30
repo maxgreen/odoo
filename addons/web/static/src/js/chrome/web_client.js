@@ -15,7 +15,7 @@ odoo.define('web.WebClient', function (require) {
             menu_clicked: 'on_menu_clicked',
         }),
         start: function () {
-            console.log('web.WebClient start()');
+            console.log('WebClient start()');
             core.bus.on('change_menu_section', this, function (menuID) {
                 this.do_push_state(_.extend($.bbq.getState(), {
                     menu_id: menuID,
@@ -56,7 +56,7 @@ odoo.define('web.WebClient', function (require) {
             });
         },
         load_menus: function () {
-            console.log('load_menus: function () ');
+            console.debug('WebClient load_menus: function () ');
             return this._rpc({
                 model: 'ir.ui.menu',
                 method: 'load_menus',
@@ -81,11 +81,12 @@ odoo.define('web.WebClient', function (require) {
                 });
         },
         show_application: function () {
-            console.log('show_application: function ()');
+            console.debug('WebClient show_application: function ()');
             var self = this;
             this.set_title();
-
+            //构建顶部右上角的菜单
             return this.instanciate_menu_widgets().then(function () {
+                console.debug("instanciate_menu_widgets end");
                 $(window).bind('hashchange', self.on_hashchange);
 
                 // If the url's state is empty, we execute the user's home action if there is one (we
@@ -114,9 +115,11 @@ odoo.define('web.WebClient', function (require) {
         },
 
         instanciate_menu_widgets: function () {
+            console.debug('WebClient instanciate_menu_widgets: function ()');
             var self = this;
             var defs = [];
             return this.load_menus().then(function (menuData) {
+                console.debug("load_menus end");
                 self.menu_data = menuData;
 
                 // Here, we instanciate every menu widgets and we immediately append them into dummy
@@ -135,7 +138,7 @@ odoo.define('web.WebClient', function (require) {
         // URL state handling
         // --------------------------------------------------------------
         on_hashchange: function (event) {
-            console.log(' on_hashchange: function (event)', event);
+            console.debug('WebClient on_hashchange: function (event)', event);
             if (this._ignore_hashchange) {
                 this._ignore_hashchange = false;
                 return $.when();
@@ -183,7 +186,7 @@ odoo.define('web.WebClient', function (require) {
         // Menu handling
         // --------------------------------------------------------------
         on_app_clicked: function (ev) {
-            console.debug("on_app_clicked: function (ev)", ev);
+            console.debug("WebClient on_app_clicked: function (ev)", ev);
             var self = this;
             return this.menu_dm.add(data_manager.load_action(ev.data.action_id))
                 .then(function (result) {
@@ -208,11 +211,12 @@ odoo.define('web.WebClient', function (require) {
                 });
         },
         _on_app_clicked_done: function (ev) {
+            console.debug("WebClient _on_app_clicked_done: function (ev)", ev);
             core.bus.trigger('change_menu_section', ev.data.menu_id);
             return $.Deferred().resolve();
         },
         on_menu_clicked: function (ev) {
-
+            console.debug("WebClient on_menu_clicked: function (ev)", ev);
             var self = this;
             return this.menu_dm.add(data_manager.load_action(ev.data.action_id))
                 .then(function (result) {
@@ -244,7 +248,7 @@ odoo.define('web.WebClient', function (require) {
          * @returns {Deferred}
          */
         _openMenu: function (action, options) {
-            console.debug("web_client _openMenu:",action,options);
+            console.debug("WebClient _openMenu:",action,options);
             return this.do_action(action, options);
         },
 

@@ -36,7 +36,7 @@ return core.Class.extend({
      * @return {Deferred} resolved with the action whose id or xmlid is action_id
      */
     load_action: function (action_id, additional_context) {
-        console.debug(" load_action:",action_id,additional_context);
+        console.debug("DataManager load_action:",action_id,additional_context);
         var self = this;
         var key = this._gen_key(action_id, additional_context || {});
 
@@ -73,6 +73,7 @@ return core.Class.extend({
      * @return {Deferred} resolved with the requested views information
      */
     load_views: function (params, options) {
+        console.debug("DataManager load_views",params,options);
         var self = this;
 
         var model = params.model;
@@ -132,6 +133,7 @@ return core.Class.extend({
      * @return {Deferred} resolved with the requested filters
      */
     load_filters: function (dataset, action_id) {
+        console.debug("DataManager load_filters",dataset,action_id);
         var key = this._gen_key(dataset.model, action_id);
         if (!this._cache.filters[key]) {
             this._cache.filters[key] = rpc.query({

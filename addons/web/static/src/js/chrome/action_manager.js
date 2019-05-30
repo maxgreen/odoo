@@ -37,6 +37,7 @@ var ActionManager = Widget.extend({
      * @param {Object} [userContext={}]
      */
     init: function (parent, userContext) {
+        console.debug("ActionManager init()");
         this._super.apply(this, arguments);
         this.userContext = userContext || {};
 
@@ -69,6 +70,7 @@ var ActionManager = Widget.extend({
     start: function () {
         // AAB: temporarily instantiate a unique main ControlPanel used by
         // controllers in the controllerStack
+        console.debug("ActionManager start()",this.$el);
         this.controlPanel = new ControlPanel(this);
         var def = this.controlPanel.insertBefore(this.$el);
 
@@ -880,6 +882,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred<Object>} resolved with the controller when it is ready
      */
     _startController: function (controller) {
+        console.debug("action_manager.js _startController",controller);
         var self = this;
         var fragment = document.createDocumentFragment();
         // AAB: change this logic to stop using the properties mixin

@@ -93,6 +93,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      *   current instance will be destroyed too. Can be null.
      */
     init: function (parent) {
+        console.debug("widget init",this);
         mixins.PropertiesMixin.init.call(this);
         this.setParent(parent);
         // Bind on_/do_* methods to this
@@ -242,6 +243,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * the "widget" key that references `this`.
      */
     renderElement: function () {
+        console.debug("widget.js renderElement() = ",this.template);
         var $el;
         if (this.template) {
             $el = $(core.qweb.render(this.template, {widget: this}).trim());
