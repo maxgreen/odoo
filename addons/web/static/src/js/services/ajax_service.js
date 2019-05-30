@@ -7,6 +7,7 @@ var session = require('web.session');
 
 var AjaxService = AbstractService.extend({
     rpc: function (route, args, options, target) {
+        console.debug("ajax_service.js AjaxService rpc()",route, args, options, target);
         var def = $.Deferred();
         var promise = def.promise();
         var xhrDef = session.rpc(route, args, options);
