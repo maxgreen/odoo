@@ -46,7 +46,6 @@ var ServiceProviderMixin = {
      * @private
      */
     _deployServices: function () {
-        console.log("ServiceProviderMixin _deployServices: function ()");
         var self = this;
         var done = false;
         while (!done) {
@@ -57,9 +56,11 @@ var ServiceProviderMixin = {
                 });
             });
             if (serviceName) {
+                console.log("ServiceProviderMixin _deployServices():serviceName=",serviceName);
                 var service = new this.UndeployedServices[serviceName](this);
                 this.services[serviceName] = service;
                 delete this.UndeployedServices[serviceName];
+                console.log("ServiceProviderMixin _deployServices():serviceName=",serviceName," start() ");
                 service.start();
             } else {
                 done = true;
@@ -82,7 +83,7 @@ var ServiceProviderMixin = {
      * @param  {OdooEvent} event
      */
     _call_service: function (event) {
-        console.log("ServiceProviderMixin _call_service: function (event)",event);
+        console.log("ServiceProviderMixin _call_service",event);
         var args = event.data.args || [];
         if (event.data.service === 'ajax' && event.data.method === 'rpc') {
             // ajax service uses an extra 'target' argument for rpc
@@ -151,7 +152,7 @@ var ServicesMixin = {
         });
     },
     loadViews: function (modelName, context, views, options) {
-        console.log("ServicesMixin loadViews: function (modelName, context, views, options)",modelName,context,views,options);
+        console.log("ServicesMixin loadViews\n)",modelName,context,views,options);
         var def = $.Deferred();
         this.trigger_up('load_views', {
             modelName: modelName,

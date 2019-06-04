@@ -14,6 +14,7 @@ return {
      * @returns {Deferred<any>}
      */
     query: function (params, options) {
+        console.debug("rpc.js query",params, options);
         var query = this.buildQuery(params);
         return ajax.rpc(query.route, query.params, options);
     },
@@ -35,6 +36,7 @@ return {
      * @returns {Object} with 2 keys: route and params
      */
     buildQuery: function (options) {
+        console.debug("rpc.js buildQuery", options);
         var route;
         var params = options.params || {};
         if (options.route) {

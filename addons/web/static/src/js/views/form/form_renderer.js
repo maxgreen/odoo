@@ -28,6 +28,7 @@ var FormRenderer = BasicRenderer.extend({
      * @override
      */
     init: function () {
+        console.debug("form_renderer.js init",arguments);
         this._super.apply(this, arguments);
         this.idsForLabels = {};
         this.lastActivatedFieldIndex = -1;
@@ -37,6 +38,7 @@ var FormRenderer = BasicRenderer.extend({
      * @override
      */
     start: function () {
+        console.debug("form_renderer.js start",arguments);
         if (config.device.size_class <= config.device.SIZES.XS) {
             this.$el.addClass('o_xxs_form_view');
         }

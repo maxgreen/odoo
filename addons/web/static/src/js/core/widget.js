@@ -139,6 +139,8 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Deferred}
      */
     start: function () {
+        console.debug('Widget start()');
+        console.debug('Widget this.template',this.template);
         return $.when();
     },
     /**
@@ -166,7 +168,6 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
         console.debug('widget.js appendTo: function (target) ',target);
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
-            console.debug('_widgetRenderAndInsert() end');
             self.$el.appendTo(t);
         }, target);
     },
@@ -176,6 +177,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {jQuery} target
      */
     attachTo: function (target) {
+        console.debug('widget.js attachTo: target= ',target);
         var self = this;
         this.setElement(target.$el || target);
         return this.willStart().then(function () {
@@ -199,6 +201,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {boolean} [display] use true to show the widget or false to hide it
      */
     do_toggle: function (display) {
+        console.debug("widget.js do_toggle");
         if (_.isBoolean(display)) {
             display ? this.do_show() : this.do_hide();
         } else {
@@ -212,6 +215,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {jQuery} target
      */
     insertAfter: function (target) {
+        console.debug("widget.js insertAfter target = ",target);
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
             self.$el.insertAfter(t);
@@ -224,6 +228,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {jQuery} target
      */
     insertBefore: function (target) {
+        console.debug("widget.js insertBefore target = ",target);
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
             self.$el.insertBefore(t);
@@ -235,6 +240,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param {jQuery} target
      */
     prependTo: function (target) {
+        console.debug("widget.js prependTo target = ",target);
         var self = this;
         return this._widgetRenderAndInsert(function (t) {
             self.$el.prependTo(t);
@@ -261,6 +267,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @param target A jQuery object or a Widget instance.
      */
     replace: function (target) {
+        console.debug("widget.js replace target = ",target);
         return this._widgetRenderAndInsert(_.bind(function (t) {
             this.$el.replaceAll(t);
         }, this), target);
@@ -279,13 +286,14 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @return {Widget} this
      */
     setElement: function (element) {
+
         if (this.$el) {
             this._undelegateEvents();
         }
 
         this.$el = (element instanceof $) ? element : $(element);
         this.el = this.$el[0];
-
+        console.debug("widget setElement el=\n",this.$el);
         this._delegateEvents();
 
         return this;
@@ -364,6 +372,7 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Widget} this instance, so it can be chained
      */
     _replaceElement: function ($el) {
+
         var $oldel = this.$el;
         this.setElement($el);
         if ($oldel && !$oldel.is(this.$el)) {
@@ -395,10 +404,10 @@ var Widget = core.Class.extend(mixins.PropertiesMixin, ServicesMixin, {
      * @returns {Deferred}
      */
     _widgetRenderAndInsert: function (insertion, target) {
-        console.debug("widget.js _widgetRenderAndInsert start",insertion,target);
+        console.debug("widget.js _widgetRenderAndInsert start target=",target);
         var self = this;
         return this.willStart().then(function () {
-            console.debug('willStart end');
+            console.debug('willStart end2',this);
             if (self.__parentedDestroyed) {
                 return;
             }

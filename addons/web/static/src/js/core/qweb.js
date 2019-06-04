@@ -14,6 +14,7 @@ var _t = translation._t;
  *   template which is already translated by the server
  */
 function QWeb(debug, default_dict, enableTranslation) {
+    console.debug("QWeb()",debug, default_dict, enableTranslation);
     if (enableTranslation === undefined) {
         enableTranslation = true;
     }

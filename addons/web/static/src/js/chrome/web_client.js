@@ -17,6 +17,7 @@ odoo.define('web.WebClient', function (require) {
         start: function () {
             console.log('WebClient start()');
             core.bus.on('change_menu_section', this, function (menuID) {
+                console.debug(" change_menu_section ",menuID);
                 this.do_push_state(_.extend($.bbq.getState(), {
                     menu_id: menuID,
                 }));
@@ -77,6 +78,7 @@ odoo.define('web.WebClient', function (require) {
                             }
                         }
                     }
+                    console.debug("'WebClient load_menus end ",menuData);
                     return menuData;
                 });
         },
@@ -101,10 +103,11 @@ odoo.define('web.WebClient', function (require) {
                             var data = result[0];
                             if (data.action_id) {
                                 return self.do_action(data.action_id[0]).then(function () {
+                                    console.debug("self.do_action end",data.action_id[0]);
                                     self.menu.change_menu_section(self.menu.action_id_to_primary_menu_id(data.action_id[0]));
                                 });
                             } else {
-                                console.log('web_client.js show_application: function () openFirstApp()');
+                                console.log('web_client.js show_application: function () openFirstApp() start');
                                 self.menu.openFirstApp();
                             }
                         });
@@ -196,6 +199,7 @@ odoo.define('web.WebClient', function (require) {
                             clear_breadcrumbs: true,
                             action_menu_id: ev.data.menu_id,
                         });
+                        console.debug("on_app_clicked result= ",result);
                         $.when(self._openMenu(result, options)).fail(function () {
                             completed.resolve();
                         }).done(function () {

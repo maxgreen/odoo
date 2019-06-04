@@ -447,6 +447,7 @@ var loadXML = (function () {
     var seenURLs = [];
 
     return function (url, qweb) {
+        console.debug("ajax.js loadXML()",url);
         // If no argument, simply returns the deferred which indicates when
         // "all the calls" are finished
         if (!url || !qweb) {
@@ -486,6 +487,7 @@ var loadXML = (function () {
                 // There is something to load, load it, resolve the associated
                 // deferred then start loading the next one
                 var loadingData = loadingsData[0];
+                console.debug("ajax.js _load()",loadingData.url);
                 loadingData.qweb.add_template(loadingData.url, function () {
                     // Remove from array only now so that multiple calls to
                     // loadXML with the same URL returns the right deferred

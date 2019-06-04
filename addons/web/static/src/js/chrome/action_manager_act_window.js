@@ -279,6 +279,7 @@ ActionManager.include({
      * @returns {Deferred} resolved when the action is appended to the DOM
      */
     _executeWindowAction: function (action, options) {
+        console.debug("action_manager_act_windows.js _executeWindowAction");
         var self = this;
 
         if (action.context.active_id || action.context.active_ids) {
@@ -398,6 +399,7 @@ ActionManager.include({
      * @returns {Object}
      */
     _generateActionFlags: function (action) {
+        console.debug("action_manager_act_windows.js _generateActionFlags",action);
         var popup = action.target === 'new';
         var inline = action.target === 'inline';
         var form = action.views[0][1] === 'form';
@@ -470,6 +472,7 @@ ActionManager.include({
      * @private
      */
     _handleAction: function (action, options) {
+        console.debug("action_manager_act_windows.js _handleAction");
         if (action.type === 'ir.actions.act_window') {
             return this._executeWindowAction(action, options);
         }
@@ -483,6 +486,7 @@ ActionManager.include({
      * @returns {Deferred}
      */
     _loadViews: function (action) {
+        console.debug("action_manager_act_windows _loadViews",action);
         var options = {
             action_id: action.id,
             toolbar: action.flags.hasSidebar,
@@ -504,6 +508,7 @@ ActionManager.include({
      * @override
      */
     _preprocessAction: function (action, options) {
+        console.debug("action_manager_act_windows.js _preprocessAction",action, options);
         this._super.apply(this, arguments);
         if (action.type === 'ir.actions.act_window' && options.keepSearchView) {
             action._keepSearchView = true;

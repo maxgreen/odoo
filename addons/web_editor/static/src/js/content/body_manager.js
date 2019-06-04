@@ -40,6 +40,7 @@ var BodyManager = rootWidget.RootWidget.extend(ServiceProviderMixin, {
      * @override
      */
     _call_service: function (event) {
+        console.debug("body_manager.js _call_service",event);
         if (event.data.service === 'ajax' && event.data.method === 'rpc') {
             var route = event.data.args[0];
             if (_.str.startsWith(route, '/web/dataset/call_kw/')) {

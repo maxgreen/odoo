@@ -104,6 +104,7 @@ var KanbanRenderer = BasicRenderer.extend({
      *   quick create feature
      */
     init: function (parent, state, params) {
+        console.log("kanban_renderer.js init ",parent, state, params);
         this._super.apply(this, arguments);
 
         this.widgets = [];

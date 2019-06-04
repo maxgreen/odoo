@@ -26,6 +26,7 @@ var AppsMenu = Widget.extend({
                 xmlID: appMenuData.xmlid,
             };
         });
+         console.debug("AppsMenu init apps= ",this._apps);
     },
 
     //--------------------------------------------------------------------------

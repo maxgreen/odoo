@@ -29,6 +29,7 @@ var KanbanView = BasicView.extend({
      * @constructor
      */
     init: function (viewInfo, params) {
+        console.debug("kanban_view.js init",viewInfo, params);
         this._super.apply(this, arguments);
 
         this.loadParams.limit = this.loadParams.limit || 40;

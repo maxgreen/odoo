@@ -159,6 +159,7 @@ var ActionManager = Widget.extend({
         var def;
         if (_.isString(action) && core.action_registry.contains(action)) {
             // action is a tag of a client action
+            console.debug("doAction action1 = ",action);
             action = { type: 'ir.actions.client', tag: action };
         } else if (_.isNumber(action) || _.isString(action)) {
             // action is an id or xml id
@@ -168,9 +169,10 @@ var ActionManager = Widget.extend({
                 active_model: options.additional_context.active_model,
             }).then(function (result) {
                 action = result;
+                console.debug("doAction action2 = ",action);
             });
         }
-
+        console.debug("doAction def=",def);
         return this.dp.add($.when(def)).then(function () {
             // action.target 'main' is equivalent to 'current' except that it
             // also clears the breadcrumbs
@@ -326,6 +328,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred} resolved when the controller is started and appended
      */
     _executeAction: function (action, options) {
+        console.debug("action_manager _executeAction",action,options);
         var self = this;
         this.actions[action.jsID] = action;
 
@@ -384,6 +387,7 @@ var ActionManager = Widget.extend({
      *   dialog appended to the DOM
      */
     _executeActionInDialog: function (action, options) {
+        console.debug("action_manager _executeActionInDialog",action,options);
         var self = this;
         var controller = this.controllers[action.controllerID];
         var widget = controller.widget;
@@ -452,6 +456,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred} resolved when the client action has been executed
      */
     _executeClientAction: function (action, options) {
+        console.debug("action_manager _executeClientAction",action,options,"\n"+"core.action_registry=",core.action_registry);
         var self = this;
         var ClientAction = core.action_registry.get(action.tag);
         if (!ClientAction) {
@@ -464,6 +469,7 @@ var ActionManager = Widget.extend({
         if (!(ClientAction.prototype instanceof Widget)) {
             // the client action might be a function, which is executed and
             // whose returned value might be another action to execute
+            console.debug('The client action ' + action.tag + ' is not Widget ');
             var next = ClientAction(this, action);
             if (next) {
                 return this.doAction(next, options);
@@ -511,6 +517,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred} resolved immediately
      */
     _executeCloseAction: function (action, options) {
+        console.debug("action_manager _executeCloseAction",action,options);
         var result;
         if (!this.currentDialogController) {
             result = options.on_close(action.infos);
@@ -536,6 +543,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred} resolved when the action has been executed
      */
     _executeServerAction: function (action, options) {
+        console.debug("action_manager _executeServerAction",action,options);
         var self = this;
         var runDef = this._rpc({
             route: '/web/action/run',
@@ -563,6 +571,7 @@ var ActionManager = Widget.extend({
      *   when redirecting to a new page)
      */
     _executeURLAction: function (action, options) {
+        console.debug("action_manager _executeURLAction",action,options);
         var url = action.url;
         if (config.debug && url && url.length && url[0] === '/') {
             url = $.param.querystring(url, {debug: config.debug});
@@ -679,6 +688,7 @@ var ActionManager = Widget.extend({
      *   executed
      */
     _handleAction: function (action, options) {
+        console.debug("action_manager _handleAction",action,options);
         if (!action.type) {
             console.error("No type for action", action);
             return $.Deferred().reject();
@@ -882,7 +892,7 @@ var ActionManager = Widget.extend({
      * @returns {Deferred<Object>} resolved with the controller when it is ready
      */
     _startController: function (controller) {
-        console.debug("action_manager.js _startController",controller);
+        console.debug("action_manager.js _startController widget= ",controller.widget,"\n    ");
         var self = this;
         var fragment = document.createDocumentFragment();
         // AAB: change this logic to stop using the properties mixin
@@ -890,6 +900,7 @@ var ActionManager = Widget.extend({
             if (self.getCurrentController() !== controller) {
                 return;
             }
+            console.debug("action_manager.js _startController actions= ",self.actions);
             var action = self.actions[controller.actionID];
             if (!action.flags || !action.flags.headless) {
                 var breadcrumbs = self._getBreadcrumbs();

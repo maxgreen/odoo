@@ -69,6 +69,7 @@ var WebsiteNavbar = rootWidget.RootWidget.extend({
      * @returns {Deferred}
      */
     _handleAction: function (actionName, params, _i) {
+        console.debug("navbar.js _handleAction");
         var self = this;
         return this._whenReadyForActions().then(function () {
             var defs = [];
@@ -127,6 +128,7 @@ var WebsiteNavbar = rootWidget.RootWidget.extend({
      * that action.
      */
     _onActionDemand: function (ev) {
+        console.debug("navbar.js _onActionDemand");
         var def = this._handleAction(ev.data.actionName, ev.data.params);
         if (ev.data.onSuccess) {
             def.done(ev.data.onSuccess);

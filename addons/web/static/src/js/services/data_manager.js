@@ -48,6 +48,7 @@ return core.Class.extend({
                     additional_context : additional_context,
                 },
             }).then(function (action) {
+                console.debug("DataManager load_action action= ",action);
                 self._cache.actions[key] = action.no_cache ? null : self._cache.actions[key];
                 return action;
             }, this._invalidate.bind(this, this._cache.actions, key));

@@ -42,6 +42,7 @@ var CrossTabBus = Longpolling.extend({
      * @override
      */
     init: function () {
+        console.debug("CrossTabBus init");
         this._super.apply(this, arguments);
         var now = new Date().getTime();
         // used to prefix localStorage keys
@@ -222,7 +223,7 @@ var CrossTabBus = Longpolling.extend({
             this._callLocalStorage('setItem', 'lastPresence', this._lastPresenceTime);
         }
 
-        this._heartbeatTimeout = setTimeout(this._heartbeat, hbPeriod);
+        //ghj 方便调试,去掉心跳检测  this._heartbeatTimeout = setTimeout(this._heartbeat, hbPeriod);
     },
     /**
      * Check with the local storage if the current tab is the master tab.

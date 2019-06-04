@@ -91,6 +91,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         set_title_part: '_onSetTitlePart',
     },
     init: function (parent) {
+        console.log('AbstractWebClient init() start');
         // a flag to determine that odoo is fully loaded
         odoo.isReady = false;
         this.client_options = {};
@@ -102,6 +103,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
         this.menu_dm = new concurrency.DropMisordered();
         this.action_mutex = new concurrency.Mutex();
         this.set('title_part', {"zopenerp": "Odoo"});
+        console.log('AbstractWebClient init() end');
     },
     start: function () {
         console.log('AbstractWebClient start() start');
@@ -127,6 +129,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
             }).then(function () {
                 console.debug("self.set_loading() end");
                 if (session.session_is_valid()) {
+                    console.debug("self.show_application() start");
                     return self.show_application();
                 } else {
                     // database manager needs the webclient to keep going even
@@ -134,6 +137,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
                     return $.when();
                 }
             }).then(function () {
+                console.debug("self.show_application() end");
                 // Listen to 'scroll' event and propagate it on main bus
                 self.action_manager.$el.on('scroll', core.bus.trigger.bind(core.bus, 'scroll'));
                 core.bus.trigger('web_client_ready');
@@ -146,6 +150,7 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
     },
 
     bind_events: function () {
+        console.debug("abstract_web_client.js bind_events() start");
         var self = this;
         $('.oe_systray').show();
         this.$el.on('mouseenter', '.oe_systray > div:not([data-toggle=tooltip])', function () {
@@ -296,10 +301,11 @@ var AbstractWebClient = Widget.extend(ServiceProviderMixin, KeyboardNavigationMi
      * This allows to widgets that are not inside the ActionManager to perform do_action
      */
     do_action: function () {
-        console.debug("abstract_web_client.js do_action()");
+        console.debug("abstract_web_client.js do_action()",this.action_manager, arguments);
         return this.action_manager.doAction.apply(this.action_manager, arguments);
     },
     do_reload: function () {
+        console.debug("do_reload");
         var self = this;
         return session.session_reload().then(function () {
             session.load_modules(true).then(

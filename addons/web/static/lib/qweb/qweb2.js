@@ -26,7 +26,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // TODO: templates orverwritten could be called by t-call="__super__" ?
 // TODO: t-set + t-value + children node == scoped variable ?
 var QWeb2 = {
-    expressions_cache: { },
+    expressions_cache: {},
     RESERVED_WORDS: 'true,false,NaN,null,undefined,debugger,console,window,in,instanceof,new,function,return,this,typeof,eval,void,Math,RegExp,Array,Object,Date'.split(','),
     ACTIONS_PRECEDENCE: 'foreach,if,elif,else,call,set,tag,esc,raw,js,debug,log'.split(','),
     WORD_REPLACEMENT: {
@@ -39,7 +39,7 @@ var QWeb2 = {
     },
     VOID_ELEMENTS: 'area,base,br,col,embed,hr,img,input,keygen,link,menuitem,meta,param,source,track,wbr'.split(','),
     tools: {
-        exception: function(message, context) {
+        exception: function (message, context) {
             context = context || {};
             var prefix = 'QWeb2';
             if (context.template) {
@@ -47,12 +47,12 @@ var QWeb2 = {
             }
             throw new Error(prefix + ": " + message);
         },
-        warning : function(message) {
-            if (typeof(window) !== 'undefined' && window.console) {
+        warning: function (message) {
+            if (typeof (window) !== 'undefined' && window.console) {
                 window.console.warn(message);
             }
         },
-        trim: function(s, mode) {
+        trim: function (s, mode) {
             switch (mode) {
                 case "left":
                     return s.replace(/^\s*/, "");
@@ -62,10 +62,10 @@ var QWeb2 = {
                     return s.replace(/^\s*|\s*$/g, "");
             }
         },
-        js_escape: function(s, noquotes) {
+        js_escape: function (s, noquotes) {
             return (noquotes ? '' : "'") + s.replace(/\r?\n/g, "\\n").replace(/'/g, "\\'") + (noquotes ? '' : "'");
         },
-        html_escape: function(s, attribute) {
+        html_escape: function (s, attribute) {
             if (s == null) {
                 return '';
             }
@@ -75,7 +75,7 @@ var QWeb2 = {
             }
             return s;
         },
-        gen_attribute: function(o) {
+        gen_attribute: function (o) {
             if (o !== null && o !== undefined) {
                 if (o.constructor === Array) {
                     if (o[1] !== null && o[1] !== undefined) {
@@ -93,10 +93,10 @@ var QWeb2 = {
             }
             return '';
         },
-        format_attribute: function(name, value) {
+        format_attribute: function (name, value) {
             return ' ' + name + '="' + this.html_escape(value, true) + '"';
         },
-        extend: function(dst, src, exclude) {
+        extend: function (dst, src, exclude) {
             for (var p in src) {
                 if (src.hasOwnProperty(p) && !(exclude && this.arrayIndexOf(exclude, p) !== -1)) {
                     dst[p] = src[p];
@@ -104,7 +104,7 @@ var QWeb2 = {
             }
             return dst;
         },
-        arrayIndexOf : function(array, item) {
+        arrayIndexOf: function (array, item) {
             for (var i = 0, ilen = array.length; i < ilen; i++) {
                 if (array[i] === item) {
                     return i;
@@ -112,7 +112,7 @@ var QWeb2 = {
             }
             return -1;
         },
-        get_element_sibling: function(node, dom_attr) {
+        get_element_sibling: function (node, dom_attr) {
             // This helper keeps support for IE8 which does not
             // implement DOMNode.(previous|next)ElementSibling
             var sibling = node[dom_attr];
@@ -121,7 +121,7 @@ var QWeb2 = {
             }
             return sibling;
         },
-        xml_node_to_string : function(node, childs_only) {
+        xml_node_to_string: function (node, childs_only) {
             if (childs_only) {
                 var childs = node.childNodes, r = [];
                 for (var i = 0, ilen = childs.length; i < ilen; i++) {
@@ -136,16 +136,19 @@ var QWeb2 = {
                 if (typeof XMLSerializer !== 'undefined') {
                     return (new XMLSerializer()).serializeToString(node);
                 } else {
-                    switch(node.nodeType) {
-                    case 1: return node.outerHTML;
-                    case 4: return '<![CDATA[' + node.data + ']]>';
-                    case 8: return '<!-- ' + node.data + '-->';
+                    switch (node.nodeType) {
+                        case 1:
+                            return node.outerHTML;
+                        case 4:
+                            return '<![CDATA[' + node.data + ']]>';
+                        case 8:
+                            return '<!-- ' + node.data + '-->';
                     }
                     throw new Error('Unknown node type ' + node.nodeType);
                 }
             }
         },
-        call: function(context, template, old_dict, _import, callback) {
+        call: function (context, template, old_dict, _import, callback) {
             var new_dict = this.extend({}, old_dict);
             new_dict['__caller__'] = old_dict['__template__'];
             if (callback) {
@@ -153,7 +156,7 @@ var QWeb2 = {
             }
             return context.engine._render(template, new_dict);
         },
-        foreach: function(context, enu, as, old_dict, callback) {
+        foreach: function (context, enu, as, old_dict, callback) {
             if (enu != null) {
                 var index, jlen, cur;
                 var new_dict = this.extend({}, old_dict);
@@ -198,10 +201,10 @@ var QWeb2 = {
                             callback(context, new_dict);
                             index += 1;
                         }
-                      }
+                    }
                 }
 
-                _.each(Object.keys(old_dict), function(z) {
+                _.each(Object.keys(old_dict), function (z) {
                     old_dict[z] = new_dict[z];
                 });
             } else {
@@ -211,7 +214,7 @@ var QWeb2 = {
     }
 };
 
-QWeb2.Engine = (function() {
+QWeb2.Engine = (function () {
     function Engine() {
         // TODO: handle prefix at template level : t-prefix="x", don't forget to lowercase it
         this.prefix = 't';
@@ -229,6 +232,7 @@ QWeb2.Engine = (function() {
         this.word_replacement = QWeb2.tools.extend({}, QWeb2.WORD_REPLACEMENT);
         this.preprocess_node = null;
         for (var i = 0; i < arguments.length; i++) {
+            console.debug("QWeb2.Engine arguments=",arguments[i]);
             this.add_template(arguments[i]);
         }
     }
@@ -240,7 +244,8 @@ QWeb2.Engine = (function() {
          * @param {String|Document} template Template as string or url or DOM Document
          * @param {Function} [callback] Called when the template is loaded, force async request
          */
-        add_template : function(template, callback) {
+        add_template: function (template, callback) {
+            console.debug("add template =>", template);
             var self = this;
             this.templates_resources.push(template);
             if (template.constructor === String) {
@@ -275,7 +280,7 @@ QWeb2.Engine = (function() {
                         this.templates[name] = node;
                         this.compiled_templates[name] = null;
                     } else if (extend) {
-                        delete(this.compiled_templates[extend]);
+                        delete (this.compiled_templates[extend]);
                         if (this.extend_templates[extend]) {
                             this.extend_templates[extend].push(node);
                         } else {
@@ -289,7 +294,7 @@ QWeb2.Engine = (function() {
             }
             return true;
         },
-        preprocess: function(doc) {
+        preprocess: function (doc) {
             /**
              * Preprocess a template's document at load time.
              * This method is mostly used for template sanitization but could
@@ -315,13 +320,19 @@ QWeb2.Engine = (function() {
             for (var i = 0, ilen = tbranch.length; i < ilen; i++) {
                 var node = tbranch[i];
                 var prev_elem = self.tools.get_element_sibling(node, 'previousSibling');
-                var pattr = function(name) { return prev_elem.getAttribute(name); }
-                var nattr = function(name) { return +!!node.getAttribute(name); }
+                var pattr = function (name) {
+                    return prev_elem.getAttribute(name);
+                }
+                var nattr = function (name) {
+                    return +!!node.getAttribute(name);
+                }
                 if (prev_elem && (pattr('t-if') || pattr('t-elif'))) {
                     if (pattr('t-foreach')) {
                         return self.tools.exception("Error: t-if cannot stay at the same level as t-foreach when using t-elif or t-else");
                     }
-                    if (['t-if', 't-elif', 't-else'].map(nattr).reduce(function(a, b) { return a + b; }) > 1) {
+                    if (['t-if', 't-elif', 't-else'].map(nattr).reduce(function (a, b) {
+                        return a + b;
+                    }) > 1) {
                         return self.tools.exception("Error: only one conditional branching directive is allowed per node");
                     }
                     // All text nodes between branch nodes are removed
@@ -340,7 +351,8 @@ QWeb2.Engine = (function() {
 
             return doc;
         },
-        load_xml : function(s, callback) {
+        load_xml: function (s, callback) {
+            console.debug("qweb2.js load_xml() ",s, callback);
             var self = this;
             var async = !!callback;
             s = this.tools.trim(s);
@@ -357,7 +369,7 @@ QWeb2.Engine = (function() {
                 }
                 req.open('GET', s, async);
                 if (async) {
-                    req.addEventListener("load", function() {
+                    req.addEventListener("load", function () {
                         // 0, not being a valid HTTP status code, is used by browsers
                         // to indicate success for a non-http xhr response
                         // (for example, using the file:// protocol)
@@ -376,7 +388,7 @@ QWeb2.Engine = (function() {
                 }
             }
         },
-        _parse_from_request: function(req) {
+        _parse_from_request: function (req) {
             var xDoc = req.responseXML;
             if (xDoc) {
                 if (!xDoc.documentElement) {
@@ -390,7 +402,7 @@ QWeb2.Engine = (function() {
                 return this.load_xml_string(req.responseText);
             }
         },
-        load_xml_string : function(s) {
+        load_xml_string: function (s) {
             if (window.DOMParser) {
                 var dp = new DOMParser();
                 var r = dp.parseFromString(s, "text/xml");
@@ -410,10 +422,10 @@ QWeb2.Engine = (function() {
             xDoc.loadXML(s);
             return xDoc;
         },
-        has_template : function(template) {
+        has_template: function (template) {
             return !!this.templates[template];
         },
-        get_xhr : function() {
+        get_xhr: function () {
             if (window.XMLHttpRequest) {
                 return new window.XMLHttpRequest();
             }
@@ -423,25 +435,27 @@ QWeb2.Engine = (function() {
                 throw new Error("Could not get XHR");
             }
         },
-        compile : function(node) {
+        compile: function (node) {
+            console.debug("QWeb2 compile() start",node);
             var e = new QWeb2.Element(this, node);
             var template = node.getAttribute(this.prefix + '-name');
-            return  "   /* 'this' refers to Qweb2.Engine instance */\n" +
-                    "   var context = { engine : this, template : " + (this.tools.js_escape(template)) + " };\n" +
-                    "   dict = dict || {};\n" +
-                    "   dict['__template__'] = '" + template + "';\n" +
-                    "   var r = [];\n" +
-                    "   /* START TEMPLATE */" +
-                    (this.debug ? "" : " try {\n") +
-                    (e.compile()) + "\n" +
-                    "   /* END OF TEMPLATE */" +
-                    (this.debug ? "" : " } catch(error) {\n" +
+            return "   /* 'this' refers to Qweb2.Engine instance */\n" +
+                "   var context = { engine : this, template : " + (this.tools.js_escape(template)) + " };\n" +
+                "   dict = dict || {};\n" +
+                "   dict['__template__'] = '" + template + "';\n" +
+                "   var r = [];\n" +
+                "   /* START TEMPLATE */" +
+                (this.debug ? "" : " try {\n") +
+                (e.compile()) + "\n" +
+                "   /* END OF TEMPLATE */" +
+                (this.debug ? "" : " } catch(error) {\n" +
                     "       if (console && console.exception) console.exception(error);\n" +
                     "       context.engine.tools.exception('Runtime Error: ' + error, context);\n") +
-                    (this.debug ? "" : "   }\n") +
-                    "   return r.join('');";
+                (this.debug ? "" : "   }\n") +
+                "   return r.join('');";
         },
-        render : function(template, dict) {
+        render: function (template, dict) {
+            console.debug("QWeb2 render() start", template, dict);
             dict = dict || {};
             QWeb2.tools.extend(dict, this.default_dict);
             /*if (this.debug && window['console'] !== undefined) {
@@ -453,7 +467,7 @@ QWeb2.Engine = (function() {
             }*/
             return r;
         },
-        _render : function(template, dict) {
+        _render: function (template, dict) {
             if (this.compiled_templates[template]) {
                 return this.compiled_templates[template].apply(this, [dict || {}]);
             } else if (this.templates[template]) {
@@ -465,16 +479,17 @@ QWeb2.Engine = (function() {
                     }
                 }
                 var code = this.compile(this.templates[template]), tcompiled;
+                console.debug("_render code= ",code);
                 try {
                     tcompiled = new Function(['dict'], code);
                 } catch (error) {
                     if (this.debug && window.console) {
                         console.log(code);
                     }
-                    this.tools.exception("Error evaluating template: " + error, { template: template });
+                    this.tools.exception("Error evaluating template: " + error, {template: template});
                 }
                 if (!tcompiled) {
-                    this.tools.exception("Error evaluating template: (IE?)" + error, { template: template });
+                    this.tools.exception("Error evaluating template: (IE?)" + error, {template: template});
                 }
                 this.compiled_templates[template] = tcompiled;
                 return this.render(template, dict);
@@ -482,7 +497,7 @@ QWeb2.Engine = (function() {
                 return this.tools.exception("Template '" + template + "' not found");
             }
         },
-        extend : function(template, extend_node) {
+        extend: function (template, extend_node) {
             var jQuery = this.jQuery;
             if (!jQuery) {
                 return this.tools.exception("Can't extend template " + template + " without jQuery");
@@ -498,7 +513,7 @@ QWeb2.Engine = (function() {
                     if (jquery) {
                         target = jQuery(jquery, template_dest);
                         if (!target.length && window.console) {
-                            console.debug('Can\'t find "'+jquery+'" when extending template '+template);
+                            console.debug('Can\'t find "' + jquery + '" when extending template ' + template);
                         }
                     } else {
                         this.tools.exception(error_msg + "No expression given");
@@ -509,7 +524,7 @@ QWeb2.Engine = (function() {
                         if (this.tools.arrayIndexOf(allowed_operations, operation) == -1) {
                             this.tools.exception(error_msg + "Invalid operation : '" + operation + "'");
                         }
-                        operation = {'replace' : 'replaceWith', 'inner' : 'html'}[operation] || operation;
+                        operation = {'replace': 'replaceWith', 'inner': 'html'}[operation] || operation;
                         if (operation === 'attributes') {
                             jQuery('attribute', child).each(function () {
                                 var attrib = jQuery(this);
@@ -521,12 +536,12 @@ QWeb2.Engine = (function() {
                     } else {
                         try {
                             var f = new Function(['$', 'document'], this.tools.xml_node_to_string(child, true));
-                        } catch(error) {
+                        } catch (error) {
                             return this.tools.exception("Parse " + error_msg + error);
                         }
                         try {
                             f.apply(target, [jQuery, template_dest.ownerDocument]);
-                        } catch(error) {
+                        } catch (error) {
                             return this.tools.exception("Runtime " + error_msg + error);
                         }
                     }
@@ -537,7 +552,7 @@ QWeb2.Engine = (function() {
     return Engine;
 })();
 
-QWeb2.Element = (function() {
+QWeb2.Element = (function () {
     function Element(engine, node) {
         this.engine = engine;
         this.node = node;
@@ -584,7 +599,7 @@ QWeb2.Element = (function() {
     }
 
     QWeb2.tools.extend(Element.prototype, {
-        compile : function() {
+        compile: function () {
             var r = [],
                 instring = false,
                 lines = this._compile().split('\n');
@@ -612,12 +627,12 @@ QWeb2.Element = (function() {
             }
             return r.join('');
         },
-        _compile : function() {
+        _compile: function () {
             switch (this.node.nodeType) {
                 case 3:
                 case 4:
                     this.top_string(this.node.data);
-                break;
+                    break;
                 case 1:
                     this.compile_element();
             }
@@ -632,11 +647,11 @@ QWeb2.Element = (function() {
             r += this._bottom.join('');
             return r;
         },
-        format_expression : function(e) {
+        format_expression: function (e) {
             /* Naive format expression builder. Replace reserved words and variables to dict[variable]
              * Does not handle spaces before dot yet, and causes problems for anonymous functions. Use t-js="" for that */
-             if (QWeb2.expressions_cache[e]) {
-              return QWeb2.expressions_cache[e];
+            if (QWeb2.expressions_cache[e]) {
+                return QWeb2.expressions_cache[e];
             }
             var chars = e.split(''),
                 instring = '',
@@ -679,11 +694,12 @@ QWeb2.Element = (function() {
             }
             return this.format_expression(e);
         },
-        string_interpolation : function(s) {
+        string_interpolation: function (s) {
             var _this = this;
             if (!s) {
-              return "''";
+                return "''";
             }
+
             function append_literal(s) {
                 s && r.push(_this.engine.tools.js_escape(s));
             }
@@ -702,30 +718,30 @@ QWeb2.Element = (function() {
 
             return r.join(' + ');
         },
-        indent : function() {
+        indent: function () {
             return this._indent++;
         },
-        dedent : function() {
+        dedent: function () {
             if (this._indent !== 0) {
                 return this._indent--;
             }
         },
-        get_indent : function() {
+        get_indent: function () {
             return new Array(this._indent + 1).join("\t");
         },
-        top : function(s) {
+        top: function (s) {
             return this._top.push(this.get_indent() + s + '\n');
         },
-        top_string : function(s) {
+        top_string: function (s) {
             return this._top.push(this.get_indent() + "//@string=" + this.engine.tools.js_escape(s, true) + '\n');
         },
-        bottom : function(s) {
+        bottom: function (s) {
             return this._bottom.unshift(this.get_indent() + s + '\n');
         },
-        bottom_string : function(s) {
+        bottom_string: function (s) {
             return this._bottom.unshift(this.get_indent() + "//@string=" + this.engine.tools.js_escape(s, true) + '\n');
         },
-        compile_element : function() {
+        compile_element: function () {
             for (var i = 0, ilen = this.engine.actions_precedence.length; i < ilen; i++) {
                 var a = this.engine.actions_precedence[i];
                 if (a in this.actions) {
@@ -741,7 +757,7 @@ QWeb2.Element = (function() {
                 }
             }
         },
-        compile_action_tag : function() {
+        compile_action_tag: function () {
             if (this.tag.toLowerCase() !== this.engine.prefix) {
                 this.top_string("<" + this.tag);
                 for (var a in this.attributes) {
@@ -769,29 +785,29 @@ QWeb2.Element = (function() {
                 }
             }
         },
-        compile_action_if : function(value) {
+        compile_action_if: function (value) {
             this.top("if (" + (this.format_expression(value)) + ") {");
             this.bottom("}");
             this.indent();
         },
-        compile_action_elif : function(value) {
+        compile_action_elif: function (value) {
             this.top("else if (" + (this.format_expression(value)) + ") {");
             this.bottom("}");
             this.indent();
         },
-        compile_action_else : function(value) {
+        compile_action_else: function (value) {
             this.top("else {");
             this.bottom("}");
             this.indent();
         },
-        compile_action_foreach : function(value) {
+        compile_action_foreach: function (value) {
             var as = this.actions['as'] || value.replace(/[^a-zA-Z0-9]/g, '_');
             //TODO: exception if t-as not valid
             this.top("context.engine.tools.foreach(context, " + (this.format_expression(value)) + ", " + (this.engine.tools.js_escape(as)) + ", dict, function(context, dict) {");
             this.bottom("});");
             this.indent();
         },
-        compile_action_call : function(value) {
+        compile_action_call: function (value) {
             if (this.children.length === 0) {
                 return this.top("r.push(context.engine.tools.call(context, " + (this.string_interpolation(value)) + ", dict));");
             } else {
@@ -802,7 +818,7 @@ QWeb2.Element = (function() {
                 return this.bottom("return r.join('');");
             }
         },
-        compile_action_set : function(value) {
+        compile_action_set: function (value) {
             var variable = this.format_expression(value);
             if (this.actions['value']) {
                 if (this.children.length) {
@@ -825,21 +841,21 @@ QWeb2.Element = (function() {
                 }
             }
         },
-        compile_action_esc : function(value) {
+        compile_action_esc: function (value) {
             this.top("var t = " + this.format_str(value) + ";");
             this.top("if (t != null) r.push(context.engine.tools.html_escape(t));");
             this.top("else {");
             this.bottom("}");
             this.indent();
         },
-        compile_action_raw : function(value) {
+        compile_action_raw: function (value) {
             this.top("var t = " + this.format_str(value) + ";");
             this.top("if (t != null) r.push(t);");
             this.top("else {");
             this.bottom("}");
             this.indent();
         },
-        compile_action_js : function(value) {
+        compile_action_js: function (value) {
             this.top("(function(" + value + ") {");
             this.bottom("})(dict);");
             this.indent();
@@ -849,10 +865,10 @@ QWeb2.Element = (function() {
             }
             this.process_children = false;
         },
-        compile_action_debug : function(value) {
+        compile_action_debug: function (value) {
             this.top("debugger;");
         },
-        compile_action_log : function(value) {
+        compile_action_log: function (value) {
             this.top("console.log(" + this.format_expression(value) + ");");
         }
     });

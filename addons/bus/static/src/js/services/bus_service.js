@@ -16,7 +16,9 @@ var BusService =  CrossTab.extend(ServicesMixin, {
      *
      * @abstract
      */
-    start: function () {},
+    start: function () {
+        console.debug("BusService start");
+    },
 
     //--------------------------------------------------------------------------
     // Public

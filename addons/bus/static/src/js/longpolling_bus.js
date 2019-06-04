@@ -198,7 +198,7 @@ var LongpollingBus = Bus.extend(ServicesMixin, {
                 self._poll();
             } else {
                 // random delay to avoid massive longpolling
-                self._pollRetryTimeout = setTimeout(self._poll, self.ERROR_RETRY_DELAY + (Math.floor((Math.random()*20)+1)*1000));
+                // ghj 为了方便调试 暂时注释掉 self._pollRetryTimeout = setTimeout(self._poll, self.ERROR_RETRY_DELAY + (Math.floor((Math.random()*20)+1)*1000));
             }
         });
     },

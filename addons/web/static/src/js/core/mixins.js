@@ -244,6 +244,7 @@ var EventDispatcherMixin = _.extend({}, ParentedMixin, {
     __eventDispatcherMixin: true,
     custom_events: {},
     init: function () {
+        console.debug("EventDispatcherMixin init");
         ParentedMixin.init.call(this);
         this.__edispatcherEvents = new Events();
         this.__edispatcherRegisteredEvents = [];

@@ -31,6 +31,7 @@ var FormController = BasicController.extend({
      * @param {Object} params.toolbarActions
      */
     init: function (parent, model, renderer, params) {
+        console.debug("form_controller.js init",parent, model, renderer, params);
         this._super.apply(this, arguments);
 
         this.actionButtons = params.actionButtons;

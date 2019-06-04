@@ -30,6 +30,7 @@ var Menu = Widget.extend({
         this.menu_data = menu_data;
 
         // Prepare navbar's menus
+        console.debug("Prepare navbar's menus",this.menusTemplate);
         var $menu_sections = $(QWeb.render(this.menusTemplate, {
             menu_data: this.menu_data,
         }));
@@ -107,6 +108,7 @@ var Menu = Widget.extend({
         core.bus.trigger('resize');
     },
     _trigger_menu_clicked: function (menu_id, action_id) {
+        console.debug("_trigger_menu_clicked",menu_id, action_id);
         this.trigger_up('menu_clicked', {
             id: menu_id,
             action_id: action_id,

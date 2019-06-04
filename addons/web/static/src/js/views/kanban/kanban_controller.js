@@ -40,6 +40,7 @@ var KanbanController = BasicController.extend({
      *   quick create feature
      */
     init: function (parent, model, renderer, params) {
+        console.debug("kanban_controller.js init",parent, model, renderer, params);
         this._super.apply(this, arguments);
 
         this.on_create = params.on_create;

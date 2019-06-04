@@ -25,6 +25,7 @@ var FormView = BasicView.extend({
      * @override
      */
     init: function (viewInfo, params) {
+        console.debug("form_view.js init",viewInfo, params);
         this._super.apply(this, arguments);
 
         var mode = params.mode || params.context.form_view_initial_mode ||
