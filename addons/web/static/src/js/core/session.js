@@ -344,6 +344,7 @@ odoo.define('web.Session', function (require) {
          * @returns {jQuery.Deferred} jquery-provided ajax deferred
          */
         rpc: function (url, params, options) {
+            console.debug("session.js rpc \nurl=", url, "\nparams=",params,  "\noptions=",options);
             var self = this;
             options = _.clone(options || {});
             options.headers = _.extend({}, options.headers);
